@@ -1,0 +1,6 @@
+# ninja log v5
+0	1007	1646262539039818322	library/CMakeFiles/Library.dir/src/functions.cpp.o	ded6ea76300e13d0
+5	1014	1646262539047822322	program/CMakeFiles/Program.dir/src/main.cpp.o	b4f4fcc8badd711a
+4	1018	1646262539051824322	library/CMakeFiles/Library.dir/src/Student.cpp.o	643e4a14ae36a7a1
+1018	1077	1646262539107852322	library/libLibrary.a	f76757fadd4703f4
+1077	1278	1646262539311954321	program/Program	367c82db001d2d11

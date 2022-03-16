@@ -1,0 +1,27 @@
+[
+{
+  "directory": "/home/student/CLionProjects/pobitest/cmake-build-debug",
+  "command": "/usr/bin/g++ -I/home/student/CLionProjects/pobitest/library/include -g -std=gnu++17 -o library/CMakeFiles/Library.dir/src/functions.cpp.o -c /home/student/CLionProjects/pobitest/library/src/functions.cpp",
+  "file": "/home/student/CLionProjects/pobitest/library/src/functions.cpp"
+},
+{
+  "directory": "/home/student/CLionProjects/pobitest/cmake-build-debug",
+  "command": "/usr/bin/g++ -I/home/student/CLionProjects/pobitest/library/include -g -std=gnu++17 -o library/CMakeFiles/Library.dir/src/Student.cpp.o -c /home/student/CLionProjects/pobitest/library/src/Student.cpp",
+  "file": "/home/student/CLionProjects/pobitest/library/src/Student.cpp"
+},
+{
+  "directory": "/home/student/CLionProjects/pobitest/cmake-build-debug",
+  "command": "/usr/bin/g++ -I/home/student/CLionProjects/pobitest/library/include -g -std=gnu++17 -o library/CMakeFiles/Test.dir/test/master.cpp.o -c /home/student/CLionProjects/pobitest/library/test/master.cpp",
+  "file": "/home/student/CLionProjects/pobitest/library/test/master.cpp"
+},
+{
+  "directory": "/home/student/CLionProjects/pobitest/cmake-build-debug",
+  "command": "/usr/bin/g++ -I/home/student/CLionProjects/pobitest/library/include -g -std=gnu++17 -o library/CMakeFiles/Test.dir/test/StudentTest.cpp.o -c /home/student/CLionProjects/pobitest/library/test/StudentTest.cpp",
+  "file": "/home/student/CLionProjects/pobitest/library/test/StudentTest.cpp"
+},
+{
+  "directory": "/home/student/CLionProjects/pobitest/cmake-build-debug",
+  "command": "/usr/bin/g++ -I/home/student/CLionProjects/pobitest/program/include -I/home/student/CLionProjects/pobitest/library/include -g -std=gnu++17 -o program/CMakeFiles/Program.dir/src/main.cpp.o -c /home/student/CLionProjects/pobitest/program/src/main.cpp",
+  "file": "/home/student/CLionProjects/pobitest/program/src/main.cpp"
+}
+]
