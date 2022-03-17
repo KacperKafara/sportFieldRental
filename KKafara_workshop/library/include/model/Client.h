@@ -14,9 +14,14 @@ private:
     string lastName;
     string personalID;
 public:
-//    Client();
     Client(string fn, string ln, string id);
     ~Client();
+    const string &getFirstName() const;
+    const string &getLastName() const;
+    const string &getPersonalId() const;
+    void setFirstName(const string &firstName);
+    void setLastName(const string &lastName);
+
     string getClientInfo();
 };
 
