@@ -4,12 +4,10 @@
 using namespace std;
 
 int main() {
-    Client c1;
+    Client c1("Kacper1", "Kafara1", "242412!");
+    
 
-    cout << c1.getClientInfo() << endl;
-
-    Client *c2 = new Client;
-    cout << c2->getClientInfo() << endl;
+    Client *c2 = new Client("Kacper", "Kafara", "242412");
     delete c2;
     return 0;
 }

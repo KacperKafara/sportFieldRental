@@ -14,10 +14,11 @@ private:
     string lastName;
     string personalID;
 public:
-    Client();
+//    Client();
+    Client(string fn, string ln, string id);
     ~Client();
     string getClientInfo();
 };
 
 
-#endif //OOPPROJECT_CLIENT_H
+#endif OOPPROJECT_CLIENT_H
