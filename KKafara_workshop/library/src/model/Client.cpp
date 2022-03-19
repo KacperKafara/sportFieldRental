@@ -17,7 +17,7 @@ Client::~Client() {
 Client::Client(string fn, string ln, string id) : firstName(fn), lastName(ln), personalID(id){}
 
 string Client::getClientInfo() {
-    return firstName + " " + lastName + " " + personalID;
+    return "Client " + firstName + " " + lastName + " " + personalID;
 }
 
 const string &Client::getFirstName() const {
