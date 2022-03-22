@@ -1,13 +1,10 @@
 #include <iostream>
-#include "functions.h"
-#include "Student.h"
+#include "Client.h"
 
 using namespace std;
 
-int main() {
-    cout << "Hello, World!" << endl;
-    function();
+int main()
+{
 
-    Student student("Adam", "Smith");
     return 0;
 }
