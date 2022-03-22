@@ -1,19 +1,13 @@
 #include <iostream>
-#include "model/Client.h"
+#include "functions.h"
+#include "Student.h"
 
 using namespace std;
 
-int main()
-{
-    Client firstClient;
+int main() {
+    cout << "Hello, World!" << endl;
+    function();
 
-    cout<<firstClient.clientGetInfo()<<endl;
-
-    Client *secondClient=new Client;
-
-    cout<<secondClient->clientGetInfo()<<endl;
-
-    delete secondClient;
-
+    Student student("Adam", "Smith");
     return 0;
 }

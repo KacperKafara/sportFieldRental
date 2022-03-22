@@ -5,7 +5,6 @@ set(CMAKE_CXX_COMPILER g++)#requires g++ to be available on PATH
 set(CMAKE_C_COMPILER gcc)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(-Wall -Wpedantic -Wextra)
 
 #Set debug profile, also maximum level of debug info g3 and format of debug info to dwarf-4 (requires gdb in version 7)
 set(CMAKE_BUILD_TYPE Debug)

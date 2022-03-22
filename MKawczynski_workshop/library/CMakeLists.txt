@@ -4,8 +4,10 @@ project(Library)
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 set(SOURCE_FILES
-    include/Client.h
-    src/Client.cpp
+    include/functions.h
+    include/Student.h
+    src/functions.cpp
+    src/Student.cpp
 )
 
 add_library(Library ${SOURCE_FILES})
