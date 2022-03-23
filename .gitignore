@@ -1,4 +1,12 @@
+<<<<<<< HEAD
+.idea
+cmake-build-debug
+=======
 KKafara_workshop/cmake-build-debug
 KKafara_workshop/.idea
+<<<<<<< HEAD
 MKawczynski_workshop/.idea
 MKawczynski_workshop/cmake-build-debug
+=======
+>>>>>>> master
+>>>>>>> MKawczynski
