@@ -2,8 +2,8 @@
 // Created by student on 16.03.2022.
 //
 
-#ifndef OOPPROJECT_CLIENT_H
-#define OOPPROJECT_CLIENT_H
+#ifndef CARRENTAL_CLIENT_H
+#define CARRENTAL_CLIENT_H
 #include <string>
 
 using std::string;
@@ -24,6 +24,4 @@ public:
 
     string getClientInfo();
 };
-
-
-#endif OOPPROJECT_CLIENT_H
+#endif //CARRENTAL_CLIENT_H

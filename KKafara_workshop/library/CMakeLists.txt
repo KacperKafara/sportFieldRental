@@ -4,7 +4,7 @@ project(Library)
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 set(SOURCE_FILES
-        include/model/Client.h src/model/Client.cpp)
+        include/model/Client.h src/model/Client.cpp include/model/Client.h)
 
 add_library(Library ${SOURCE_FILES})
 
@@ -43,7 +43,7 @@ endif()
 
 set(SOURCE_TEST_FILES
         test/master.cpp
-        test/StudentTest.cpp
+        test/ClientTest.cpp
         )
 
 include_directories(
