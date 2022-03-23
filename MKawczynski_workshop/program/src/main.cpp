@@ -1,5 +1,4 @@
 #include <iostream>
-#include "Client.h"
 #include "model/Client.h"
 
 using namespace std;
@@ -8,11 +7,11 @@ int main()
 {
     Client firstClient;
 
-    cout<<firstClient.clientGetInfo()<<endl;
+    cout<<firstClient.getClientInfo()<<endl;
 
     Client *secondClient=new Client;
 
-    cout<<secondClient->clientGetInfo()<<endl;
+    cout<<secondClient->getClientInfo()<<endl;
 
     delete secondClient;
 

@@ -43,10 +43,8 @@ else()
 endif()
 
 set(SOURCE_TEST_FILES
-        include/functions.h
-        include/Student.h
-        src/functions.cpp
-        src/Student.cpp
+        include/model/Client.h
+        src/model/Client.cpp
         )
 
 include_directories(

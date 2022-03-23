@@ -1,3 +1,9 @@
+#ifndef OOPPROJECT_CLIENT_H
+#define OOPPROJECT_CLIENT_H
+#include <string>
+
+using std::string;
+
 class Client
 {
 private:
@@ -9,3 +15,5 @@ public:
     ~Client();
     string getClientInfo();
 };
+
+#endif OOPPROJECT_CLIENT_H

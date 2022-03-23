@@ -5,17 +5,17 @@ using std::cout;
 using std::string;
 using std::endl;
 
-Clinet::Client()
+Client::Client()
 {
     cout<<"Konstruktor: Zostałem wywołany"<<endl;
 }
 
-Clinet::~Client()
+Client::~Client()
 {
     cout<<"Dekonstruktor: Zostałem wywołany"<<endl;
 }
 
 string Client::getClientInfo()
 {
-    return firstName+" "+lastName+" "+personaID;
+    return firstName+" "+lastName+" "+personalID;
 }
