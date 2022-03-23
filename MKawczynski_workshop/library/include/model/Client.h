@@ -2,7 +2,7 @@
 #define OOPPROJECT_CLIENT_H
 #include <string>
 
-using std::string;
+using namespace std;
 
 class Client
 {
@@ -12,6 +12,9 @@ private:
     string personalID;
 public:
     Client();
+
+    Client(string firstName, string lastName, string personalID);
+
     ~Client();
     string getClientInfo();
 };

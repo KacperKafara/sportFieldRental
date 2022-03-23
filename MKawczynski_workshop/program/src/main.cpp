@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-    Client firstClient;
+    Client firstClient("ADAM","KRZYSZKOWIAK","2137");
 
     cout<<firstClient.getClientInfo()<<endl;
 

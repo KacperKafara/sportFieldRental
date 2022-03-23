@@ -1,14 +1,14 @@
 #include <iostream>
 #include "model/Client.h"
 
-using std::cout;
-using std::string;
-using std::endl;
+using namespace std;
 
 Client::Client()
 {
     cout<<"Konstruktor: Zostałem wywołany"<<endl;
 }
+
+Client::Client(string firstName, string lastName, string personalID) : firstName(firstName), lastName(lastName), personalID(personalID) {}
 
 Client::~Client()
 {
