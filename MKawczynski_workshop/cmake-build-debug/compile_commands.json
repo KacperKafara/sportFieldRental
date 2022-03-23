@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/home/student/CLionProjects/wwan_sr_0830_a/MKawczynski_workshop/cmake-build-debug",
+  "command": "/usr/bin/g++ -I/home/student/CLionProjects/wwan_sr_0830_a/MKawczynski_workshop/library/include -g -std=gnu++17 -o library/CMakeFiles/Library.dir/src/model/Client.cpp.o -c /home/student/CLionProjects/wwan_sr_0830_a/MKawczynski_workshop/library/src/model/Client.cpp",
+  "file": "/home/student/CLionProjects/wwan_sr_0830_a/MKawczynski_workshop/library/src/model/Client.cpp"
+},
+{
+  "directory": "/home/student/CLionProjects/wwan_sr_0830_a/MKawczynski_workshop/cmake-build-debug",
+  "command": "/usr/bin/g++ -I/home/student/CLionProjects/wwan_sr_0830_a/MKawczynski_workshop/library/include -g -std=gnu++17 -o library/CMakeFiles/Test.dir/src/model/Client.cpp.o -c /home/student/CLionProjects/wwan_sr_0830_a/MKawczynski_workshop/library/src/model/Client.cpp",
+  "file": "/home/student/CLionProjects/wwan_sr_0830_a/MKawczynski_workshop/library/src/model/Client.cpp"
+},
+{
+  "directory": "/home/student/CLionProjects/wwan_sr_0830_a/MKawczynski_workshop/cmake-build-debug",
+  "command": "/usr/bin/g++ -I/home/student/CLionProjects/wwan_sr_0830_a/MKawczynski_workshop/program/include -I/home/student/CLionProjects/wwan_sr_0830_a/MKawczynski_workshop/library/include -g -std=gnu++17 -o program/CMakeFiles/Program.dir/src/main.cpp.o -c /home/student/CLionProjects/wwan_sr_0830_a/MKawczynski_workshop/program/src/main.cpp",
+  "file": "/home/student/CLionProjects/wwan_sr_0830_a/MKawczynski_workshop/program/src/main.cpp"
+}
+]
