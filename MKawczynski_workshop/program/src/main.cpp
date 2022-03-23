@@ -7,11 +7,7 @@ int main()
 {
     Client firstClient("ADAM","KRZYSZKOWIAK","2137");
 
-    cout<<firstClient.getClientInfo()<<endl;
-
-    Client *secondClient=new Client;
-
-    cout<<secondClient->getClientInfo()<<endl;
+    Client *secondClient = new Client("ANIA","KASZOTTO","4423");
 
     delete secondClient;
 

@@ -10,9 +10,8 @@ private:
     string firstName;
     string lastName;
     string personalID;
-public:
     Client();
-
+public:
     Client(string firstName, string lastName, string personalID);
 
     ~Client();
