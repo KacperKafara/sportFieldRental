@@ -16,6 +16,18 @@ public:
 
     ~Client();
     string getClientInfo();
+
+    string getFirstName();
+
+    void setFirstName(string firstName);
+
+    string getLastName();
+
+    void setLastName(string lastName);
+
+    string getPersonalID();
+
+    void setPersonalID(string personalID);
 };
 
 #endif OOPPROJECT_CLIENT_H

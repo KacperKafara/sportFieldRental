@@ -16,7 +16,7 @@ if(CMAKE_COMPILER_IS_GNUCXX)
     set(CMAKE_CXX_FLAGS_DEBUG "-g3 -gdwarf-4")
 endif()
 
-project(OOPProject)
+project(CarRental)
 enable_language(CXX)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON) 
