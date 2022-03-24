@@ -13,54 +13,31 @@ target_include_directories(Library PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 #Unit Tests section
 
-# Check if generating Visual Studio 14 2015 project
-if(MSVC)
-    if(NOT BOOST_ROOT)
-        set(BOOST_ROOT "C:/local/boost_1_60_0")
-    endif()
-    set(Boost_INCLUDE_DIR "${BOOST_ROOT}")
-    set(Boost_LIBRARY_DIR "${BOOST_ROOT}/lib32-msvc-14.0")
-    set(Boost_USE_STATIC_LIBS ON)
-    set(Boost_USE_MULTITHREADED ON)
+enable_testing() # dodane wcześniej w punkcie 2
 
-    if(NOT EXISTS ${Boost_LIBRARY_DIR})
-        message(WARNING "Boost library requires manual installation in Windows")
-        message("1) Browse: https://sourceforge.net/projects/boost/files/boost-binaries/1.60.0/")
-        message("2) Download: boost_1_60_0-msvc-14.0-32.exe")
-        message("3) Install into default directory: C:\\local")
-        message("")
-        message(FATAL_ERROR "Boost libraries not found at ${Boost_LIBRARY_DIR}")
-    endif()
-
-    find_package(Boost COMPONENTS unit_test_framework REQUIRED)
-
-    include_directories(${Boost_INCLUDE_DIR})
-    link_directories(${Boost_LIBRARY_DIR})
-
-else()
-    find_package(Boost COMPONENTS unit_test_framework REQUIRED)
-endif()
-
-set(SOURCE_TEST_FILES
-        test/master.cpp
-        test/ClientTest.cpp
-        )
+find_package (Boost 1.60.0 COMPONENTS "unit_test_framework" REQUIRED)
 
 include_directories(
         ${CMAKE_CURRENT_SOURCE_DIR}/include
         ${Boost_INCLUDE_DIRS}
 )
 
+set(SOURCE_TEST_FILES
+        test/master.cpp
+        test/ClientTest.cpp) # tu w przyszłości będą dodawane pliki źródłowe testów
+
 add_executable (Test ${SOURCE_TEST_FILES})
 
+#dołącz bibliotekę z testowanymi klasami oraz bibliotekę boost.test do programu testów
 target_link_libraries (Test
         Library
         ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
         )
 
-add_custom_target(check ${CMAKE_COMMAND} -E env CTEST_OUTPUT_ON_FAILURE=1 BOOST_TEST_LOG_LEVEL=all
-        ${CMAKE_CTEST_COMMAND} -C $<CONFIG> --verbose
-        WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
-
-enable_testing()
-add_test(LibraryTest Test)
+#dodaj test TestBiblioteki1. Instrukcji cmake add_test może być wiele.
+#Dodatkowe parametry wpływają na szczegółowość generowanego raportu. Standardowo znajduje się on w Testing/Temporary.
+add_test(LibraryTest1 LibraryTest
+        --report_level=detailed
+        --log_level=all
+        --color_output=yes
+        )
