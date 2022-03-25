@@ -36,7 +36,7 @@ target_link_libraries (Test
 
 #dodaj test TestBiblioteki1. Instrukcji cmake add_test może być wiele.
 #Dodatkowe parametry wpływają na szczegółowość generowanego raportu. Standardowo znajduje się on w Testing/Temporary.
-add_test(LibraryTest1 LibraryTest
+add_test(LibraryTest Test
         --report_level=detailed
         --log_level=all
         --color_output=yes
