@@ -3,7 +3,7 @@
 BOOST_AUTO_TEST_SUITE(TestSuiteClient)
 
     BOOST_AUTO_TEST_CASE(AssertionsTests) {
-        BOOST_TEST(true);
+        BOOST_TEST(1.0/3.0==0.333,boost::test_tools::tolerance(0.01));
     }
 
 BOOST_AUTO_TEST_SUITE_END()
