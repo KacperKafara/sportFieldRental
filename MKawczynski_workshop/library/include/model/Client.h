@@ -1,5 +1,5 @@
-#ifndef OOPPROJECT_CLIENT_H
-#define OOPPROJECT_CLIENT_H
+#ifndef CARRENTAL_CLIENT_H
+#define CARRENTAL_CLIENT_H
 #include <string>
 
 using namespace std;
@@ -30,4 +30,4 @@ public:
     void setPersonalID(string personalID);
 };
 
-#endif OOPPROJECT_CLIENT_H
+#endif CARRENTAL_CLIENT_H

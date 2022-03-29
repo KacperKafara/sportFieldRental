@@ -11,7 +11,7 @@
 # =============================================================================
 
 # =============================================================================
-# Project: OOPProject
+# Project: CarRental
 # Configurations: Debug
 # =============================================================================
 
@@ -144,12 +144,19 @@ build library/libLibrary.a: CXX_STATIC_LIBRARY_LINKER__Library_Debug library/CMa
 
 build cmake_object_order_depends_target_Test: phony || cmake_object_order_depends_target_Library
 
-build library/CMakeFiles/Test.dir/src/model/Client.cpp.o: CXX_COMPILER__Test_Debug /home/student/CLionProjects/wwan_sr_0830_a/MKawczynski_workshop/library/src/model/Client.cpp || cmake_object_order_depends_target_Test
-  DEP_FILE = library/CMakeFiles/Test.dir/src/model/Client.cpp.o.d
+build library/CMakeFiles/Test.dir/test/ClientTest.cpp.o: CXX_COMPILER__Test_Debug /home/student/CLionProjects/wwan_sr_0830_a/MKawczynski_workshop/library/test/ClientTest.cpp || cmake_object_order_depends_target_Test
+  DEP_FILE = library/CMakeFiles/Test.dir/test/ClientTest.cpp.o.d
   FLAGS = -g -std=gnu++17
   INCLUDES = -I/home/student/CLionProjects/wwan_sr_0830_a/MKawczynski_workshop/library/include
   OBJECT_DIR = library/CMakeFiles/Test.dir
-  OBJECT_FILE_DIR = library/CMakeFiles/Test.dir/src/model
+  OBJECT_FILE_DIR = library/CMakeFiles/Test.dir/test
+
+build library/CMakeFiles/Test.dir/test/master.cpp.o: CXX_COMPILER__Test_Debug /home/student/CLionProjects/wwan_sr_0830_a/MKawczynski_workshop/library/test/master.cpp || cmake_object_order_depends_target_Test
+  DEP_FILE = library/CMakeFiles/Test.dir/test/master.cpp.o.d
+  FLAGS = -g -std=gnu++17
+  INCLUDES = -I/home/student/CLionProjects/wwan_sr_0830_a/MKawczynski_workshop/library/include
+  OBJECT_DIR = library/CMakeFiles/Test.dir
+  OBJECT_FILE_DIR = library/CMakeFiles/Test.dir/test
 
 
 # =============================================================================
@@ -159,7 +166,7 @@ build library/CMakeFiles/Test.dir/src/model/Client.cpp.o: CXX_COMPILER__Test_Deb
 #############################################
 # Link the executable library/Test
 
-build library/Test: CXX_EXECUTABLE_LINKER__Test_Debug library/CMakeFiles/Test.dir/src/model/Client.cpp.o | library/libLibrary.a /usr/lib/x86_64-linux-gnu/libboost_unit_test_framework.so || library/libLibrary.a
+build library/Test: CXX_EXECUTABLE_LINKER__Test_Debug library/CMakeFiles/Test.dir/test/ClientTest.cpp.o library/CMakeFiles/Test.dir/test/master.cpp.o | library/libLibrary.a /usr/lib/x86_64-linux-gnu/libboost_unit_test_framework.so || library/libLibrary.a
   FLAGS = -g
   LINK_LIBRARIES = library/libLibrary.a  /usr/lib/x86_64-linux-gnu/libboost_unit_test_framework.so
   OBJECT_DIR = library/CMakeFiles/Test.dir
