@@ -6,8 +6,13 @@
 },
 {
   "directory": "/home/student/CLionProjects/wwan_sr_0830_a/MKawczynski_workshop/cmake-build-debug",
-  "command": "/usr/bin/g++ -I/home/student/CLionProjects/wwan_sr_0830_a/MKawczynski_workshop/library/include -g -std=gnu++17 -o library/CMakeFiles/Test.dir/src/model/Client.cpp.o -c /home/student/CLionProjects/wwan_sr_0830_a/MKawczynski_workshop/library/src/model/Client.cpp",
-  "file": "/home/student/CLionProjects/wwan_sr_0830_a/MKawczynski_workshop/library/src/model/Client.cpp"
+  "command": "/usr/bin/g++ -I/home/student/CLionProjects/wwan_sr_0830_a/MKawczynski_workshop/library/include -g -std=gnu++17 -o library/CMakeFiles/LibraryTest.dir/test/ClientTest.cpp.o -c /home/student/CLionProjects/wwan_sr_0830_a/MKawczynski_workshop/library/test/ClientTest.cpp",
+  "file": "/home/student/CLionProjects/wwan_sr_0830_a/MKawczynski_workshop/library/test/ClientTest.cpp"
+},
+{
+  "directory": "/home/student/CLionProjects/wwan_sr_0830_a/MKawczynski_workshop/cmake-build-debug",
+  "command": "/usr/bin/g++ -I/home/student/CLionProjects/wwan_sr_0830_a/MKawczynski_workshop/library/include -g -std=gnu++17 -o library/CMakeFiles/LibraryTest.dir/test/master.cpp.o -c /home/student/CLionProjects/wwan_sr_0830_a/MKawczynski_workshop/library/test/master.cpp",
+  "file": "/home/student/CLionProjects/wwan_sr_0830_a/MKawczynski_workshop/library/test/master.cpp"
 },
 {
   "directory": "/home/student/CLionProjects/wwan_sr_0830_a/MKawczynski_workshop/cmake-build-debug",

@@ -5,10 +5,9 @@
   </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="OOPProject" targetName="Library" />
-      <config projectName="OOPProject" targetName="Program" />
-      <config projectName="OOPProject" targetName="Test" />
-      <config projectName="OOPProject" targetName="check" />
+      <config projectName="CarRental" targetName="Library" />
+      <config projectName="CarRental" targetName="LibraryTest" />
+      <config projectName="CarRental" targetName="Program" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -18,9 +17,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81d8e356-ce75-4807-933b-103715c62aff" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/library/include/model/Client.h" beforeDir="false" afterPath="$PROJECT_DIR$/library/include/model/Client.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/src/model/Client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/library/src/model/Client.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/program/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/program/src/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/test/ClientTest.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/library/test/ClientTest.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,8 +39,8 @@
     <setting file="file://$PROJECT_DIR$/library/include/model/Client.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/library/CMakeLists.txt" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/library/src/model/Client.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/CMakeLists.txt" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/program/CMakeLists.txt" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/CMakeLists.txt" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/program/CMakeLists.txt" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/program/src/main.cpp" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -73,28 +74,24 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.smartKeys" />
   </component>
-  <component name="RunManager" selected="CMake Application.Program">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+  <component name="RunManager" selected="Boost.Test.LibraryTest">
+    <configuration name="LibraryTest" type="CMakeBoostTestRunConfigurationType" factoryName="Boost Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="CarRental" TARGET_NAME="LibraryTest" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="CarRental" RUN_TARGET_NAME="LibraryTest" TEST_MODE="SUITE_TEST">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Library" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="OOPProject" TARGET_NAME="Library" CONFIG_NAME="Debug">
+    <configuration name="Library" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="CarRental" TARGET_NAME="Library" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Program" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="OOPProject" TARGET_NAME="Program" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="OOPProject" RUN_TARGET_NAME="Program">
+    <configuration name="Program" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="CarRental" TARGET_NAME="Program" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="CarRental" RUN_TARGET_NAME="Program">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="OOPProject" TARGET_NAME="Test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="OOPProject" RUN_TARGET_NAME="Test">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="check" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="OOPProject" TARGET_NAME="check" CONFIG_NAME="Debug">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -106,9 +103,8 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="CMake Application.check" />
+      <item itemvalue="Boost.Test.LibraryTest" />
       <item itemvalue="CMake Application.Library" />
-      <item itemvalue="CMake Application.Test" />
       <item itemvalue="CMake Application.Program" />
       <item itemvalue="CTest Application.All CTest" />
     </list>
@@ -130,6 +126,7 @@
       <workItem from="1647975369796" duration="51000" />
       <workItem from="1647975654256" duration="1573000" />
       <workItem from="1648021596861" duration="6530000" />
+      <workItem from="1648464200360" duration="5290000" />
     </task>
     <servers />
   </component>
