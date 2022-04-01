@@ -4,7 +4,7 @@ project(Library)
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 set(SOURCE_FILES
-        include/model/Client.h src/model/Client.cpp include/model/Client.h)
+        include/model/Client.h src/model/Client.cpp src/model/Address.cpp include/model/Address.h)
 
 add_library(Library ${SOURCE_FILES})
 
@@ -24,7 +24,7 @@ include_directories(
 
 set(SOURCE_TEST_FILES
         test/master.cpp
-        test/ClientTest.cpp) # tu w przyszłości będą dodawane pliki źródłowe testów
+        test/ClientTest.cpp test/AddressTest.cpp) # tu w przyszłości będą dodawane pliki źródłowe testów
 
 add_executable (Test ${SOURCE_TEST_FILES})
 
