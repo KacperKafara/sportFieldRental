@@ -11,13 +11,13 @@ using std::endl;
 using std::string;
 
 Client::~Client() {
-
+//    delete address;
 }
 
 Client::Client(string fn, string ln, string id, Address *address) : firstName(fn), lastName(ln), personalID(id), address(address){}
 
 string Client::getClientInfo() {
-    return "Client " + firstName + " " + lastName + " " + personalID + address->getAddressInfo();
+    return "Client: " + firstName + " " + lastName + " " + personalID + " " + address->getAddressInfo();
 }
 
 const string &Client::getFirstName() const {
