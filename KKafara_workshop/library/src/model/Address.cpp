@@ -6,7 +6,7 @@
 
 Address::Address(string city, string street, string number): city(city), street(street), number(number) {}
 
-string Address::getAddressInfo(string city, string street, string number) {
+string Address::getAddressInfo() {
     return "Address: " + city + " " + street + " " + number;
 }
 

@@ -3,6 +3,7 @@
 //
 
 #include "model/Client.h"
+#include "model/Address.h"
 #include <iostream>
 
 using std::cout;
@@ -13,10 +14,10 @@ Client::~Client() {
 
 }
 
-Client::Client(string fn, string ln, string id) : firstName(fn), lastName(ln), personalID(id){}
+Client::Client(string fn, string ln, string id, Address *address) : firstName(fn), lastName(ln), personalID(id), address(address){}
 
 string Client::getClientInfo() {
-    return "Client " + firstName + " " + lastName + " " + personalID;
+    return "Client " + firstName + " " + lastName + " " + personalID + address->getAddressInfo();
 }
 
 const string &Client::getFirstName() const {
@@ -39,4 +40,13 @@ void Client::setFirstName(const string &firstName) {
 void Client::setLastName(const string &lastName) {
     if(lastName != "")
         Client::lastName = lastName;
+}
+
+Address *Client::getAddress() const {
+    return address;
+}
+
+void Client::setAddress(Address *address) {
+    if(address)
+        Client::address = address;
 };

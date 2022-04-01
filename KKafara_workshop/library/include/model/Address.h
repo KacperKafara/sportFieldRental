@@ -12,7 +12,7 @@ private:
     string city, street, number;
 public:
     Address(string city, string street, string number);
-    string getAddressInfo(string city, string street, string number);
+    string getAddressInfo();
 
     const string &getCity() const;
 

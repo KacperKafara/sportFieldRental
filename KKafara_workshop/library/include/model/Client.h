@@ -5,6 +5,7 @@
 #ifndef CARRENTAL_CLIENT_H
 #define CARRENTAL_CLIENT_H
 #include <string>
+#include "Address.h"
 
 using std::string;
 
@@ -13,14 +14,20 @@ private:
     string firstName;
     string lastName;
     string personalID;
+    Address *address;
 public:
-    Client(string fn, string ln, string id);
+    Client(string fn, string ln, string id, Address *address);
     ~Client();
     const string &getFirstName() const;
     const string &getLastName() const;
     const string &getPersonalId() const;
     void setFirstName(const string &firstName);
+
+    void setAddress(Address *address);
+
     void setLastName(const string &lastName);
+
+    Address *getAddress() const;
 
     string getClientInfo();
 };
