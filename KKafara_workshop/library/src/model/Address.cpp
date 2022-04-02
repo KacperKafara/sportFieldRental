@@ -4,7 +4,7 @@
 
 #include "model/Address.h"
 
-Address::Address(string city, string street, string number): city(city), street(street), number(number) {}
+Address::Address(const string &city,const string &street,const string &number): city(city), street(street), number(number) {}
 
 string Address::getAddressInfo() {
     return "Address: " + city + " " + street + " " + number;

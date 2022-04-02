@@ -11,7 +11,7 @@ class Address {
 private:
     string city, street, number;
 public:
-    Address(string city, string street, string number);
+    Address(const string &city,const string &street,const string &number);
     string getAddressInfo();
 
     const string &getCity() const;

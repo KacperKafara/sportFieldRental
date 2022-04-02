@@ -16,7 +16,8 @@ private:
     string personalID;
     Address *address;
 public:
-    Client(string fn, string ln, string id, Address *address);
+    Client(const string &firstName, const string &lastName, const string &personalId, Address *address);
+
     ~Client();
     const string &getFirstName() const;
     const string &getLastName() const;

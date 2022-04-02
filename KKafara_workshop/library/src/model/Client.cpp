@@ -14,7 +14,8 @@ Client::~Client() {
 //    delete address;
 }
 
-Client::Client(string fn, string ln, string id, Address *address) : firstName(fn), lastName(ln), personalID(id), address(address){}
+Client::Client(const string &firstName, const string &lastName, const string &personalId, Address *address) : firstName(
+        firstName), lastName(lastName), personalID(personalId), address(address) {};
 
 string Client::getClientInfo() {
     return "Client: " + firstName + " " + lastName + " " + personalID + " " + address->getAddressInfo();
@@ -49,4 +50,4 @@ Address *Client::getAddress() const {
 void Client::setAddress(Address *address) {
     if(address)
         Client::address = address;
-};
+}
