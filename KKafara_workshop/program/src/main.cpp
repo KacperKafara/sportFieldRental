@@ -4,12 +4,14 @@
 using namespace std;
 
 int main() {
-    Address address("Warsaw", "Batorego", "24");
-    Client client1("Kacper", "Kafara", "242412", &address);
-    Client client2("Kacper1", "Kafara1", "131323", &address);
-    Address *adr = client1.getAddress();
-    adr->setCity("Lodz");
-    cout << client1.getClientInfo() << endl;
-    cout << client2.getClientInfo() << endl;
+    string fname1 = "Jon";
+    Client c(fname1, "Arbuckle", "0123456789", NULL);
+    fname1.assign("Doc Boy");
+    cout << c.getFirstName() << endl;
+
+    string fname2 = "Garfield";
+    c.setFirstName(fname2);
+    fname2.assign("Liz");
+    cout << c.getFirstName() << endl;
     return 0;
 }
