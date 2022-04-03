@@ -4,7 +4,9 @@
 
 #ifndef CARRENTAL_ADDRESS_H
 #define CARRENTAL_ADDRESS_H
+
 #include <string>
+
 using std::string;
 
 class Address {

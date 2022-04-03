@@ -51,3 +51,11 @@ void Client::setAddress(Address *address) {
     if(address)
         Client::address = address;
 }
+
+const vector<Rent *> &Client::getCurrentRents() const {
+    return currentRents;
+}
+
+void Client::setCurrentRents(const vector<Rent *> &currentRents, Rent *rent) {
+    Client::currentRents.push_back(rent);
+}

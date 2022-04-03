@@ -1,0 +1,25 @@
+//
+// Created by student on 03.04.2022.
+//
+
+#include "model/Rent.h"
+
+Rent::Rent(unsigned int id, Client *client, Vehicle *vehicle) : id(id), client(client), vehicle(vehicle) {
+    client->setCurrentRents(client->getCurrentRents(), this);
+}
+
+unsigned int Rent::getId() const {
+    return id;
+}
+
+Client *Rent::getClient() const {
+    return client;
+}
+
+Vehicle *Rent::getVehicle() const {
+    return vehicle;
+}
+
+string Rent::getRentInfo() const {
+    return "Rent: " + std::to_string(id) + " " + client->getClientInfo() + " " + vehicle->getVehicleInfo();
+}
