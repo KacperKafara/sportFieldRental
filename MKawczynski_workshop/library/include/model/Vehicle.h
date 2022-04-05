@@ -13,6 +13,8 @@ private:
 public:
     Vehicle(const string &plateNumber, unsigned int basePrice);
 
+    string getVehicleInfo();
+
     const string &getPlateNumber() const;
     void setPlateNumber(const string &plateNumber);
 

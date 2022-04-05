@@ -4,6 +4,12 @@ using namespace std;
 
 Vehicle::Vehicle(const string &plateNumber, unsigned int basePrice) : plateNumber(plateNumber), basePrice(basePrice) {}
 
+string Vehicle::getVehicleInfo()
+{
+    return plateNumber+" "+to_string(basePrice);
+}
+
+
 const string &Vehicle::getPlateNumber() const {
     return plateNumber;
 }

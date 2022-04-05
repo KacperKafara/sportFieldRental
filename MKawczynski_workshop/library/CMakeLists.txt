@@ -10,6 +10,8 @@ set(SOURCE_FILES
         src/model/Address.cpp
         include/model/Vehicle.h
         src/model/Vehicle.cpp
+        include/model/Rent.h
+        src/model/Rent.cpp
 )
 
 add_library(Library ${SOURCE_FILES})
