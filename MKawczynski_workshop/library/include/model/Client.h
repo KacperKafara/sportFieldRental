@@ -3,12 +3,12 @@
 #include <string>
 #include <vector>
 #include "Address.h"
-#include "Rent.h"
+//#include "Rent.h"
 
 using namespace std;
 using std::vector;
 
-//class Rent;
+class Rent;
 
 class Client
 {
