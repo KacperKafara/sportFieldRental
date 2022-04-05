@@ -21,12 +21,12 @@ string Client::getClientInfo()
     return firstName+" "+lastName+" "+personalID+address->getAddressInfo();
 }
 
-string Client::getFirstName()
+const string &Client::getFirstName() const
 {
     return firstName;
 }
 
-void Client::setFirstName(string firstName)
+void Client::setFirstName(const string &firstName)
 {
     if (firstName!="")
     {
@@ -34,12 +34,12 @@ void Client::setFirstName(string firstName)
     }
 }
 
-string Client::getLastName()
+const string &Client::getLastName() const
 {
     return lastName;
 }
 
-void Client::setLastName(string lastName)
+void Client::setLastName(const string &lastName)
 {
     if (lastName!="")
     {
@@ -47,12 +47,12 @@ void Client::setLastName(string lastName)
     }
 }
 
-string Client::getPersonalID()
+const string &Client::getPersonalID() const
 {
     return personalID;
 }
 
-void Client::setPersonalID(string personalID)
+void Client::setPersonalID(const string &personalID)
 {
     if (personalID!="")
     {
@@ -61,7 +61,7 @@ void Client::setPersonalID(string personalID)
 }
 
 
-Address *Client::getAddress()
+const Address *Client::getAddress() const
 {
     return address;
 }

@@ -19,16 +19,16 @@ public:
 
     string getClientInfo();
 
-    string getFirstName();
-    void setFirstName(string firstName);
+    const string &getFirstName() const;
+    void setFirstName(const string &firstName);
 
-    string getLastName();
-    void setLastName(string lastName);
+    const string &getLastName() const;
+    void setLastName(const string &lastName);
 
-    string getPersonalID();
-    void setPersonalID(string personalID);
+    const string &getPersonalID() const;
+    void setPersonalID(const string &personalID);
 
-    Address *getAddress();
+    const Address *getAddress() const;
     void setAddress(Address *address);
 };
 
