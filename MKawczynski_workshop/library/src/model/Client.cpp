@@ -1,5 +1,6 @@
 #include <iostream>
 #include "model/Client.h"
+#include "model/Address.h"
 
 using namespace std;
 
@@ -7,7 +8,7 @@ Client::Client()
 {
 }
 
-Client::Client(string firstName, string lastName, string personalID) : firstName(firstName), lastName(lastName), personalID(personalID)
+Client::Client(string firstName, string lastName, string personalID, Address *address) : firstName(firstName), lastName(lastName), personalID(personalID), address(address)
 {
 }
 
@@ -17,7 +18,7 @@ Client::~Client()
 
 string Client::getClientInfo()
 {
-    return firstName+" "+lastName+" "+personalID;
+    return firstName+" "+lastName+" "+personalID+address->getAddressInfo();
 }
 
 string Client::getFirstName()
@@ -56,5 +57,19 @@ void Client::setPersonalID(string personalID)
     if (personalID!="")
     {
         Client::personalID = personalID;
+    }
+}
+
+
+Address *Client::getAddress()
+{
+    return address;
+}
+
+void Client::setAddress(Address *address)
+{
+    if(address)
+    {
+        Client::address = address;
     }
 }

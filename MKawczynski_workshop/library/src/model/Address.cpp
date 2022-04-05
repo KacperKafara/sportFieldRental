@@ -1,4 +1,3 @@
-#include <iostream>
 #include "model/Address.h"
 
 using namespace std;
@@ -12,6 +11,7 @@ string Address::getAddressInfo()
     return city+" "+street+" "+number;
 }
 
+
 const string &Address::getCity() const
 {
     return city;
@@ -22,6 +22,7 @@ void Address::setCity(const string &city)
     Address::city = city;
 }
 
+
 const string &Address::getStreet() const
 {
     return street;
@@ -31,6 +32,7 @@ void Address::setStreet(const string &street)
 {
     Address::street = street;
 }
+
 
 const string &Address::getNumber() const
 {

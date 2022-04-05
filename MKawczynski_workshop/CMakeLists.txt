@@ -19,8 +19,8 @@ endif()
 project(CarRental)
 enable_language(CXX)
 
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON) 
-set(CMAKE_VERBOSE_MAKEFILE TRUE) 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+set(CMAKE_VERBOSE_MAKEFILE TRUE)
 
 add_subdirectory(library)
 add_subdirectory(program)
