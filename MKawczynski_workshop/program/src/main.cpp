@@ -1,27 +1,21 @@
 #include <iostream>
 #include "model/Client.h"
 #include "model/Address.h"
+#include "model/Vehicle.h"
+#include "model/Rent.h"
 
 using namespace std;
 
 int main()
 {
-    Address firstAddress("AAA","BBB","1");
-    Address secondAddress("AAA","BBB","2");
+    Address address("Lodz","al.Politechniki","1");
+    Client client("Jan","Kowalski","1",&address);
 
-    Client firstClient("ADAM","KRZYSZKOWIAK","2137",&firstAddress);
+    Vehicle vehicle("1",10);
 
-    cout<<firstClient.getClientInfo()<<endl;
+    Rent rent(1,&client,&vehicle);
 
-    Client *secondClient = new Client("ANIA","KASZOTTO","4423",&secondAddress);
-
-    cout<<secondClient->getClientInfo()<<endl;
-
-    secondClient->setLastName("");
-
-    cout<<secondClient->getClientInfo()<<endl;
-
-    delete secondClient;
+    cout<<rent.getRentInfo();
 
     return 0;
 }

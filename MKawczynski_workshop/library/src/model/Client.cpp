@@ -14,8 +14,13 @@ Client::~Client()
 
 string Client::getClientInfo()
 {
-    return firstName+" "+lastName+" "+personalID+address->getAddressInfo();
+    return firstName+" "+lastName+" "+personalID+" "+address->getAddressInfo();
 }
+
+//string Client::getFullClientInfo()
+//{
+//    return firstName+" "+lastName+" "+personalID+" "+address->getAddressInfo();
+//}
 
 const string &Client::getFirstName() const
 {

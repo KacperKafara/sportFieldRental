@@ -23,6 +23,7 @@ public:
     ~Client();
 
     string getClientInfo();
+    //string getFullClientInfo();
 
     const string &getFirstName() const;
     void setFirstName(const string &firstName);

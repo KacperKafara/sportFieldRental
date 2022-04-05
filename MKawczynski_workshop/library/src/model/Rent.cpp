@@ -20,6 +20,6 @@ Vehicle *Rent::getVehicle() const {
 
 string Rent::getRentInfo()
 {
-    return to_string(id)+" "+client->getClientInfo()+vehicle->getVehicleInfo();
+    return to_string(id)+" "+client->getClientInfo()+" "+vehicle->getVehicleInfo();
 }
 
