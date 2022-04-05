@@ -8,6 +8,8 @@ set(SOURCE_FILES
         src/model/Client.cpp
         include/model/Address.h
         src/model/Address.cpp
+        include/model/Vehicle.h
+        src/model/Vehicle.cpp
 )
 
 add_library(Library ${SOURCE_FILES})
@@ -27,9 +29,10 @@ include_directories(
 )
 
 set(SOURCE_TEST_FILES
-        test/ClientTest.cpp
         test/master.cpp
-        test/AddressTest.cpp)
+        test/ClientTest.cpp
+        test/AddressTest.cpp
+        test/VehicleTest.cpp)
 
 add_executable (LibraryTest ${SOURCE_TEST_FILES})
 
