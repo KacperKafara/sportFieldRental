@@ -7,8 +7,14 @@
 
 using namespace std;
 
+//class Client;
+
 class Rent
 {
+private:
+    unsigned int id;
+    Client *client;
+    Vehicle *vehicle;
 public:
     string getRentInfo();
 
@@ -19,12 +25,6 @@ public:
     Client *getClient() const;
 
     Vehicle *getVehicle() const;
-
-private:
-    unsigned int id;
-    Client *client;
-    Vehicle *vehicle;
-public:
 };
 
 #endif //CARRENTAL_RENT_H

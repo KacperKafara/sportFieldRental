@@ -4,10 +4,6 @@
 
 using namespace std;
 
-Client::Client()
-{
-}
-
 Client::Client(string firstName, string lastName, string personalID, Address *address) : firstName(firstName), lastName(lastName), personalID(personalID), address(address)
 {
 }
@@ -72,4 +68,12 @@ void Client::setAddress(Address *address)
     {
         Client::address = address;
     }
+}
+
+const vector<Rent*> &Client::getCurrentRents() const {
+    return currentRents;
+}
+
+void Client::setCurrentRents(const vector<Rent*> &currentRents, Rent *rent) {
+    Client::currentRents = currentRents;
 }
