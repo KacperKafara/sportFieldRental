@@ -5,10 +5,12 @@
 #ifndef CARRENTAL_RENT_H
 #define CARRENTAL_RENT_H
 
-#include "Client.h"
-#include "Vehicle.h"
+#include <string>
 
-//class Client;
+using std::string;
+
+class Client;
+class Vehicle;
 
 class Rent {
 private:
@@ -21,7 +23,7 @@ public:
     unsigned int getId() const;
     Client *getClient() const;
     Vehicle *getVehicle() const;
-    string getRentInfo() const;
+    string getRentInfo();
 };
 
 #endif //CARRENTAL_RENT_H

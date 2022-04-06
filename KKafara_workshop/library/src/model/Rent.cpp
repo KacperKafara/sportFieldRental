@@ -3,6 +3,8 @@
 //
 
 #include "model/Rent.h"
+#include "model/Client.h"
+#include "model/Vehicle.h"
 
 Rent::Rent(unsigned int id, Client *client, Vehicle *vehicle) : id(id), client(client), vehicle(vehicle) {
     client->setCurrentRents(client->getCurrentRents(), this);
@@ -20,6 +22,6 @@ Vehicle *Rent::getVehicle() const {
     return vehicle;
 }
 
-string Rent::getRentInfo() const {
+string Rent::getRentInfo() {
     return "Rent: " + std::to_string(id) + " " + client->getClientInfo() + " " + vehicle->getVehicleInfo();
 }

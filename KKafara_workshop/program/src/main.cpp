@@ -1,17 +1,16 @@
 #include <iostream>
+#include "model/Rent.h"
+#include "model/Address.h"
 #include "model/Client.h"
+#include "model/Vehicle.h"
 
 using namespace std;
 
 int main() {
-    string fname1 = "Jon";
-    Client c(fname1, "Arbuckle", "0123456789", NULL);
-    fname1.assign("Doc Boy");
-    cout << c.getFirstName() << endl;
-
-    string fname2 = "Garfield";
-    c.setFirstName(fname2);
-    fname2.assign("Liz");
-    cout << c.getFirstName() << endl;
+    Address address("Warsaw", "Batorego", "24");
+    Client client("Kacper", "Kafara", "242412", &address);
+    Vehicle vehicle("WLS 12345", 123);
+    Rent rent(1, &client, &vehicle);
+    cout << client.getFullClientInfo() << endl;
     return 0;
 }

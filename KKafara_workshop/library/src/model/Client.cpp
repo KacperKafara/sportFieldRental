@@ -4,6 +4,7 @@
 
 #include "model/Client.h"
 #include "model/Address.h"
+#include "model/Rent.h"
 #include <iostream>
 
 using std::cout;
@@ -16,10 +17,6 @@ Client::~Client() {
 
 Client::Client(const string &firstName, const string &lastName, const string &personalId, Address *address) : firstName(
         firstName), lastName(lastName), personalID(personalId), address(address) {};
-
-string Client::getClientInfo() {
-    return "Client: " + firstName + " " + lastName + " " + personalID + " " + address->getAddressInfo();
-}
 
 const string &Client::getFirstName() const {
     return firstName;
@@ -54,6 +51,19 @@ void Client::setAddress(Address *address) {
 
 const vector<Rent *> &Client::getCurrentRents() const {
     return currentRents;
+}
+
+string Client::getClientInfo() const {
+    string info =  "Client: " + firstName + " " + lastName + " " + personalID + " " + address->getAddressInfo();
+    return info;
+}
+
+string Client::getFullClientInfo() {
+    string info = getClientInfo() + " rentId: ";
+    for(int i = 0; i < currentRents.size(); i++){
+        info = info + std::to_string(currentRents[i] -> getId());
+    }
+    return info;
 }
 
 void Client::setCurrentRents(const vector<Rent *> &currentRents, Rent *rent) {

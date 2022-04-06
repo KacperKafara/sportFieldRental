@@ -19,7 +19,7 @@ public:
     void setPlateNumber(const string &plateNumber);
     unsigned int getBasePrice() const;
     void setBasePrice(unsigned int basePrice);
-    const string &getVehicleInfo() const;
+    string getVehicleInfo() const;
 };
 
 
