@@ -14,7 +14,10 @@ Client::~Client()
 
 string Client::getClientInfo()
 {
-    return firstName+" "+lastName+" "+personalID+" "+address->getAddressInfo();
+    string a = firstName+" "+lastName+" "+personalID+" "+address->getAddressInfo();
+//    for(int i = 0; i < currentRents.size(); i++){
+//        a = a + currentRents[i]->getRentInfo();
+//    }
 }
 
 //string Client::getFullClientInfo()
