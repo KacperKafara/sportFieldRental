@@ -8,6 +8,7 @@
 
 Rent::Rent(unsigned int id, Client *client, Vehicle *vehicle) : id(id), client(client), vehicle(vehicle) {
     client->setCurrentRents(client->getCurrentRents(), this);
+    vehicle->setRented(true);
 }
 
 unsigned int Rent::getId() const {

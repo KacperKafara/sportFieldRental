@@ -1,6 +1,7 @@
 #include <boost/test/unit_test.hpp>
 
 #include "model/Client.h"
+#include "model/Address.h"
 
 using std::string;
 

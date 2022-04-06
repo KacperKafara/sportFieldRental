@@ -30,4 +30,11 @@ BOOST_AUTO_TEST_SUITE(TestSuiteVehicle)
         BOOST_TEST(v.getBasePrice() == 1234);
     }
 
+    BOOST_AUTO_TEST_CASE(VehicleSetterRentedTest) {
+        Vehicle v("ABCD", 123);
+        BOOST_TEST(v.isRented() == false);
+        v.setRented(true);
+        BOOST_TEST(v.isRented() == true);
+    }
+
 BOOST_AUTO_TEST_SUITE_END()

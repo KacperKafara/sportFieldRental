@@ -26,3 +26,11 @@ void Vehicle::setBasePrice(unsigned int basePrice) {
 string Vehicle::getVehicleInfo() const {
     return "Client " + plateNumber + " " + std::to_string(basePrice);
 }
+
+bool Vehicle::isRented() const {
+    return rented;
+}
+
+void Vehicle::setRented(bool rented) {
+    Vehicle::rented = rented;
+}
