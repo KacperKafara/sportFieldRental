@@ -1,6 +1,7 @@
 #include <iostream>
 #include "model/Client.h"
 #include "model/Address.h"
+#include "model/Rent.h"
 
 using namespace std;
 
@@ -12,18 +13,20 @@ Client::~Client()
 {
 }
 
-string Client::getClientInfo()
-{
-    string a = firstName+" "+lastName+" "+personalID+" "+address->getAddressInfo();
-//    for(int i = 0; i < currentRents.size(); i++){
-//        a = a + currentRents[i]->getRentInfo();
-//    }
+string Client::getClientInfo() {
+    return firstName + " " + lastName + " " + personalID + " " + address->getAddressInfo();
 }
 
-//string Client::getFullClientInfo()
-//{
-//    return firstName+" "+lastName+" "+personalID+" "+address->getAddressInfo();
-//}
+string Client::getFullClientInfo()
+{
+//    string fullInfo=getClientInfo();
+//    for(int i=0;i<currentRents.size();i++)
+//    {
+//        fullInfo+=" "+to_string(currentRents[i]->getId());
+//    }
+//    return fullInfo;
+    return to_string(currentRents[0]->getId());
+}
 
 const string &Client::getFirstName() const
 {
@@ -83,5 +86,5 @@ const vector<Rent*> &Client::getCurrentRents() const {
 }
 
 void Client::setCurrentRents(const vector<Rent*> &currentRents, Rent *rent) {
-    Client::currentRents = currentRents;
+    Client::currentRents.push_back(rent);
 }

@@ -25,3 +25,11 @@ unsigned int Vehicle::getBasePrice() const {
 void Vehicle::setBasePrice(unsigned int basePrice) {
     Vehicle::basePrice = basePrice;
 }
+
+bool Vehicle::isRented() const {
+    return rented;
+}
+
+void Vehicle::setRented(bool rented) {
+    Vehicle::rented = rented;
+}

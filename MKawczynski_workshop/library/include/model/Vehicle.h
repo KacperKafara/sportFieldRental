@@ -10,8 +10,13 @@ class Vehicle
 private:
     string plateNumber;
     unsigned int basePrice;
+    bool rented=false;
 public:
     Vehicle(const string &plateNumber, unsigned int basePrice);
+
+    bool isRented() const;
+
+    void setRented(bool rented);
 
     string getVehicleInfo();
 
