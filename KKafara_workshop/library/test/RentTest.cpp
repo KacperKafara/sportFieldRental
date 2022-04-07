@@ -50,4 +50,30 @@ BOOST_AUTO_TEST_SUITE(TestSuiteRent)
         BOOST_TEST(rent.getEndTime() != t1);
     }
 
+    BOOST_AUTO_TEST_CASE(RentGetDaysTest) {
+        Address address("Warsaw", "Batorego", "24");
+        Client client("Kacper", "Kafara", "242412", &address);
+        Vehicle vehicle("WLS 12345", 1234);
+        Rent *rent = new Rent(1, &client, &vehicle, not_a_date_time);
+        ptime t2 = rent->getBeginTime() + minutes(1);
+        rent->endRent(t2);
+        BOOST_TEST(rent->getRentDays() == 0);
+        delete rent;
+        Rent *rent1 = new Rent(1, &client, &vehicle, not_a_date_time);
+        t2 = rent->getBeginTime() + hours(1);
+        rent->endRent(t2);
+        BOOST_TEST(rent->getRentDays() == 1);
+        delete rent1;
+        Rent *rent2 = new Rent(1, &client, &vehicle, not_a_date_time);
+        t2 = rent->getBeginTime() + hours(23) + minutes(59);
+        rent->endRent(t2);
+        BOOST_TEST(rent->getRentDays() == 1);
+        delete rent2;
+        Rent *rent3 = new Rent(1, &client, &vehicle, not_a_date_time);
+        t2 = rent->getBeginTime() + hours(24);
+        rent->endRent(t2);
+        BOOST_TEST(rent->getRentDays() == 2);
+        delete rent3;
+    }
+
 BOOST_AUTO_TEST_SUITE_END()

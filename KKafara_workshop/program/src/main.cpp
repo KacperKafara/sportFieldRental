@@ -12,6 +12,10 @@ int main() {
     Client client("Kacper", "Kafara", "242412", &address);
     Vehicle vehicle("WLS 12345", 123);
     Rent *rent = new Rent(1, &client, &vehicle, not_a_date_time);
+//    ptime t1 = ptime(boost::gregorian::date(2023,5,13),hours(9)+minutes(25));
+    ptime t2 = rent->getBeginTime() + hours(48);
+    rent->endRent(t2);
+    cout << rent->getRentDays() << endl;
     cout << client.getFullClientInfo() << endl;
     delete rent;
     return 0;

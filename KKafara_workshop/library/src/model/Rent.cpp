@@ -54,5 +54,22 @@ void Rent::endRent(ptime &time) {
         endTime = beginTime;
         called = true;
     }
+}
 
+int Rent::getRentDays() const {
+    if(endTime.is_not_a_date_time()) return 0;
+    if((endTime - beginTime) <= minutes(1)) return 0;
+    time_period b = time_period(beginTime, second_clock::local_time());
+    time_period e = time_period(endTime, second_clock::local_time());
+    long h = b.length().hours() - e.length().hours();
+    int ct = 0;
+    while(h - 24 >= 0)
+    {
+        ct++;
+        h-=24;
+    }
+    ct++;
+    return ct;
+//    if((endTime - beginTime) <= hours(23)) return 1;
+    return 123;
 }

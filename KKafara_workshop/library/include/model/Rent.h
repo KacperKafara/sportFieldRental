@@ -32,6 +32,7 @@ public:
     const ptime &getBeginTime() const;
     const ptime &getEndTime() const;
     void endRent(ptime &time);
+    int getRentDays() const;
 };
 
 #endif //CARRENTAL_RENT_H
