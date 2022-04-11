@@ -20,7 +20,7 @@ private:
     Vehicle *vehicle;
     ptime beginTime;
     ptime endTime=not_a_date_time;
-
+    int rentCost=0;
 public:
     string getRentInfo();
 

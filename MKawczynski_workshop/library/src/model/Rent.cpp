@@ -80,5 +80,6 @@ void Rent::endRent(ptime time)
             endTime=second_clock::local_time();
         }
     }
+    rentCost=getRentCost();
 }
 
