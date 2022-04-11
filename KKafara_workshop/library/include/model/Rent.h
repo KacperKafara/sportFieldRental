@@ -33,6 +33,7 @@ public:
     const ptime &getEndTime() const;
     void endRent(ptime &time);
     int getRentDays() const;
+    int getRentCost() const;
 };
 
 #endif //CARRENTAL_RENT_H

@@ -29,7 +29,7 @@ public:
     const string &getLastName() const;
     const string &getPersonalId() const;
     void setFirstName(const string &firstName);
-    const vector<Rent *> &getCurrentRents() const;
+    vector<Rent *> &getCurrentRents();
     void setAddress(Address *address);
     void setLastName(const string &lastName);
     Address *getAddress() const;

@@ -76,4 +76,34 @@ BOOST_AUTO_TEST_SUITE(TestSuiteRent)
         delete rent3;
     }
 
+    BOOST_AUTO_TEST_CASE(RentEndRentTest) {
+        Address address("Warsaw", "Batorego", "24");
+        Client client("Kacper", "Kafara", "242412", &address);
+        Vehicle vehicle("WLS 12345", 1234);
+        Rent *rent = new Rent(1, &client, &vehicle, not_a_date_time);
+        Rent *rent1 = new Rent(2, &client, &vehicle, not_a_date_time);
+        ptime t2 = rent->getBeginTime() + hours(48);
+        BOOST_TEST(client.getCurrentRents().size() == 2);
+        rent->endRent(t2);
+        BOOST_TEST(client.getCurrentRents().size() == 1);
+        delete rent;
+        delete rent1;
+    }
+
+    BOOST_AUTO_TEST_CASE(RentGetRentCostTest) {
+        Address address("Warsaw", "Batorego", "24");
+        Client client("Kacper", "Kafara", "242412", &address);
+        Vehicle vehicle("WLS 12345", 1234);
+        Rent *rent = new Rent(1, &client, &vehicle, not_a_date_time);
+        ptime t1 = rent->getBeginTime() + minutes(1);
+        rent->endRent(t1);
+        BOOST_TEST(rent->getRentCost() == 0);
+        delete rent;
+        Rent *rent1 = new Rent(1, &client, &vehicle, not_a_date_time);
+        ptime t2 = rent->getBeginTime() + hours(48);
+        rent1->endRent(t2);
+        BOOST_TEST(rent->getRentCost() == 3702);
+        delete rent1;
+    }
+
 BOOST_AUTO_TEST_SUITE_END()

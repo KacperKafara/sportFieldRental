@@ -49,7 +49,7 @@ void Client::setAddress(Address *address) {
         Client::address = address;
 }
 
-const vector<Rent *> &Client::getCurrentRents() const {
+vector<Rent *> &Client::getCurrentRents() {
     return currentRents;
 }
 
@@ -61,7 +61,7 @@ string Client::getClientInfo() const {
 string Client::getFullClientInfo() {
     string info = getClientInfo() + " rentId: ";
     for(int i = 0; i < currentRents.size(); i++){
-        info = info + std::to_string(currentRents[i] -> getId());
+        info = info + std::to_string(currentRents[i] -> getId()) + " ";
     }
     return info;
 }
