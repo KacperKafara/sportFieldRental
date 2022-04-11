@@ -3,6 +3,8 @@
 //
 
 #include "model/Client.h"
+#include "model/Address.h"
+#include "model/Rent.h"
 #include <iostream>
 
 using std::cout;
@@ -10,14 +12,11 @@ using std::endl;
 using std::string;
 
 Client::~Client() {
-
+//    delete address;
 }
 
-Client::Client(string fn, string ln, string id) : firstName(fn), lastName(ln), personalID(id){}
-
-string Client::getClientInfo() {
-    return "Client " + firstName + " " + lastName + " " + personalID;
-}
+Client::Client(const string &firstName, const string &lastName, const string &personalId, Address *address) : firstName(
+        firstName), lastName(lastName), personalID(personalId), address(address) {};
 
 const string &Client::getFirstName() const {
     return firstName;
@@ -39,4 +38,34 @@ void Client::setFirstName(const string &firstName) {
 void Client::setLastName(const string &lastName) {
     if(lastName != "")
         Client::lastName = lastName;
-};
+}
+
+Address *Client::getAddress() const {
+    return address;
+}
+
+void Client::setAddress(Address *address) {
+    if(address)
+        Client::address = address;
+}
+
+vector<Rent *> &Client::getCurrentRents() {
+    return currentRents;
+}
+
+string Client::getClientInfo() const {
+    string info =  "Client: " + firstName + " " + lastName + " " + personalID + " " + address->getAddressInfo();
+    return info;
+}
+
+string Client::getFullClientInfo() {
+    string info = getClientInfo() + " rentId: ";
+    for(int i = 0; i < currentRents.size(); i++){
+        info = info + std::to_string(currentRents[i] -> getId()) + " ";
+    }
+    return info;
+}
+
+void Client::setCurrentRents(const vector<Rent *> &currentRents, Rent *rent) {
+    Client::currentRents.push_back(rent);
+}
