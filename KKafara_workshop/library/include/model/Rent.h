@@ -21,6 +21,7 @@ private:
     Vehicle *vehicle;
     ptime beginTime;
     ptime endTime = not_a_date_time;
+    unsigned int rentCost = 0;
 
 public:
     Rent(unsigned int id, Client *client, Vehicle *vehicle, ptime time);

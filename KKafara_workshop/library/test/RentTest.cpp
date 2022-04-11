@@ -106,4 +106,18 @@ BOOST_AUTO_TEST_SUITE(TestSuiteRent)
         delete rent1;
     }
 
+    BOOST_AUTO_TEST_CASE(RentChangeCostTest) {
+        Address address("Warsaw", "Batorego", "24");
+        Client client("Kacper", "Kafara", "242412", &address);
+        Vehicle vehicle("WLS 12345", 1234);
+        Rent *rent = new Rent(1, &client, &vehicle, not_a_date_time);
+        ptime t1 = rent->getBeginTime() + hours(48);
+        rent->endRent(t1);
+        BOOST_TEST(rent->getRentCost() == 3702);
+        vehicle.setBasePrice(10);
+        BOOST_TEST(rent->getRentCost() == 3702);
+
+        delete rent;
+    }
+
 BOOST_AUTO_TEST_SUITE_END()

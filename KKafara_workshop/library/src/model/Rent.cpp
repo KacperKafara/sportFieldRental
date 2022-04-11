@@ -59,6 +59,7 @@ void Rent::endRent(ptime &time) {
     }
     vehicle->setRented(false);
     client->getCurrentRents().erase(std::remove(client->getCurrentRents().begin(), client->getCurrentRents().end(), this),client->getCurrentRents().end());
+    rentCost = getRentDays() * vehicle -> getBasePrice();
 }
 
 int Rent::getRentDays() const {
@@ -78,5 +79,6 @@ int Rent::getRentDays() const {
 }
 
 int Rent::getRentCost() const {
-    return getRentDays() * vehicle -> getBasePrice();
+//    return getRentDays() * vehicle -> getBasePrice();
+    return rentCost;
 }
