@@ -2,7 +2,7 @@
 // Created by student on 02.04.2022.
 //
 
-#include "model/Vehicle.h"
+#include "typedefs.h"
 
 Vehicle::Vehicle(const string &plateNumber, unsigned int basePrice) : plateNumber(plateNumber), basePrice(basePrice) {}
 

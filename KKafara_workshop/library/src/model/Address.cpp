@@ -2,7 +2,7 @@
 // Created by student on 01.04.2022.
 //
 
-#include "model/Address.h"
+#include "typedefs.h"
 
 Address::Address(const string &city,const string &street,const string &number): city(city), street(street), number(number) {}
 

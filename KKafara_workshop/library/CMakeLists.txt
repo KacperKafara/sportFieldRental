@@ -4,7 +4,7 @@ project(Library)
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 set(SOURCE_FILES
-        include/model/Client.h src/model/Client.cpp src/model/Address.cpp include/model/Address.h src/model/Vehicle.cpp include/model/Vehicle.h src/model/Rent.cpp include/model/Rent.h)
+        include/model/Client.h src/model/Client.cpp src/model/Address.cpp include/model/Address.h src/model/Vehicle.cpp include/model/Vehicle.h src/model/Rent.cpp include/model/Rent.h include/typedefs.h src/repositories/ClientRepository.cpp include/repositories/ClientRepository.h src/repositories/VehicleRepository.cpp include/repositories/VehicleRepository.h src/repositories/RentRepository.cpp include/repositories/RentRepository.h)
 
 add_library(Library ${SOURCE_FILES})
 

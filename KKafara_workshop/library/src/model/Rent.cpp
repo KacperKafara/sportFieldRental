@@ -2,9 +2,7 @@
 // Created by student on 03.04.2022.
 //
 
-#include "model/Rent.h"
-#include "model/Client.h"
-#include "model/Vehicle.h"
+#include "typedefs.h"
 
 using std::stringstream;
 
