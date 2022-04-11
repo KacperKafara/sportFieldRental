@@ -34,6 +34,8 @@ public:
 
     int getRentDays() const;
 
+    int getRentCost() const;
+
     const ptime &getBeginTime() const;
 
     const ptime &getEndTime() const;

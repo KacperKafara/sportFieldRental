@@ -53,6 +53,11 @@ int Rent::getRentDays() const
     return fullDay;
 }
 
+int Rent::getRentCost() const
+{
+    return getRentDays()*vehicle->getBasePrice();
+}
+
 const ptime &Rent::getBeginTime() const {
     return beginTime;
 }
