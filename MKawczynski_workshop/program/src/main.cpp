@@ -1,23 +1,28 @@
 #include <iostream>
 #include "model/Client.h"
+#include "model/Address.h"
+#include "model/Vehicle.h"
+#include "model/Rent.h"
 
 using namespace std;
+using boost::posix_time::not_a_date_time;
 
 int main()
 {
-    Client firstClient("ADAM","KRZYSZKOWIAK","2137");
+    Address address("Lodz","al.Politechniki","1");
+    Client client("Jan","Kowalski","1",&address);
 
-    cout<<firstClient.getClientInfo()<<endl;
+    Vehicle vehicle("1",10);
 
-    Client *secondClient = new Client("ANIA","KASZOTTO","4423");
+    Rent rent1(1,&client,&vehicle,not_a_date_time);
+    Rent rent2(2,&client,&vehicle,not_a_date_time);
 
-    cout<<secondClient->getClientInfo()<<endl;
-
-    secondClient->setLastName("");
-
-    cout<<secondClient->getClientInfo()<<endl;
-
-    delete secondClient;
+    cout<<"rent"<<endl;
+    cout<<rent1.getRentInfo()<<endl;
+    cout<<"info"<<endl;
+    cout<<client.getClientInfo()<<endl;
+    cout<<"fullInfo"<<endl;
+    cout<<client.getFullClientInfo();
 
     return 0;
 }

@@ -1,8 +1,14 @@
 #ifndef CARRENTAL_CLIENT_H
 #define CARRENTAL_CLIENT_H
 #include <string>
+#include <vector>
+#include "Address.h"
+//#include "Rent.h"
 
 using namespace std;
+using std::vector;
+
+class Rent;
 
 class Client
 {
@@ -10,24 +16,29 @@ private:
     string firstName;
     string lastName;
     string personalID;
-    Client();
+    Address *address;
+    vector<Rent*> currentRents;
 public:
-    Client(string firstName, string lastName, string personalID);
-
+    Client(string firstName, string lastName, string personalID, Address *address);
     ~Client();
+
     string getClientInfo();
+    string getFullClientInfo();
 
-    string getFirstName();
+    const string &getFirstName() const;
+    void setFirstName(const string &firstName);
 
-    void setFirstName(string firstName);
+    const string &getLastName() const;
+    void setLastName(const string &lastName);
 
-    string getLastName();
+    const string &getPersonalID() const;
+    void setPersonalID(const string &personalID);
 
-    void setLastName(string lastName);
+    const Address *getAddress() const;
+    void setAddress(Address *address);
 
-    string getPersonalID();
-
-    void setPersonalID(string personalID);
+    const vector<Rent*> &getCurrentRents() const;
+    void setCurrentRents(const vector<Rent*> &currentRents, Rent *rent);
 };
 
 #endif //CARRENTAL_CLIENT_H
