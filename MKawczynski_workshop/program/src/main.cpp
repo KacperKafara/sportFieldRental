@@ -5,6 +5,7 @@
 #include "model/Rent.h"
 
 using namespace std;
+using boost::posix_time::not_a_date_time;
 
 int main()
 {
@@ -13,8 +14,8 @@ int main()
 
     Vehicle vehicle("1",10);
 
-    Rent rent1(1,&client,&vehicle);
-    Rent rent2(2,&client,&vehicle);
+    Rent rent1(1,&client,&vehicle,not_a_date_time);
+    Rent rent2(2,&client,&vehicle,not_a_date_time);
 
     cout<<"rent"<<endl;
     cout<<rent1.getRentInfo()<<endl;

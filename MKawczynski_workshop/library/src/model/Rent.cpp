@@ -27,21 +27,31 @@ string Rent::getRentInfo()
 {
     std::stringstream ss;
     ss << beginTime;
-    string bt = ss.str();
+    string beginTimeString = ss.str();
 
     ss << endTime;
-    string et = ss.str();
+    string endTimeString = ss.str();
 
-    return to_string(id)+" "+client->getClientInfo()+" "+vehicle->getVehicleInfo()+" "+bt+" "+et;
+    return to_string(id)+" "+client->getClientInfo()+" "+vehicle->getVehicleInfo()+" "+beginTimeString+" "+endTimeString;
 }
 
-//int Rent::getRentDays()
-//{
-//    if (vehicle->isRented())
-//    {
-//        return 0;
-//    }
-//}
+int Rent::getRentDays() const
+{
+    if (endTime.is_not_a_date_time())
+    {
+        return 0;
+    }
+    if(endTime-beginTime<=minutes(1))
+    {
+        return 0;
+    }
+    time_period beginOfRent=time_period(beginTime, second_clock::local_time());
+    time_period endOfRent=time_period(endTime, second_clock::local_time());
+    long hoursOfRent=beginOfRent.length().hours()-endOfRent.length().hours();
+    int fullDay=1;
+    fullDay+=(hoursOfRent/24);
+    return fullDay;
+}
 
 const ptime &Rent::getBeginTime() const {
     return beginTime;

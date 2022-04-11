@@ -32,7 +32,7 @@ public:
 
     Vehicle *getVehicle() const;
 
-    //int getRentDays();
+    int getRentDays() const;
 
     const ptime &getBeginTime() const;
 
