@@ -5,7 +5,9 @@
 #include "repositories/VehicleRepository.h"
 
 const vehiclePtr VehicleRepository::get(int id) const {
-    return vehicleRepository[id];
+    if(id >= 0 && size() > id)
+        return vehicleRepository[id];
+    return nullptr;
 }
 
 void VehicleRepository::add(vehiclePtr vehicle) {
@@ -32,4 +34,23 @@ const string VehicleRepository::report() const {
 
 const int VehicleRepository::size() const {
     return vehicleRepository.size();
+}
+
+vector<vehiclePtr> VehicleRepository::findBy(VehiclePredicate predicate) const {
+    vector<vehiclePtr> found;
+    for (unsigned int i = 0; i < vehicleRepository.size(); i++) {
+        vehiclePtr vehicle = get(i);
+        if (vehicle != nullptr && predicate(vehicle)) {
+            found.push_back(vehicle);
+        }
+    }
+    return found;
+}
+
+bool returnTrue(vehiclePtr rent) {
+    return true;
+}
+
+vector<vehiclePtr> VehicleRepository::findAll() const {
+    return findBy(returnTrue);
 }

@@ -5,7 +5,9 @@
 #include "repositories/RentRepository.h"
 
 const rentPtr RentRepository::get(int id) const {
-    return rentRepository[id];
+    if(id >= 0 && size() > id)
+        return rentRepository[id];
+    return nullptr;
 }
 
 void RentRepository::add(rentPtr rent) {
@@ -28,4 +30,23 @@ const string RentRepository::report() const {
 
 const int RentRepository::size() const {
     return rentRepository.size();
+}
+
+vector<rentPtr> RentRepository::findBy(RentPredicate predicate) const {
+    vector<rentPtr> found;
+    for (unsigned int i = 0; i < rentRepository.size(); i++) {
+        rentPtr rent = get(i);
+        if (rent != nullptr && predicate(rent)) {
+            found.push_back(rent);
+        }
+    }
+    return found;
+}
+
+bool returnTrue(rentPtr rent) {
+    return true;
+}
+
+vector<rentPtr> RentRepository::findAll() const {
+    return findBy(returnTrue);
 }

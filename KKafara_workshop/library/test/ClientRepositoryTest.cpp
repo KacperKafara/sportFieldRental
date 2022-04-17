@@ -6,6 +6,10 @@
 
 #include "repositories/StorageContainer.h"
 
+bool test(clientPtr ptr) {
+    return ptr->getFirstName().compare("Kacper") == 0;
+}
+
 BOOST_AUTO_TEST_SUITE(TestSuiteClientRepository)
 
     BOOST_AUTO_TEST_CASE(ClientRepositoryAddTest) {
@@ -23,6 +27,22 @@ BOOST_AUTO_TEST_SUITE(TestSuiteClientRepository)
         storage.getClientRepo().add(client);
         storage.getClientRepo().remove(client);
         BOOST_TEST(storage.getClientRepo().size() == 1);
+        delete client;
+    }
+
+    BOOST_AUTO_TEST_CASE(ClientRepositoryFindAllTest) {
+        StorageContainer storage;
+        clientPtr client = new Client("Kacper1", "Kafara1", "242412", NULL);
+        storage.getClientRepo().add(client);
+        BOOST_TEST(storage.getClientRepo().findAll().size() == 2);
+        delete client;
+    }
+
+    BOOST_AUTO_TEST_CASE(ClientRepositoryFindByTest) {
+        StorageContainer storage;
+        clientPtr client = new Client("Kacper1", "Kafara1", "242412", NULL);
+        storage.getClientRepo().add(client);
+        BOOST_TEST(storage.getClientRepo().findBy(test).at(0)->getFirstName().compare("Kacper") == 0);
         delete client;
     }
 

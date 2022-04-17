@@ -20,6 +20,8 @@ public:
     void remove(vehiclePtr vehicle);
     const string report() const;
     const int size() const;
+    vector<vehiclePtr> findBy(VehiclePredicate predicate) const;
+    vector<vehiclePtr> findAll() const;
 };
 
 

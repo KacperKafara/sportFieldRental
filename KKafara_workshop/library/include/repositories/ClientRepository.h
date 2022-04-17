@@ -20,6 +20,8 @@ public:
     void remove(clientPtr client);
     const string report() const;
     const int size() const;
+    vector<clientPtr> findBy(ClientPredicate predicate) const;
+    vector<clientPtr> findAll() const;
 };
 
 #endif //CARRENTAL_CLIENTREPOSITORY_H

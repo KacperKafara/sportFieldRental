@@ -15,4 +15,9 @@ typedef Address *addressPtr;
 typedef Rent *rentPtr;
 typedef Vehicle *vehiclePtr;
 
+typedef bool (*ClientPredicate)(clientPtr);
+typedef bool (*VehiclePredicate)(vehiclePtr);
+typedef bool (*RentPredicate)(rentPtr);
+
+
 #endif //CARRENTAL_TYPEDEFS_H

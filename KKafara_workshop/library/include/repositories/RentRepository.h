@@ -22,6 +22,9 @@ public:
     void remove(rentPtr rent);
     const string report() const;
     const int size() const;
+    vector<rentPtr> findBy(RentPredicate predicate) const;
+    vector<rentPtr> findAll() const;
+
 };
 
 
