@@ -10,3 +10,9 @@ Moped::Moped(const string &plateNumber, unsigned int basePrice, unsigned int eng
 double Moped::getActualRentalPrice() const {
     return MotorVehicle::getActualRentalPrice();
 }
+
+string Moped::getVehicleInfo() const {
+    return MotorVehicle::getVehicleInfo();
+}
+
+Moped::~Moped() {}

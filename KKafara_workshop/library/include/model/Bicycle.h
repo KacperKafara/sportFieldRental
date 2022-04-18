@@ -11,6 +11,7 @@ class Bicycle : public Vehicle {
 public:
     Bicycle(const string &plateNumber, unsigned int basePrice);
     virtual double getActualRentalPrice() const;
+    virtual string getVehicleInfo() const;
     virtual ~Bicycle();
 };
 

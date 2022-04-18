@@ -20,7 +20,7 @@ public:
     void setPlateNumber(const string &plateNumber);
     unsigned int getBasePrice() const;
     void setBasePrice(unsigned int basePrice);
-    string getVehicleInfo() const;
+    virtual string getVehicleInfo() const;
     bool isRented() const;
     void setRented(bool rented);
     virtual double getActualRentalPrice() const;

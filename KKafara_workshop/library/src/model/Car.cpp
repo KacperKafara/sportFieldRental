@@ -12,3 +12,9 @@ double Car::getActualRentalPrice() const {
     return round(MotorVehicle::getActualRentalPrice() * ((double)segment / 10));
 }
 
+string Car::getVehicleInfo() const {
+    return MotorVehicle::getVehicleInfo() + " Segment: " + std::to_string((double)segment / 10);
+}
+
+Car::~Car() {}
+

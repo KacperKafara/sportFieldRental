@@ -19,6 +19,7 @@ private:
 public:
     Car(const string &plateNumber, unsigned int basePrice, unsigned int engineDisplacement, SegmentType segment);
     virtual double getActualRentalPrice() const;
+    virtual string getVehicleInfo() const;
     virtual ~Car();
 };
 

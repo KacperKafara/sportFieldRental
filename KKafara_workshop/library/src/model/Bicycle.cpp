@@ -9,3 +9,9 @@ Bicycle::Bicycle(const string &plateNumber, unsigned int basePrice) : Vehicle(pl
 double Bicycle::getActualRentalPrice() const {
     return Vehicle::getActualRentalPrice();
 }
+
+string Bicycle::getVehicleInfo() const {
+    return Vehicle::getVehicleInfo();
+}
+
+Bicycle::~Bicycle() {}

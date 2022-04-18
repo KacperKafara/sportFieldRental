@@ -16,3 +16,9 @@ double MotorVehicle::getActualRentalPrice() const {
     else
         return Vehicle::getActualRentalPrice() * 1.5;
 }
+
+string MotorVehicle::getVehicleInfo() const {
+    return Vehicle::getVehicleInfo() + " EngineDisplacement: " + std::to_string(engineDisplacement);
+}
+
+MotorVehicle::~MotorVehicle() {}

@@ -40,3 +40,5 @@ void Vehicle::setRented(bool rented) {
 double Vehicle::getActualRentalPrice() const {
     return basePrice;
 }
+
+Vehicle::~Vehicle() {}

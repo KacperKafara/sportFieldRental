@@ -11,6 +11,7 @@ class Moped : public MotorVehicle {
 public:
     Moped(const string &plateNumber, unsigned int basePrice, unsigned int engineDisplacement);
     virtual double getActualRentalPrice() const;
+    virtual string getVehicleInfo() const;
     virtual ~Moped();
 };
 
