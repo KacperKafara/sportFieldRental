@@ -14,7 +14,7 @@ public:
     MotorVehicle(const string &plateNumber, unsigned int basePrice, unsigned int engineDisplacement);
     virtual double getActualRentalPrice() const;
     virtual string getVehicleInfo() const;
-    virtual ~MotorVehicle();
+    virtual ~MotorVehicle() = 0;
 };
 
 

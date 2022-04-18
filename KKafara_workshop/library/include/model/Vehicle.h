@@ -24,7 +24,7 @@ public:
     bool isRented() const;
     void setRented(bool rented);
     virtual double getActualRentalPrice() const;
-    virtual ~Vehicle();
+    virtual ~Vehicle() = 0;
 };
 
 
