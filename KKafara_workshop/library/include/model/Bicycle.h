@@ -10,7 +10,8 @@
 class Bicycle : public Vehicle {
 public:
     Bicycle(const string &plateNumber, unsigned int basePrice);
-    double getActualRentalPrice() const;
+    virtual double getActualRentalPrice() const;
+    virtual ~Bicycle();
 };
 
 

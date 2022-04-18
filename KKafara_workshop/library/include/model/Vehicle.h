@@ -23,7 +23,8 @@ public:
     string getVehicleInfo() const;
     bool isRented() const;
     void setRented(bool rented);
-    double getActualRentalPrice() const;
+    virtual double getActualRentalPrice() const;
+    virtual ~Vehicle();
 };
 
 
