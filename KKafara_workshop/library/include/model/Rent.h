@@ -28,14 +28,14 @@ public:
     Rent(unsigned int id, clientPtr client, vehiclePtr vehicle, ptime time);
 
     unsigned int getId() const;
-    Client *getClient() const;
-    Vehicle *getVehicle() const;
     string getRentInfo();
-    const ptime &getBeginTime() const;
-    const ptime &getEndTime() const;
     void endRent(ptime &time);
     int getRentDays() const;
     int getRentCost() const;
+    const clientPtr &getClient() const;
+    const vehiclePtr &getVehicle() const;
+    const ptime &getBeginTime() const;
+    const ptime &getEndTime() const;
 };
 
 #endif //CARRENTAL_RENT_H

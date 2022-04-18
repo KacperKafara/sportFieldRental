@@ -5,13 +5,9 @@
 #ifndef CARRENTAL_TYPEDEFS_H
 #define CARRENTAL_TYPEDEFS_H
 
-//#include "model/Client.h"
-//#include "model/Address.h"
-//#include "model/Rent.h"
-//#include "model/Vehicle.h"
-//#include "model/Car.h"
-//#include "model/Bicycle.h"
-//#include "model/Moped.h"
+#include <memory>
+
+using std::shared_ptr;
 
 class Client;
 class Address;
@@ -21,13 +17,14 @@ class Car;
 class Bicycle;
 class Moped;
 
-typedef Client *clientPtr;
-typedef Address *addressPtr;
-typedef Rent *rentPtr;
-typedef Vehicle *vehiclePtr;
-typedef Car *carPtr;
-typedef Bicycle *bicyclePtr;
-typedef Moped *mopedPtr;
+
+typedef shared_ptr<Client> clientPtr;
+typedef shared_ptr<Address> addressPtr;
+typedef shared_ptr<Rent> rentPtr;
+typedef shared_ptr<Vehicle> vehiclePtr;
+typedef shared_ptr<Car> carPtr;
+typedef shared_ptr<Bicycle> bicyclePtr;
+typedef shared_ptr<Moped> mopedPtr;
 
 typedef bool (*ClientPredicate)(clientPtr);
 typedef bool (*VehiclePredicate)(vehiclePtr);

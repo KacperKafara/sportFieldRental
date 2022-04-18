@@ -12,10 +12,6 @@ using std::cout;
 using std::endl;
 using std::string;
 
-Client::~Client() {
-//    delete address;
-}
-
 Client::Client(const string &firstName, const string &lastName, const string &personalId, addressPtr address) : firstName(
         firstName), lastName(lastName), personalID(personalId), address(address) {};
 
@@ -41,16 +37,15 @@ void Client::setLastName(const string &lastName) {
         Client::lastName = lastName;
 }
 
-Address *Client::getAddress() const {
-    return address;
-}
-
-void Client::setAddress(addressPtr address) {
-    if(address)
-        Client::address = address;
-}
-
 string Client::getClientInfo() const {
     string info =  "Client: " + firstName + " " + lastName + " " + personalID + " " + address->getAddressInfo();
     return info;
+}
+
+const addressPtr &Client::getAddress() const {
+    return address;
+}
+
+void Client::setAddress(const addressPtr &address) {
+    Client::address = address;
 }

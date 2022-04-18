@@ -22,14 +22,6 @@ unsigned int Rent::getId() const {
     return id;
 }
 
-Client *Rent::getClient() const {
-    return client;
-}
-
-Vehicle *Rent::getVehicle() const {
-    return vehicle;
-}
-
 string Rent::getRentInfo() {
     stringstream ss;
     ss << beginTime;
@@ -38,14 +30,6 @@ string Rent::getRentInfo() {
     string e = ss.str();
 //    return "Rent: " + std::to_string(id) + " " + client->getFullClientInfo() + " " + vehicle->getVehicleInfo() + " " + s + " " + e;
     return "Rent: " + std::to_string(id) + " " + vehicle->getVehicleInfo() + " " + s + " " + e;
-}
-
-const ptime &Rent::getBeginTime() const {
-    return beginTime;
-}
-
-const ptime &Rent::getEndTime() const {
-    return endTime;
 }
 
 void Rent::endRent(ptime &time) {
@@ -80,4 +64,20 @@ int Rent::getRentDays() const {
 
 int Rent::getRentCost() const {
     return rentCost;
+}
+
+const clientPtr &Rent::getClient() const {
+    return client;
+}
+
+const vehiclePtr &Rent::getVehicle() const {
+    return vehicle;
+}
+
+const ptime &Rent::getBeginTime() const {
+    return beginTime;
+}
+
+const ptime &Rent::getEndTime() const {
+    return endTime;
 }
