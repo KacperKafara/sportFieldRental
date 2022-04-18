@@ -2,6 +2,7 @@
 // Created by student on 16.03.2022.
 //
 
+#include "typedefs.h"
 #include "model/Client.h"
 #include "model/Address.h"
 #include "model/Rent.h"
