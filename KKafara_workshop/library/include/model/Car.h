@@ -6,18 +6,19 @@
 #define CARRENTAL_CAR_H
 
 #include "MotorVehicle.h"
-
+enum SegmentType {
+    A = 10,
+    B = 11,
+    C = 12,
+    D = 13,
+    E = 15
+};
 class Car : public MotorVehicle {
 private:
-    enum SegmentType {
-        A = 10,
-        B = 11,
-        C = 12,
-        D = 13,
-        E = 15
-    };
+    SegmentType segment;
 public:
-    Car(const string &plateNumber, unsigned int basePrice, unsigned int engineDisplacement);
+    Car(const string &plateNumber, unsigned int basePrice, unsigned int engineDisplacement, SegmentType segment);
+    double getActualRentalPrice() const;
 };
 
 

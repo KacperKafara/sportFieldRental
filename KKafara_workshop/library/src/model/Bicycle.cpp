@@ -5,3 +5,7 @@
 #include "model/Bicycle.h"
 
 Bicycle::Bicycle(const string &plateNumber, unsigned int basePrice) : Vehicle(plateNumber, basePrice) {}
+
+double Bicycle::getActualRentalPrice() const {
+    return Vehicle::getActualRentalPrice();
+}

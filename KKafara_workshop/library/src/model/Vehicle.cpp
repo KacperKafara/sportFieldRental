@@ -3,6 +3,8 @@
 //
 
 #include "typedefs.h"
+#include "model/Vehicle.h"
+
 
 Vehicle::Vehicle(const string &plateNumber, unsigned int basePrice) : plateNumber(plateNumber), basePrice(basePrice) {}
 
@@ -33,4 +35,8 @@ bool Vehicle::isRented() const {
 
 void Vehicle::setRented(bool rented) {
     Vehicle::rented = rented;
+}
+
+double Vehicle::getActualRentalPrice() const {
+    return basePrice;
 }

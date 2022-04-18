@@ -21,10 +21,9 @@ public:
     unsigned int getBasePrice() const;
     void setBasePrice(unsigned int basePrice);
     string getVehicleInfo() const;
-
     bool isRented() const;
-
     void setRented(bool rented);
+    double getActualRentalPrice() const;
 };
 
 

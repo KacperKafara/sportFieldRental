@@ -6,3 +6,7 @@
 
 Moped::Moped(const string &plateNumber, unsigned int basePrice, unsigned int engineDisplacement) : MotorVehicle(
         plateNumber, basePrice, engineDisplacement) {}
+
+double Moped::getActualRentalPrice() const {
+    return MotorVehicle::getActualRentalPrice();
+}
