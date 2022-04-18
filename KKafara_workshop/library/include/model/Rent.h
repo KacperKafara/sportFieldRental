@@ -24,7 +24,7 @@ private:
     unsigned int rentCost = 0;
 
 public:
-    Rent(unsigned int id, Client *client, Vehicle *vehicle, ptime time);
+    Rent(unsigned int id, clientPtr client, vehiclePtr vehicle, ptime time);
 
     unsigned int getId() const;
     Client *getClient() const;

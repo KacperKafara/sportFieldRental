@@ -3,6 +3,9 @@
 //
 
 #include "typedefs.h"
+#include "model/Client.h"
+#include "model/Address.h"
+#include "model/Rent.h"
 #include <iostream>
 
 using std::cout;

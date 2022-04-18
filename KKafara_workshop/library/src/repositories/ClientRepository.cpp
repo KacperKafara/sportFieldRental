@@ -3,6 +3,8 @@
 //
 
 #include "repositories/ClientRepository.h"
+#include "model/Client.h"
+#include "model/Rent.h"
 
 const clientPtr ClientRepository::get(int id) const {
     if(id >= 0 && size() > id)

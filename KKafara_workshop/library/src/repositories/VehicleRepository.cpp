@@ -3,6 +3,8 @@
 //
 
 #include "repositories/VehicleRepository.h"
+#include "model/Vehicle.h"
+#include "model/Rent.h"
 
 const vehiclePtr VehicleRepository::get(int id) const {
     if(id >= 0 && size() > id)

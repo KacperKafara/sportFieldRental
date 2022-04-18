@@ -3,10 +3,13 @@
 //
 
 #include "typedefs.h"
+#include "model/Rent.h"
+#include "model/Client.h"
+#include "model/Vehicle.h"
 
 using std::stringstream;
 
-Rent::Rent(unsigned int id, Client *client, Vehicle *vehicle, ptime time) : id(id), client(client), vehicle(vehicle), beginTime(time) {
+Rent::Rent(unsigned int id, clientPtr client, vehiclePtr vehicle, ptime time) : id(id), client(client), vehicle(vehicle), beginTime(time) {
     client->setCurrentRents(client->getCurrentRents(), this);
     vehicle->setRented(true);
     if(beginTime.is_not_a_date_time()) {
@@ -33,7 +36,7 @@ string Rent::getRentInfo() {
     string s = ss.str();
     ss << endTime;
     string e = ss.str();
-    return "Rent: " + std::to_string(id) + " " + client->getClientInfo() + " " + vehicle->getVehicleInfo() + " " + s + " " + e;
+    return "Rent: " + std::to_string(id) + " " + client->getFullClientInfo() + " " + vehicle->getVehicleInfo() + " " + s + " " + e;
 }
 
 const ptime &Rent::getBeginTime() const {

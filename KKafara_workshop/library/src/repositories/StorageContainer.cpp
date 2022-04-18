@@ -3,6 +3,11 @@
 //
 
 #include "repositories/StorageContainer.h"
+#include "boost/date_time/posix_time/posix_time.hpp"
+#include "model/Address.h"
+#include "model/Client.h"
+#include "model/Rent.h"
+#include "model/Car.h"
 
 using boost::posix_time::not_a_date_time;
 
@@ -19,8 +24,9 @@ VehicleRepository &StorageContainer::getVehicleRepo() {
 }
 
 StorageContainer::StorageContainer() {
-    clientPtr client = new Client("Kacper", "Kafara", "242412", NULL);
-    vehiclePtr vehicle = new Vehicle("WLS", 123);
+    addressPtr address = new Address("Warsaw", "Batorego", "12");
+    clientPtr client = new Client("Kacper", "Kafara", "242412", address);
+    carPtr vehicle = new Car("WLS", 1000, 1000, SegmentType::A);
     rentPtr rent = new Rent(1, client, vehicle, not_a_date_time);
     clientRepo.add(client);
     vehicleRepo.add(vehicle);

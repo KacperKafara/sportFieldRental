@@ -3,6 +3,7 @@
 //
 
 #include "typedefs.h"
+#include "model/Address.h"
 
 Address::Address(const string &city,const string &street,const string &number): city(city), street(street), number(number) {}
 

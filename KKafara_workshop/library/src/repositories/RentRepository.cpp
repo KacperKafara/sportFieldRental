@@ -3,6 +3,7 @@
 //
 
 #include "repositories/RentRepository.h"
+#include "model/Rent.h"
 
 const rentPtr RentRepository::get(int id) const {
     if(id >= 0 && size() > id)
