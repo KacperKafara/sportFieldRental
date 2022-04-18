@@ -24,11 +24,11 @@ void ClientRepository::remove(clientPtr client) {
 
 const string ClientRepository::report() const {
     string info = "";
-    for(int i = 0; i < clientRepository.size(); i++) {
-        for(int j = 0; j < clientRepository[i]->getCurrentRents().size(); j++) {
-            info = info + clientRepository[i]->getCurrentRents()[j]->getRentInfo() + "\n";
-        }
-    }
+//    for(int i = 0; i < clientRepository.size(); i++) {
+//        for(int j = 0; j < clientRepository[i]->getCurrentRents().size(); j++) {
+//            info = info + clientRepository[i]->getCurrentRents()[j]->getRentInfo() + "\n";
+//        }
+//    }
     return info;
 }
 

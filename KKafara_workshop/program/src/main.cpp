@@ -28,7 +28,5 @@ int main() {
     delete ad;
     delete cl;
     delete rent;
-//    storage.getVehicleRepo().add(bc);
-//    cout << storage.getVehicleRepo().report();
     return 0;
 }

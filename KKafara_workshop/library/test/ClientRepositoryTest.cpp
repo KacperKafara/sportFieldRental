@@ -5,6 +5,7 @@
 #include <boost/test/unit_test.hpp>
 
 #include "repositories/StorageContainer.h"
+#include "model/Client.h"
 
 bool test(clientPtr ptr) {
     return ptr->getFirstName().compare("Kacper") == 0;

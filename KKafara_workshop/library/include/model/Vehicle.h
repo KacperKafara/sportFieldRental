@@ -13,7 +13,6 @@ class Vehicle {
 private:
     string plateNumber;
     unsigned int basePrice;
-    bool rented = false;
 public:
     Vehicle(const string &plateNumber, unsigned int basePrice);
     const string &getPlateNumber() const;
@@ -21,8 +20,6 @@ public:
     unsigned int getBasePrice() const;
     void setBasePrice(unsigned int basePrice);
     virtual string getVehicleInfo() const;
-    bool isRented() const;
-    void setRented(bool rented);
     virtual double getActualRentalPrice() const;
     virtual ~Vehicle() = 0;
 };

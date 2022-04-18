@@ -10,12 +10,12 @@
 using std::stringstream;
 
 Rent::Rent(unsigned int id, clientPtr client, vehiclePtr vehicle, ptime time) : id(id), client(client), vehicle(vehicle), beginTime(time) {
-    client->setCurrentRents(client->getCurrentRents(), this);
-    vehicle->setRented(true);
+//    client->setCurrentRents(client->getCurrentRents(), this);
+//    vehicle->setRented(true);
     if(beginTime.is_not_a_date_time()) {
         beginTime = second_clock::local_time();
     }
-    vehicle->setRented(true);
+//    vehicle->setRented(true);
 }
 
 unsigned int Rent::getId() const {
@@ -36,7 +36,8 @@ string Rent::getRentInfo() {
     string s = ss.str();
     ss << endTime;
     string e = ss.str();
-    return "Rent: " + std::to_string(id) + " " + client->getFullClientInfo() + " " + vehicle->getVehicleInfo() + " " + s + " " + e;
+//    return "Rent: " + std::to_string(id) + " " + client->getFullClientInfo() + " " + vehicle->getVehicleInfo() + " " + s + " " + e;
+    return "Rent: " + std::to_string(id) + " " + vehicle->getVehicleInfo() + " " + s + " " + e;
 }
 
 const ptime &Rent::getBeginTime() const {
@@ -48,16 +49,16 @@ const ptime &Rent::getEndTime() const {
 }
 
 void Rent::endRent(ptime &time) {
-    if(vehicle->isRented()) {
+//    if(vehicle->isRented()) {
         if (endTime.is_not_a_date_time()) {
             endTime = time;
         }
         if (time < beginTime) {
             endTime = beginTime;
         }
-    }
-    vehicle->setRented(false);
-    client->getCurrentRents().erase(std::remove(client->getCurrentRents().begin(), client->getCurrentRents().end(), this),client->getCurrentRents().end());
+//    }
+//    vehicle->setRented(false);
+//    client->getCurrentRents().erase(std::remove(client->getCurrentRents().begin(), client->getCurrentRents().end(), this),client->getCurrentRents().end());
     rentCost = getRentDays() * vehicle -> getBasePrice();
 }
 
