@@ -17,7 +17,7 @@ BOOST_AUTO_TEST_SUITE(TestSuiteRent)
 
     BOOST_AUTO_TEST_CASE(RentConstructorTest) {
         addressPtr address = make_shared<Address>("Warsaw", "Batorego", "24");
-        clientPtr client = make_shared<Client>("Kacper", "Kafara", "242412", address);
+        clientPtr client = make_shared<Client>("Kacper", "Kafara", "242412", address, nullptr);
         bicyclePtr vehicle = make_shared<Bicycle>("WLS 12345", 1234);
         rentPtr rent = make_shared<Rent>(1, client, vehicle, boost::date_time::not_a_date_time);
         ptime now = second_clock::local_time();
@@ -37,7 +37,7 @@ BOOST_AUTO_TEST_SUITE(TestSuiteRent)
 
     BOOST_AUTO_TEST_CASE(RentEndTimeTest) {
         addressPtr address = make_shared<Address>("Warsaw", "Batorego", "24");
-        clientPtr client = make_shared<Client>("Kacper", "Kafara", "242412", address);
+        clientPtr client = make_shared<Client>("Kacper", "Kafara", "242412", address, nullptr);
         bicyclePtr vehicle = make_shared<Bicycle>("WLS 12345", 1234);
         rentPtr rent = make_shared<Rent>(1, client, vehicle, boost::date_time::not_a_date_time);
         ptime t1 = ptime(boost::gregorian::date(2015,5,13),hours(9)+minutes(25));
@@ -54,7 +54,7 @@ BOOST_AUTO_TEST_SUITE(TestSuiteRent)
 
     BOOST_AUTO_TEST_CASE(RentGetDaysTest) {
         addressPtr address = make_shared<Address>("Warsaw", "Batorego", "24");
-        clientPtr client = make_shared<Client>("Kacper", "Kafara", "242412", address);
+        clientPtr client = make_shared<Client>("Kacper", "Kafara", "242412", address, nullptr);
         bicyclePtr vehicle = make_shared<Bicycle>("WLS 12345", 1234);
         rentPtr rent = make_shared<Rent>(1, client, vehicle, boost::date_time::not_a_date_time);
         ptime t2 = rent->getBeginTime() + minutes(1);
@@ -76,7 +76,7 @@ BOOST_AUTO_TEST_SUITE(TestSuiteRent)
 
     BOOST_AUTO_TEST_CASE(RentEndRentTest) {
         addressPtr address = make_shared<Address>("Warsaw", "Batorego", "24");
-        clientPtr client = make_shared<Client>("Kacper", "Kafara", "242412", address);
+        clientPtr client = make_shared<Client>("Kacper", "Kafara", "242412", address, nullptr);
         bicyclePtr vehicle = make_shared<Bicycle>("WLS 12345", 1234);
         rentPtr rent = make_shared<Rent>(1, client, vehicle, boost::date_time::not_a_date_time);
         rentPtr rent1 = make_shared<Rent>(2, client, vehicle, not_a_date_time);
@@ -88,7 +88,7 @@ BOOST_AUTO_TEST_SUITE(TestSuiteRent)
 
     BOOST_AUTO_TEST_CASE(RentGetRentCostTest) {
         addressPtr address = make_shared<Address>("Warsaw", "Batorego", "24");
-        clientPtr client = make_shared<Client>("Kacper", "Kafara", "242412", address);
+        clientPtr client = make_shared<Client>("Kacper", "Kafara", "242412", address, nullptr);
         bicyclePtr vehicle = make_shared<Bicycle>("WLS 12345", 1234);
         rentPtr rent = make_shared<Rent>(1, client, vehicle, boost::date_time::not_a_date_time);
         ptime t1 = rent->getBeginTime() + minutes(1);
@@ -102,7 +102,7 @@ BOOST_AUTO_TEST_SUITE(TestSuiteRent)
 
     BOOST_AUTO_TEST_CASE(RentChangeCostTest) {
         addressPtr address = make_shared<Address>("Warsaw", "Batorego", "24");
-        clientPtr client = make_shared<Client>("Kacper", "Kafara", "242412", address);
+        clientPtr client = make_shared<Client>("Kacper", "Kafara", "242412", address, nullptr);
         bicyclePtr vehicle = make_shared<Bicycle>("WLS 12345", 1234);
         rentPtr rent = make_shared<Rent>(1, client, vehicle, boost::date_time::not_a_date_time);
         ptime t1 = rent->getBeginTime() + hours(48);

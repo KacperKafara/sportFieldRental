@@ -22,7 +22,7 @@ BOOST_AUTO_TEST_SUITE(TestSuiteRentRepository)
     BOOST_AUTO_TEST_CASE(RentRepositoryAddTest) {
         StorageContainer storage;
         BOOST_TEST_REQUIRE(storage.getRentRepo().size() == 1);
-        clientPtr client = make_shared<Client>("Kacper", "Kafara", "242412", nullptr);
+        clientPtr client = make_shared<Client>("Kacper", "Kafara", "242412", nullptr, nullptr);
         bicyclePtr vehicle = make_shared<Bicycle>("WLS", 123);
         rentPtr rent = make_shared<Rent>(2, client, vehicle, boost::date_time::not_a_date_time);
         storage.getRentRepo().add(rent);
@@ -31,7 +31,7 @@ BOOST_AUTO_TEST_SUITE(TestSuiteRentRepository)
 
     BOOST_AUTO_TEST_CASE(RentRepositoryRemoveTest) {
         StorageContainer storage;
-        clientPtr client = make_shared<Client>("Kacper", "Kafara", "242412", nullptr);
+        clientPtr client = make_shared<Client>("Kacper", "Kafara", "242412", nullptr, nullptr);
         bicyclePtr vehicle = make_shared<Bicycle>("WLS", 123);
         rentPtr rent = make_shared<Rent>(2, client, vehicle, boost::date_time::not_a_date_time);
         storage.getRentRepo().add(rent);
@@ -41,7 +41,7 @@ BOOST_AUTO_TEST_SUITE(TestSuiteRentRepository)
 
     BOOST_AUTO_TEST_CASE(RentRepositoryFindAllTest) {
         StorageContainer storage;
-        clientPtr client = make_shared<Client>("Kacper", "Kafara", "242412", nullptr);
+        clientPtr client = make_shared<Client>("Kacper", "Kafara", "242412", nullptr, nullptr);
         bicyclePtr vehicle = make_shared<Bicycle>("WLS", 123);
         rentPtr rent = make_shared<Rent>(2, client, vehicle, boost::date_time::not_a_date_time);
         storage.getRentRepo().add(rent);
@@ -50,7 +50,7 @@ BOOST_AUTO_TEST_SUITE(TestSuiteRentRepository)
 
     BOOST_AUTO_TEST_CASE(RentRepositoryFindByTest) {
         StorageContainer storage;
-        clientPtr client = make_shared<Client>("Kacper", "Kafara", "242412", nullptr);
+        clientPtr client = make_shared<Client>("Kacper", "Kafara", "242412", nullptr, nullptr);
         bicyclePtr vehicle = make_shared<Bicycle>("WLS", 123);
         rentPtr rent = make_shared<Rent>(2, client, vehicle, boost::date_time::not_a_date_time);
         storage.getRentRepo().add(rent);

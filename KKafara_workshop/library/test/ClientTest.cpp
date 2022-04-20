@@ -23,7 +23,7 @@ struct TestSuiteClientFixture {
 BOOST_FIXTURE_TEST_SUITE(TestSuiteClient, TestSuiteClientFixture)
 
     BOOST_AUTO_TEST_CASE(ClientConstructorTest) {
-        clientPtr client = make_shared<Client>(testFirstName, testLastName, testPersonalID, testaddress1);
+        clientPtr client = make_shared<Client>(testFirstName, testLastName, testPersonalID, testaddress1, nullptr);
         BOOST_TEST(client->getFirstName().compare(testFirstName) == 0);
         BOOST_TEST(client->getLastName().compare(testLastName) == 0);
         BOOST_TEST(client->getPersonalId().compare(testPersonalID) == 0);
@@ -33,7 +33,7 @@ BOOST_FIXTURE_TEST_SUITE(TestSuiteClient, TestSuiteClientFixture)
     }
 
     BOOST_AUTO_TEST_CASE(ClientSetterNameTest) {
-        clientPtr client = make_shared<Client>(testFirstName, testLastName, testPersonalID, testaddress1);
+        clientPtr client = make_shared<Client>(testFirstName, testLastName, testPersonalID, testaddress1, nullptr);
         client->setFirstName("Name");
         BOOST_TEST(client->getFirstName().compare("Name") == 0);
         client->setFirstName("");
@@ -42,7 +42,7 @@ BOOST_FIXTURE_TEST_SUITE(TestSuiteClient, TestSuiteClientFixture)
     }
 
     BOOST_AUTO_TEST_CASE(ClientSetterLastNameTest) {
-        clientPtr client = make_shared<Client>(testFirstName, testLastName, testPersonalID, testaddress1);
+        clientPtr client = make_shared<Client>(testFirstName, testLastName, testPersonalID, testaddress1, nullptr);
         client->setLastName("LastName");
         BOOST_TEST(client->getLastName().compare("LastName") == 0);
         client->setLastName("");
@@ -50,7 +50,7 @@ BOOST_FIXTURE_TEST_SUITE(TestSuiteClient, TestSuiteClientFixture)
     }
 
     BOOST_AUTO_TEST_CASE(ClientSetterAddressTest) {
-        clientPtr client = make_shared<Client>(testFirstName, testLastName, testPersonalID, testaddress1);
+        clientPtr client = make_shared<Client>(testFirstName, testLastName, testPersonalID, testaddress1, nullptr);
         client->setAddress(testaddress2);
         BOOST_TEST(client->getAddress()->getCity().compare(testaddress2->getCity()) == 0);
         BOOST_TEST(client->getAddress()->getStreet().compare(testaddress2->getStreet()) == 0);

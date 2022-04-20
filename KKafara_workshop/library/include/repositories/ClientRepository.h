@@ -22,6 +22,7 @@ public:
     const int size() const;
     vector<clientPtr> findBy(ClientPredicate predicate) const;
     vector<clientPtr> findAll() const;
+    clientPtr findByPersonalId(string Id) const;
 };
 
 #endif //CARRENTAL_CLIENTREPOSITORY_H

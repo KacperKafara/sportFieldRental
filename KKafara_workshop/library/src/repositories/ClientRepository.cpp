@@ -55,3 +55,12 @@ bool returnTrue(clientPtr client)
 vector<clientPtr> ClientRepository::findAll() const {
     return findBy(returnTrue);
 }
+
+clientPtr ClientRepository::findByPersonalId(string Id) const {
+    for(int i = 0; i < clientRepository.size(); i++)
+    {
+        if(clientRepository[i]->getPersonalId().compare(Id) == 0)
+            return clientRepository[i];
+    }
+    return nullptr;
+}
