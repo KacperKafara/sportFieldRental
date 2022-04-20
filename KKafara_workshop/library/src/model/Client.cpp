@@ -6,14 +6,15 @@
 #include "model/Client.h"
 #include "model/Address.h"
 #include "model/Rent.h"
+#include "model/ClientType.h"
 #include <iostream>
 
 using std::cout;
 using std::endl;
 using std::string;
 
-Client::Client(const string &firstName, const string &lastName, const string &personalId, addressPtr address) : firstName(
-        firstName), lastName(lastName), personalID(personalId), address(address) {};
+Client::Client(const string &firstName, const string &lastName, const string &personalId, addressPtr address, clientTypePtr clientType) : firstName(
+        firstName), lastName(lastName), personalID(personalId), address(address), clientType(clientType) {};
 
 const string &Client::getFirstName() const {
     return firstName;
@@ -38,7 +39,7 @@ void Client::setLastName(const string &lastName) {
 }
 
 string Client::getClientInfo() const {
-    string info =  "Client: " + firstName + " " + lastName + " " + personalID + " " + address->getAddressInfo();
+    string info =  "Client: " + firstName + " " + lastName + " " + personalID + " " + address->getAddressInfo() + " " + clientType -> getTypeInfo();
     return info;
 }
 
@@ -48,4 +49,16 @@ const addressPtr &Client::getAddress() const {
 
 void Client::setAddress(const addressPtr &address) {
     Client::address = address;
+}
+
+void Client::setClientType(const clientTypePtr &clientType) {
+    Client::clientType = clientTypePtr(clientType);
+}
+
+const int Client::getMaxVehicles() const {
+    return clientType->getMaxVehicles();
+}
+
+const double Client::applyDiscount(double price) const {
+    return clientType->applyDiscount(price);
 }

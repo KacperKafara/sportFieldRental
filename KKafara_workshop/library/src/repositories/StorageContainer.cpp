@@ -8,6 +8,7 @@
 #include "model/Client.h"
 #include "model/Rent.h"
 #include "model/Car.h"
+#include "model/Default.h"
 
 using boost::posix_time::not_a_date_time;
 using std::make_shared;
@@ -26,7 +27,8 @@ VehicleRepository &StorageContainer::getVehicleRepo() {
 
 StorageContainer::StorageContainer() {
     addressPtr address = make_shared<Address>("Warsaw", "Batorego", "12");
-    clientPtr client = make_shared<Client>("Kacper", "Kafara", "242412", address);
+    clientTypePtr def = make_shared<Default>();
+    clientPtr client = make_shared<Client>("Kacper", "Kafara", "242412", address, def);
     carPtr vehicle = make_shared<Car>("WLS", 1000, 1000, SegmentType::A);
     rentPtr rent = make_shared<Rent>(1, client, vehicle, not_a_date_time);
     clientRepo.add(client);

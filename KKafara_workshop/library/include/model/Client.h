@@ -19,8 +19,9 @@ private:
     string lastName;
     string personalID;
     addressPtr address;
+    clientTypePtr clientType;
 public:
-    Client(const string &firstName, const string &lastName, const string &personalId, addressPtr address);
+    Client(const string &firstName, const string &lastName, const string &personalId, addressPtr address, clientTypePtr clientType);
     const string &getFirstName() const;
     const string &getLastName() const;
     const string &getPersonalId() const;
@@ -30,5 +31,8 @@ public:
     string getFullClientInfo();
     const addressPtr &getAddress() const;
     void setAddress(const addressPtr &address);
+    void setClientType(const clientTypePtr &clientType);
+    const int getMaxVehicles() const;
+    const double applyDiscount(double price) const;
 };
 #endif //CARRENTAL_CLIENT_H

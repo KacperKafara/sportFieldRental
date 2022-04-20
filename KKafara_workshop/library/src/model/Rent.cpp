@@ -29,7 +29,7 @@ string Rent::getRentInfo() {
     ss << endTime;
     string e = ss.str();
 //    return "Rent: " + std::to_string(id) + " " + client->getFullClientInfo() + " " + vehicle->getVehicleInfo() + " " + s + " " + e;
-    return "Rent: " + std::to_string(id) + " " + vehicle->getVehicleInfo() + " " + s + " " + e;
+    return "Rent: " + std::to_string(id) + " " + vehicle->getVehicleInfo() + " " + s + " " + e + "\n" + client -> getClientInfo();
 }
 
 void Rent::endRent(ptime &time) {
@@ -43,7 +43,7 @@ void Rent::endRent(ptime &time) {
 //    }
 //    vehicle->setRented(false);
 //    client->getCurrentRents().erase(std::remove(client->getCurrentRents().begin(), client->getCurrentRents().end(), this),client->getCurrentRents().end());
-    rentCost = getRentDays() * vehicle -> getBasePrice();
+    rentCost = getRentDays() * vehicle -> getBasePrice() - client -> applyDiscount(vehicle -> getBasePrice());
 }
 
 int Rent::getRentDays() const {
