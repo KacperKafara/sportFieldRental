@@ -24,3 +24,10 @@ clientPtr ClientManager::registerClient(string firstName, string lastName, strin
 
 ClientManager::ClientManager(ClientRepository *cRepository) : cRepository(cRepository) {}
 
+void ClientManager::unregisterClient(clientPtr client) {
+    if(getClient(client->getPersonalId())){
+        client->setArchive(true);
+    }
+}
+
+

@@ -22,7 +22,6 @@ BOOST_AUTO_TEST_SUITE(TestSuiteClientManager)
         StorageContainer storage;
         ClientManager clientManager(&storage.getClientRepo());
         BOOST_TEST(clientManager.registerClient("Kacper1", "Kafara1", "242412", nullptr, nullptr) == clientManager.getClient("242412"));
-        clientPtr client = make_shared<Client>("Kacper1", "Kafara1", "1", nullptr, nullptr);
         clientManager.registerClient("Kacper1", "Kafara1", "1", nullptr, nullptr);
         BOOST_TEST(storage.getClientRepo().size() == 2);
     }

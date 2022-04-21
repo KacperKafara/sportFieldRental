@@ -6,6 +6,7 @@
 #define CARRENTAL_CLIENTMANAGER_H
 #include "repositories/StorageContainer.h"
 #include "typedefs.h"
+#include "vector"
 
 class ClientManager {
 private:
@@ -15,6 +16,7 @@ public:
 
     clientPtr getClient(string Id) const;
     clientPtr registerClient(string firstName, string lastName, string personalId, addressPtr address, clientTypePtr clientType);
+    void unregisterClient(clientPtr client);
 };
 
 

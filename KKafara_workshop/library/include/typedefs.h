@@ -33,6 +33,7 @@ typedef shared_ptr<ClientType> clientTypePtr;
 typedef bool (*ClientPredicate)(clientPtr);
 typedef bool (*VehiclePredicate)(vehiclePtr);
 typedef bool (*RentPredicate)(rentPtr);
+typedef bool (*ClientManagerPredictate)(clientPtr);
 
 
 #endif //CARRENTAL_TYPEDEFS_H

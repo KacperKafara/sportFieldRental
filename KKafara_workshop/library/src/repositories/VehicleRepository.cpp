@@ -56,3 +56,11 @@ bool returnTrue(vehiclePtr rent) {
 vector<vehiclePtr> VehicleRepository::findAll() const {
     return findBy(returnTrue);
 }
+
+vehiclePtr VehicleRepository::findByPlateNumber(string plateNumber) {
+    for(int i = 0; i < vehicleRepository.size(); i++) {
+        if(vehicleRepository[i]->getPlateNumber().compare(plateNumber) == 0)
+            return vehicleRepository[i];
+    }
+    return nullptr;
+}

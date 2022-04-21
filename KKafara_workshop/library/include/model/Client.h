@@ -20,6 +20,12 @@ private:
     string personalID;
     addressPtr address;
     clientTypePtr clientType;
+    bool archive = false;
+public:
+    bool isArchive() const;
+
+    void setArchive(bool archive);
+
 public:
     Client(const string &firstName, const string &lastName, const string &personalId, addressPtr address, clientTypePtr clientType);
     const string &getFirstName() const;
