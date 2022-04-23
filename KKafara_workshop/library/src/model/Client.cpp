@@ -6,18 +6,15 @@
 #include "model/Client.h"
 #include "model/Address.h"
 #include "model/Rent.h"
+#include "model/ClientType.h"
 #include <iostream>
 
 using std::cout;
 using std::endl;
 using std::string;
 
-Client::~Client() {
-//    delete address;
-}
-
-Client::Client(const string &firstName, const string &lastName, const string &personalId, Address *address) : firstName(
-        firstName), lastName(lastName), personalID(personalId), address(address) {};
+Client::Client(const string &firstName, const string &lastName, const string &personalId, addressPtr address, clientTypePtr clientType) : firstName(
+        firstName), lastName(lastName), personalID(personalId), address(address), clientType(clientType) {};
 
 const string &Client::getFirstName() const {
     return firstName;
@@ -41,32 +38,35 @@ void Client::setLastName(const string &lastName) {
         Client::lastName = lastName;
 }
 
-Address *Client::getAddress() const {
+string Client::getClientInfo() const {
+    string info =  "Client: " + firstName + " " + lastName + " " + personalID + " " + address->getAddressInfo() + " " + clientType -> getTypeInfo();
+    return info;
+}
+
+const addressPtr &Client::getAddress() const {
     return address;
 }
 
-void Client::setAddress(Address *address) {
-    if(address)
-        Client::address = address;
+void Client::setAddress(const addressPtr &address) {
+    Client::address = address;
 }
 
-vector<Rent *> &Client::getCurrentRents() {
-    return currentRents;
+void Client::setClientType(const clientTypePtr &clientType) {
+    Client::clientType = clientTypePtr(clientType);
 }
 
-string Client::getClientInfo() const {
-    string info =  "Client: " + firstName + " " + lastName + " " + personalID + " " + address->getAddressInfo();
-    return info;
+const int Client::getMaxVehicles() const {
+    return clientType->getMaxVehicles();
 }
 
-string Client::getFullClientInfo() {
-    string info = getClientInfo() + " rentId: ";
-    for(int i = 0; i < currentRents.size(); i++){
-        info = info + std::to_string(currentRents[i] -> getId()) + " ";
-    }
-    return info;
+const double Client::applyDiscount(double price) const {
+    return clientType->applyDiscount(price);
 }
 
-void Client::setCurrentRents(const vector<Rent *> &currentRents, Rent *rent) {
-    Client::currentRents.push_back(rent);
+bool Client::isArchive() const {
+    return archive;
+}
+
+void Client::setArchive(bool archive) {
+    Client::archive = archive;
 }

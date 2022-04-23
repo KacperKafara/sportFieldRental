@@ -1,8 +1,6 @@
 //
 // Created by student on 02.04.2022.
 //
-
-#include "typedefs.h"
 #include "model/Vehicle.h"
 
 
@@ -27,14 +25,6 @@ void Vehicle::setBasePrice(unsigned int basePrice) {
 
 string Vehicle::getVehicleInfo() const {
     return "Client " + plateNumber + " " + std::to_string(basePrice);
-}
-
-bool Vehicle::isRented() const {
-    return rented;
-}
-
-void Vehicle::setRented(bool rented) {
-    Vehicle::rented = rented;
 }
 
 double Vehicle::getActualRentalPrice() const {

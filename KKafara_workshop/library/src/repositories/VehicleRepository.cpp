@@ -24,13 +24,13 @@ void VehicleRepository::remove(vehiclePtr vehicle) {
 
 const string VehicleRepository::report() const {
     string info = "";
-    for(int i = 0; i < vehicleRepository.size(); i++) {
-        bool veh = vehicleRepository[i]->isRented();
-        if(veh)
-            info = info + "Vehicle nr. " + std::to_string(i + 1) + " is rented\n";
-        else
-            info = info + "Vehicle nr. " + std::to_string(i + 1) + " is not rented\n";
-    }
+//    for(int i = 0; i < vehicleRepository.size(); i++) {
+//        bool veh = vehicleRepository[i]->isRented();
+//        if(veh)
+//            info = info + "Vehicle nr. " + std::to_string(i + 1) + " is rented\n";
+//        else
+//            info = info + "Vehicle nr. " + std::to_string(i + 1) + " is not rented\n";
+//    }
     return info;
 }
 
@@ -55,4 +55,12 @@ bool returnTrue(vehiclePtr rent) {
 
 vector<vehiclePtr> VehicleRepository::findAll() const {
     return findBy(returnTrue);
+}
+
+vehiclePtr VehicleRepository::findByPlateNumber(string plateNumber) {
+    for(int i = 0; i < vehicleRepository.size(); i++) {
+        if(vehicleRepository[i]->getPlateNumber().compare(plateNumber) == 0)
+            return vehicleRepository[i];
+    }
+    return nullptr;
 }

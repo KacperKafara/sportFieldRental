@@ -22,6 +22,7 @@ public:
     const int size() const;
     vector<vehiclePtr> findBy(VehiclePredicate predicate) const;
     vector<vehiclePtr> findAll() const;
+    vehiclePtr findByPlateNumber(string plateNumber);
 };
 
 

@@ -24,11 +24,11 @@ void ClientRepository::remove(clientPtr client) {
 
 const string ClientRepository::report() const {
     string info = "";
-    for(int i = 0; i < clientRepository.size(); i++) {
-        for(int j = 0; j < clientRepository[i]->getCurrentRents().size(); j++) {
-            info = info + clientRepository[i]->getCurrentRents()[j]->getRentInfo() + "\n";
-        }
-    }
+//    for(int i = 0; i < clientRepository.size(); i++) {
+//        for(int j = 0; j < clientRepository[i]->getCurrentRents().size(); j++) {
+//            info = info + clientRepository[i]->getCurrentRents()[j]->getRentInfo() + "\n";
+//        }
+//    }
     return info;
 }
 
@@ -54,4 +54,13 @@ bool returnTrue(clientPtr client)
 
 vector<clientPtr> ClientRepository::findAll() const {
     return findBy(returnTrue);
+}
+
+clientPtr ClientRepository::findByPersonalId(string Id) const {
+    for(int i = 0; i < clientRepository.size(); i++)
+    {
+        if(clientRepository[i]->getPersonalId().compare(Id) == 0)
+            return clientRepository[i];
+    }
+    return nullptr;
 }

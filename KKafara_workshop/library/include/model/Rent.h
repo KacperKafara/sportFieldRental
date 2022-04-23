@@ -6,6 +6,7 @@
 #define CARRENTAL_RENT_H
 
 #include <string>
+#include "typedefs.h"
 #include <boost/date_time.hpp>
 
 using std::string;
@@ -17,8 +18,8 @@ class Vehicle;
 class Rent {
 private:
     unsigned int id;
-    Client *client;
-    Vehicle *vehicle;
+    clientPtr client;
+    vehiclePtr vehicle;
     ptime beginTime;
     ptime endTime = not_a_date_time;
     unsigned int rentCost = 0;
@@ -27,14 +28,14 @@ public:
     Rent(unsigned int id, clientPtr client, vehiclePtr vehicle, ptime time);
 
     unsigned int getId() const;
-    Client *getClient() const;
-    Vehicle *getVehicle() const;
     string getRentInfo();
-    const ptime &getBeginTime() const;
-    const ptime &getEndTime() const;
     void endRent(ptime &time);
     int getRentDays() const;
     int getRentCost() const;
+    const clientPtr &getClient() const;
+    const vehiclePtr &getVehicle() const;
+    const ptime &getBeginTime() const;
+    const ptime &getEndTime() const;
 };
 
 #endif //CARRENTAL_RENT_H
