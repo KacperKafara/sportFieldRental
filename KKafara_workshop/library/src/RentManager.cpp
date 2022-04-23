@@ -2,7 +2,7 @@
 // Created by student on 21.04.2022.
 //
 
-#include "RentaManager.h"
+#include "RentManager.h"
 #include "model/Rent.h"
 #include "model/Client.h"
 #include "model/Vehicle.h"
@@ -13,15 +13,15 @@
 #include "model/Platinum.h"
 #include "model/Diamond.h"
 
-vector<rentPtr> RentaManager::getAllClientRents(clientPtr client) const {
+vector<rentPtr> RentManager::getAllClientRents(clientPtr client) const {
     return vector<rentPtr>();
 }
 
-rentPtr RentaManager::getVehicleRents(vehiclePtr vehicle) const {
+rentPtr RentManager::getVehicleRents(vehiclePtr vehicle) const {
     return rentPtr();
 }
 
-const double RentaManager::checkClientRentBalance(clientPtr client) const {
+const double RentManager::checkClientRentBalance(clientPtr client) const {
     double balance = 0;
     for(int i = 0; i < archiveRents.size(); i++) {
         if(archiveRents.findAll()[i]->getClient() == client) {
@@ -31,7 +31,7 @@ const double RentaManager::checkClientRentBalance(clientPtr client) const {
     return balance;
 }
 
-rentPtr RentaManager::rentVehicle(unsigned int id,clientPtr client, vehiclePtr vehicle) {
+rentPtr RentManager::rentVehicle(unsigned int id, clientPtr client, vehiclePtr vehicle) {
     for(int i = 0; i < currentRents.findAll().size(); i++){
         if(currentRents.findAll()[i]->getVehicle() == vehicle) return nullptr;
     }
@@ -47,7 +47,7 @@ rentPtr RentaManager::rentVehicle(unsigned int id,clientPtr client, vehiclePtr v
     return nullptr;
 }
 
-void RentaManager::returnVehicle(vehiclePtr vehicle) {
+void RentManager::returnVehicle(vehiclePtr vehicle) {
     for(int i = 0; i < currentRents.findAll().size(); i++) {
         if(currentRents.findAll()[i]->getVehicle() == vehicle) {
             archiveRents.add(currentRents.findAll()[i]);
@@ -56,7 +56,7 @@ void RentaManager::returnVehicle(vehiclePtr vehicle) {
     }
 }
 
-void RentaManager::changeClientType(clientPtr client) {
+void RentManager::changeClientType(clientPtr client) {
     if(checkClientRentBalance(client) < 100) {
         clientTypePtr type = std::make_shared<Default>();
         client->setClientType(type);

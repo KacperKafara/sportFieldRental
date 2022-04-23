@@ -2,14 +2,14 @@
 // Created by student on 21.04.2022.
 //
 
-#ifndef CARRENTAL_RENTAMANAGER_H
-#define CARRENTAL_RENTAMANAGER_H
+#ifndef CARRENTAL_RENTMANAGER_H
+#define CARRENTAL_RENTMANAGER_H
 #include "typedefs.h"
 #include "repositories/RentRepository.h"
 #include <vector>
 #include <memory>
 
-class RentaManager {
+class RentManager {
 private:
     RentRepository currentRents;
     RentRepository archiveRents;
@@ -23,4 +23,4 @@ public:
 };
 
 
-#endif //CARRENTAL_RENTAMANAGER_H
+#endif //CARRENTAL_RENTMANAGER_H
