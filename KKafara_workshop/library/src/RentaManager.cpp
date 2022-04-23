@@ -17,7 +17,13 @@ rentPtr RentaManager::getVehicleRents(vehiclePtr vehicle) const {
 }
 
 const double RentaManager::checkClientRentBalance(clientPtr client) const {
-    return 0;
+    double balance = 0;
+    for(int i = 0; i < archiveRents.size(); i++) {
+        if(archiveRents.findAll()[i]->getClient() == client) {
+            balance += archiveRents.findAll()[i]->getRentCost();
+        }
+    }
+    return balance;
 }
 
 rentPtr RentaManager::rentVehicle(unsigned int id,clientPtr client, vehiclePtr vehicle) {
