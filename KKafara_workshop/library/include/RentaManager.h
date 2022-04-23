@@ -7,6 +7,7 @@
 #include "typedefs.h"
 #include "repositories/RentRepository.h"
 #include <vector>
+#include <memory>
 
 class RentaManager {
 private:
@@ -18,6 +19,7 @@ public:
     const double checkClientRentBalance(clientPtr client) const;
     rentPtr rentVehicle(unsigned int id,clientPtr client, vehiclePtr vehicle);
     void returnVehicle(vehiclePtr vehicle);
+    void changeClientType(clientPtr client);
 };
 
 
