@@ -8,7 +8,7 @@ set(SOURCE_FILES
         include/model/Client.h
         src/model/Address.cpp
         include/model/Address.h
-        include/typedefs.h)
+        include/typedefs.h src/model/clientTypes/ClientType.cpp include/model/clientTypes/ClientType.h src/model/clientTypes/School.cpp include/model/clientTypes/School.h src/model/clientTypes/Club.cpp include/model/clientTypes/Club.h src/model/clientTypes/League.cpp include/model/clientTypes/League.h)
 
 add_library(Library ${SOURCE_FILES})
 
