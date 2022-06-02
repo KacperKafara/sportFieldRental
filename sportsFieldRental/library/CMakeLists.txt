@@ -4,8 +4,11 @@ project(Library)
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 set(SOURCE_FILES
-
-        src/Client.cpp include/Client.h)
+        src/model/Client.cpp
+        include/model/Client.h
+        src/model/Address.cpp
+        include/model/Address.h
+        include/typedefs.h)
 
 add_library(Library ${SOURCE_FILES})
 
@@ -44,7 +47,7 @@ endif()
 
 set(SOURCE_TEST_FILES
         test/master.cpp
-        test/ClientTest.cpp)
+        test/ClientTest.cpp test/AddressTest.cpp)
 
 include_directories(
         ${CMAKE_CURRENT_SOURCE_DIR}/include
