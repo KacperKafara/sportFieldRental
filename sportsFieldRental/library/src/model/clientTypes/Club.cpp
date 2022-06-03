@@ -3,6 +3,7 @@
 //
 
 #include "model/clientTypes/Club.h"
+#include "model/clientTypes/League.h"
 
 string Club::getType() {
     return "Club";
@@ -11,3 +12,9 @@ string Club::getType() {
 Club::Club() {
 
 }
+
+string Club::getLeague() {
+    return league -> getLeague();
+}
+
+Club::Club(const leaguePtr &league) : league(league) {}

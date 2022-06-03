@@ -4,8 +4,6 @@
 
 #include "model/clientTypes/School.h"
 
-School::School(double discount) : discount(discount) {}
-
 string School::getType() {
     return "School";
 }
@@ -13,3 +11,7 @@ string School::getType() {
 double School::getDiscount() {
     return discount;
 }
+
+//string School::getLeague() {
+//    return "";
+//}

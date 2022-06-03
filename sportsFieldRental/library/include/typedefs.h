@@ -12,9 +12,11 @@ using std::shared_ptr;
 class Address;
 class Client;
 class ClientType;
+class League;
 
 typedef shared_ptr<Address> addressPtr;
 typedef shared_ptr<Client> clientPtr;
 typedef shared_ptr<ClientType> clientTypePtr;
+typedef shared_ptr<League> leaguePtr;
 
 #endif //SPORTSFIELDRENTAL_TYPEDEFS_H

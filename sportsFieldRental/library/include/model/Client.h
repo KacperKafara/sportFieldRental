@@ -16,12 +16,16 @@ private:
     string name;
     string phoneNumber;
     addressPtr address;
+    clientTypePtr clientType;
 public:
-    Client(int id, const string &name, const string &phoneNumber, const addressPtr &address);
+    Client(int id, const string &name, const string &phoneNumber, const addressPtr &address,
+           const clientTypePtr &clientType);
     int getId() const;
     const string &getName() const;
     const string &getPhoneNumber() const;
     const addressPtr &getAddress() const;
+
+    const clientTypePtr &getClientType() const;
     //string getInfo();
 };
 

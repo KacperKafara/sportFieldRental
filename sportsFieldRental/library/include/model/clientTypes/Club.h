@@ -5,12 +5,16 @@
 #ifndef SPORTSFIELDRENTAL_CLUB_H
 #define SPORTSFIELDRENTAL_CLUB_H
 #include "ClientType.h"
+#include "typedefs.h"
 
 class Club : public ClientType {
 private:
     double discount = 0;
+    leaguePtr league;
 public:
+    Club(const leaguePtr &league);
     string getType();
+    string getLeague();
     Club();
 };
 

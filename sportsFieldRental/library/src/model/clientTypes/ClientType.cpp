@@ -7,3 +7,7 @@
 double ClientType::getDiscount() {
     return discount;
 }
+
+string ClientType::getLeague() {
+    return "";
+}

@@ -12,9 +12,9 @@ class ClientType {
 private:
     double discount = 0;
 public:
-    virtual ~ClientType() = 0;
     virtual string getType() = 0;
     virtual double getDiscount();
+    virtual string getLeague();
 
 };
 

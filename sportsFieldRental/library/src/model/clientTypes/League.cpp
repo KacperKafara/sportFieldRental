@@ -3,3 +3,7 @@
 //
 
 #include "model/clientTypes/League.h"
+
+double League::getDiscount() const {
+    return discount;
+}

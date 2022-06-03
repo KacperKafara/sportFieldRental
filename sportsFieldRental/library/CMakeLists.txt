@@ -21,7 +21,7 @@ set(SOURCE_FILES
         include/model/Field.h
         src/model/Rent.cpp
         include/model/Rent.h
-        )
+        src/model/clientTypes/LeagueA.cpp include/model/clientTypes/LeagueA.h src/model/clientTypes/LeagueB.cpp include/model/clientTypes/LeagueB.h src/model/clientTypes/LeagueC.cpp include/model/clientTypes/LeagueC.h src/model/clientTypes/LeagueD.cpp include/model/clientTypes/LeagueD.h)
 
 add_library(Library ${SOURCE_FILES})
 

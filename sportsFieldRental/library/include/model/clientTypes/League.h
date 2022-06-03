@@ -4,10 +4,16 @@
 
 #ifndef SPORTSFIELDRENTAL_LEAGUE_H
 #define SPORTSFIELDRENTAL_LEAGUE_H
+#include <string>
 
+using std::string;
 
 class League {
-
+private:
+    double discount = 0;
+public:
+    virtual string getLeague() = 0;
+    virtual double getDiscount() const;
 };
 
 
