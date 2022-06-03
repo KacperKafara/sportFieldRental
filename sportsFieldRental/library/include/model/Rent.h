@@ -11,34 +11,27 @@
 using std::string;
 using namespace boost::posix_time;
 
-class Rent
-{
+class Rent {
 private:
     int id;
-    ptime beginRentDate;
+    ptime beginRentDate=not_a_date_time;
     ptime endRentDate=not_a_date_time;
-    string event;
+    eventPtr event;
+    clientPtr client;
+    fieldPtr field;
     bool archive=false;
 public:
-    Rent(int id, const ptime &beginRentDate, const string &event);
-
+    Rent(int id, eventPtr event, clientPtr client, fieldPtr field);
     int getId() const;
-
     const ptime &getBeginRentDate() const;
-
     const ptime &getEndRentDate() const;
-
-    const string &getEvent() const;
-
-    void setEvent(const string &event);
-
+    const string getEvent() const;
+    void setEvent(eventPtr event);
     bool isArchive() const;
-
     void makeArchive();
-
     void endRent(ptime time);
-
-
+    const clientPtr &getClient() const;
+    const fieldPtr &getField() const;
 };
 
 #endif //SPORTSFIELDRENTAL_RENT_H

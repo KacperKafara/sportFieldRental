@@ -13,7 +13,7 @@ private:
     double discount = 0;
 public:
     virtual double getDiscount() const;
-    virtual string getEventInfo() = 0;
+    virtual string getEventType() = 0;
 };
 
 

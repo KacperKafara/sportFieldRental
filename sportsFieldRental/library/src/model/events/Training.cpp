@@ -8,6 +8,6 @@ double Training::getDiscount() const {
     return discount;
 }
 
-string Training::getEventInfo() {
+string Training::getEventType() {
     return "Training";
 }

@@ -10,7 +10,7 @@ BOOST_AUTO_TEST_SUITE(EventSuiteTest)
 
 BOOST_AUTO_TEST_CASE(EventTypeTest) {
     eventPtr event = make_shared<Training>();
-    BOOST_REQUIRE_EQUAL(event->getEventInfo(), "Training");
+    BOOST_REQUIRE_EQUAL(event->getEventType(), "Training");
 }
 
 BOOST_AUTO_TEST_CASE(EventDiscountTest) {

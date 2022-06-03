@@ -8,6 +8,6 @@ double FriendlyMatch::getDiscount() const {
     return discount;
 }
 
-string FriendlyMatch::getEventInfo() {
+string FriendlyMatch::getEventType() {
     return "Friendly Match";
 }

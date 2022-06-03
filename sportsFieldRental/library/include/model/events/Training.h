@@ -11,7 +11,7 @@ private:
     double discount = 0.15;
 public:
     double getDiscount() const;
-    string getEventInfo();
+    string getEventType();
 };
 
 

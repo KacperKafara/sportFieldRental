@@ -8,6 +8,6 @@ double Tournament::getDiscount() const {
     return discount;
 }
 
-string Tournament::getEventInfo() {
+string Tournament::getEventType() {
     return "Tournament";
 }

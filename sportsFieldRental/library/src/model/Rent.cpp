@@ -4,11 +4,12 @@
 
 #include <string>
 #include "model/Rent.h"
+#include "model/events/Event.h"
 
-Rent::Rent(int id, const ptime &beginRentDate, const string &event) : id(id), beginRentDate(beginRentDate), event(event) {
-//    if (beginRentDate.is_not_a_date_time()) {
-//        &beginRentDate=second_clock::local_time();
-//    }
+Rent::Rent(int id, eventPtr event, clientPtr client, fieldPtr field) : id(id), event(event), client(client), field(field) {
+    if (beginRentDate.is_not_a_date_time()) {
+        beginRentDate=second_clock::local_time();
+    }
 }
 
 int Rent::getId() const {
@@ -23,11 +24,11 @@ const ptime &Rent::getEndRentDate() const {
     return endRentDate;
 }
 
-const string &Rent::getEvent() const {
-    return event;
+const string Rent::getEvent() const {
+    return event->getEventType();
 }
 
-void Rent::setEvent(const string &event) {
+void Rent::setEvent(eventPtr event) {
     Rent::event = event;
 }
 
@@ -49,4 +50,12 @@ void Rent::endRent(ptime time) {
             endRentDate=second_clock::local_time();
         }
     }
+}
+
+const clientPtr &Rent::getClient() const {
+    return client;
+}
+
+const fieldPtr &Rent::getField() const {
+    return field;
 }

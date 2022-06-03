@@ -13,7 +13,7 @@ private:
     double discount = 0.1;
 public:
     double getDiscount() const;
-    string getEventInfo();
+    string getEventType();
 };
 
 

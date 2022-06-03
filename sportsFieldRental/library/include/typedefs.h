@@ -15,11 +15,15 @@ class Client;
 class ClientType;
 class League;
 class Event;
+class Field;
+class Rent;
 
 typedef shared_ptr<Address> addressPtr;
 typedef shared_ptr<Client> clientPtr;
 typedef shared_ptr<ClientType> clientTypePtr;
 typedef shared_ptr<League> leaguePtr;
 typedef shared_ptr<Event> eventPtr;
+typedef shared_ptr<Field> fieldPtr;
+typedef shared_ptr<Rent> rentPtr;
 
 #endif //SPORTSFIELDRENTAL_TYPEDEFS_H
