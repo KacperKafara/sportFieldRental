@@ -9,8 +9,6 @@
 #include "model/clientTypes/Club.h"
 #include "model/clientTypes/LeagueA.h"
 
-using std::make_shared;
-
 BOOST_AUTO_TEST_SUITE(ClientSuiteTest)
 
 BOOST_AUTO_TEST_CASE(ClientIdTest) {
@@ -47,7 +45,7 @@ BOOST_AUTO_TEST_CASE(ClientTypeTest) {
     clientTypePtr type1 = make_shared<Club>(league);
     Client client(1, "szkola", "123456789", address, type1);
     BOOST_REQUIRE_EQUAL(client.getClientType()->getType(), "Club");
-    BOOST_REQUIRE_EQUAL(client.getClientType()->getLeague(), "League A");
+    BOOST_REQUIRE_EQUAL(client.getClientType()->getInfo(), "Type: Club, League: League A");
 }
 
 BOOST_AUTO_TEST_SUITE_END()

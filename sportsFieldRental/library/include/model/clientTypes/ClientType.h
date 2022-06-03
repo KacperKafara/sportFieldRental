@@ -15,7 +15,7 @@ public:
     virtual string getType() = 0;
     virtual double getDiscount();
     virtual string getLeague();
-
+    virtual string getInfo() = 0;
 };
 
 

@@ -12,7 +12,7 @@ private:
 public:
     string getType();
     double getDiscount();
-//    string getLeague();
+    string getInfo();
 };
 
 

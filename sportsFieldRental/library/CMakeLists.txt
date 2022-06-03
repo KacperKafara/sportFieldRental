@@ -21,7 +21,7 @@ set(SOURCE_FILES
         include/model/Field.h
         src/model/Rent.cpp
         include/model/Rent.h
-        src/model/clientTypes/LeagueA.cpp include/model/clientTypes/LeagueA.h src/model/clientTypes/LeagueB.cpp include/model/clientTypes/LeagueB.h src/model/clientTypes/LeagueC.cpp include/model/clientTypes/LeagueC.h src/model/clientTypes/LeagueD.cpp include/model/clientTypes/LeagueD.h)
+        src/model/clientTypes/LeagueA.cpp include/model/clientTypes/LeagueA.h src/model/clientTypes/LeagueB.cpp include/model/clientTypes/LeagueB.h src/model/clientTypes/LeagueC.cpp include/model/clientTypes/LeagueC.h src/model/clientTypes/LeagueD.cpp include/model/clientTypes/LeagueD.h src/model/events/Event.cpp include/model/events/Event.h src/model/events/FriendlyMatch.cpp include/model/events/FriendlyMatch.h src/model/events/Tournament.cpp include/model/events/Tournament.h src/model/events/Training.cpp include/model/events/Training.h)
 
 add_library(Library ${SOURCE_FILES})
 
@@ -62,7 +62,8 @@ set(SOURCE_TEST_FILES
         test/master.cpp
         test/ClientTest.cpp
         test/AddressTest.cpp
-        test/FieldTest.cpp)
+        test/FieldTest.cpp
+        test/EventTest.cpp)
 
 include_directories(
         ${CMAKE_CURRENT_SOURCE_DIR}/include

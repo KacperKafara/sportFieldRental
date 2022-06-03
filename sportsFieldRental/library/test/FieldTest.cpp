@@ -6,7 +6,6 @@
 #include "model/Field.h"
 #include "model/Address.h"
 
-using std::make_shared;
 
 BOOST_AUTO_TEST_SUITE(FieldSuiteTest)
 

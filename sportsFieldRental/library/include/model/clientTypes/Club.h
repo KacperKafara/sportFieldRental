@@ -14,7 +14,7 @@ private:
 public:
     Club(const leaguePtr &league);
     string getType();
-    string getLeague();
+    string getInfo();
     Club();
 };
 

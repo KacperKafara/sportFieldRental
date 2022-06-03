@@ -12,6 +12,6 @@ double School::getDiscount() {
     return discount;
 }
 
-//string School::getLeague() {
-//    return "";
-//}
+string School::getInfo() {
+    return "Type: School";
+}

@@ -13,8 +13,8 @@ Club::Club() {
 
 }
 
-string Club::getLeague() {
-    return league -> getLeague();
-}
-
 Club::Club(const leaguePtr &league) : league(league) {}
+
+string Club::getInfo() {
+    return "Type: Club, League: " + league->getLeague();
+}
