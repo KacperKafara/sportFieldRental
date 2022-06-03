@@ -6,6 +6,7 @@
 #define SPORTSFIELDRENTAL_CLIENT_H
 #include <string>
 #include "typedefs.h"
+#include "Address.h"
 
 using std::string;
 
@@ -21,6 +22,7 @@ public:
     const string &getName() const;
     const string &getPhoneNumber() const;
     const addressPtr &getAddress() const;
+    //string getInfo();
 };
 
 

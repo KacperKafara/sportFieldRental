@@ -26,3 +26,6 @@ const addressPtr &Client::getAddress() const {
     return address;
 }
 
+//string Client::getInfo() {
+//    return "Klient "+name+"\nTelefon "+phoneNumber+"\nAdres "+address->getInfo();
+//}
