@@ -18,3 +18,7 @@ const string &Address::getStreet() const {
 const string &Address::getNumber() const {
     return number;
 }
+
+string Address::getInfo() {
+    return "Miasto "+city+"\nUlica "+street+"\nNumer "+number;
+}

@@ -21,6 +21,8 @@ public:
     const string &getStreet() const;
 
     const string &getNumber() const;
+
+    string getInfo();
 };
 
 
