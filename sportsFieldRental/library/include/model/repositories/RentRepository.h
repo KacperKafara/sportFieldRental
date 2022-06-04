@@ -1,0 +1,14 @@
+//
+// Created by student on 04.06.2022.
+//
+
+#ifndef SPORTSFIELDRENTAL_RENTREPOSITORY_H
+#define SPORTSFIELDRENTAL_RENTREPOSITORY_H
+
+
+class RentRepository {
+
+};
+
+
+#endif //SPORTSFIELDRENTAL_RENTREPOSITORY_H
