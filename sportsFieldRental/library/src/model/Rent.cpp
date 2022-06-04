@@ -6,21 +6,19 @@
 #include "model/Rent.h"
 #include "model/events/Event.h"
 
-Rent::Rent(int id, eventPtr event, clientPtr client, fieldPtr field) : id(id), event(event), client(client), field(field) {
-    if (beginRentDate.is_not_a_date_time()) {
-        beginRentDate=second_clock::local_time();
-    }
+Rent::Rent(int id, eventPtr event, clientPtr client, fieldPtr field, datePtr beginRentDate)
+        : id(id), event(event), client(client), field(field), beginRentDate(beginRentDate) {
 }
 
 int Rent::getId() const {
     return id;
 }
 
-const ptime &Rent::getBeginRentDate() const {
+const datePtr &Rent::getBeginRentDate() const {
     return beginRentDate;
 }
 
-const ptime &Rent::getEndRentDate() const {
+const datePtr &Rent::getEndRentDate() const {
     return endRentDate;
 }
 
@@ -40,15 +38,10 @@ void Rent::makeArchive() {
     Rent::archive = true;
 }
 
-void Rent::endRent(ptime time) {
-    if(endRentDate.is_not_a_date_time()) {
-        endRentDate=time;
-        if (endRentDate<beginRentDate) {
-            endRentDate=beginRentDate;
-        }
-        if (endRentDate.is_not_a_date_time()) {
-            endRentDate=second_clock::local_time();
-        }
+void Rent::endRent(datePtr time) {
+    if (isArchive()) {
+        makeArchive();
+        endRentDate = time;
     }
 }
 
@@ -58,4 +51,16 @@ const clientPtr &Rent::getClient() const {
 
 const fieldPtr &Rent::getField() const {
     return field;
+}
+
+int Rent::getRentHours() const
+{
+    if (isArchive())
+    {
+        return endRentDate->hour-beginRentDate->hour;
+    }
+    else
+    {
+        return 0;
+    }
 }

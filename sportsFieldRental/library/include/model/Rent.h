@@ -6,32 +6,32 @@
 #define SPORTSFIELDRENTAL_RENT_H
 #include <string>
 #include "typedefs.h"
-#include <boost/date_time.hpp>
+#include "model/Date.h"
 
 using std::string;
-using namespace boost::posix_time;
 
 class Rent {
 private:
     int id;
-    ptime beginRentDate=not_a_date_time;
-    ptime endRentDate=not_a_date_time;
+    datePtr beginRentDate;
+    datePtr endRentDate;
     eventPtr event;
     clientPtr client;
     fieldPtr field;
     bool archive=false;
 public:
-    Rent(int id, eventPtr event, clientPtr client, fieldPtr field);
+    Rent(int id, eventPtr event, clientPtr client, fieldPtr field, datePtr beginRentDate);
     int getId() const;
-    const ptime &getBeginRentDate() const;
-    const ptime &getEndRentDate() const;
+    const datePtr &getBeginRentDate() const;
+    const datePtr &getEndRentDate() const;
     const string getEvent() const;
     void setEvent(eventPtr event);
     bool isArchive() const;
     void makeArchive();
-    void endRent(ptime time);
+    void endRent(datePtr time);
     const clientPtr &getClient() const;
     const fieldPtr &getField() const;
+    int getRentHours() const;
 };
 
 #endif //SPORTSFIELDRENTAL_RENT_H
