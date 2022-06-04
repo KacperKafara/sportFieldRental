@@ -27,7 +27,7 @@ public:
 
     const clientTypePtr &getClientType() const;
 
-    const string &getType() const;
+    const string getType() const;
 };
 
 

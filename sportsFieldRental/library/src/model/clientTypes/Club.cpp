@@ -9,12 +9,14 @@ string Club::getType() {
     return "Club";
 }
 
-Club::Club() {
-
+Club::Club(const leaguePtr &league) : league(league) {
+    discount = league->getDiscount();
 }
-
-Club::Club(const leaguePtr &league) : league(league) {}
 
 string Club::getInfo() {
     return "Typ: Klub, Liga: " + league->getLeague();
+}
+
+double Club::getDiscount() {
+    return discount;
 }

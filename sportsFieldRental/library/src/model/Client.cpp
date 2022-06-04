@@ -31,6 +31,6 @@ const clientTypePtr &Client::getClientType() const {
     return clientType;
 }
 
-const string &Client::getType() const {
+const string Client::getType() const {
     return clientType->getType();
 }
