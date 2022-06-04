@@ -26,7 +26,6 @@ public:
     const addressPtr &getAddress() const;
 
     const clientTypePtr &getClientType() const;
-    //string getInfo();
 };
 
 

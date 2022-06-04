@@ -30,9 +30,3 @@ Client::Client(int id, const string &name, const string &phoneNumber, const addr
 const clientTypePtr &Client::getClientType() const {
     return clientType;
 }
-
-
-
-//string Client::getInfo() {
-//    return "Klient "+name+"\nTelefon "+phoneNumber+"\nAdres "+address->getInfo();
-//}

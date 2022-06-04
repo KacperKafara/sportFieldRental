@@ -16,5 +16,5 @@ Club::Club() {
 Club::Club(const leaguePtr &league) : league(league) {}
 
 string Club::getInfo() {
-    return "Type: Club, League: " + league->getLeague();
+    return "Typ: Klub, Liga: " + league->getLeague();
 }

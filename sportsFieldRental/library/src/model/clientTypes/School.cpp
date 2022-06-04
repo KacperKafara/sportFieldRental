@@ -13,5 +13,5 @@ double School::getDiscount() {
 }
 
 string School::getInfo() {
-    return "Type: School";
+    return "Typ: Szkoła";
 }
