@@ -7,7 +7,7 @@
 
 void ClientRepository::add(clientPtr client) {
     for(auto c : clients) {
-        if(c == client) return;
+        if(c->getId() == client->getId()) return;
     }
     clients.push_back(client);
 }
