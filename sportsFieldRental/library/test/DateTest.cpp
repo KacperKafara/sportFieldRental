@@ -21,11 +21,11 @@ BOOST_AUTO_TEST_CASE(DateMinorityTest) {
         BOOST_REQUIRE_EQUAL(date1>date2,true);
 }
 
-    BOOST_AUTO_TEST_CASE(DateValidityTest) {
-        Date date(-2000,-1,-1,-12,-30);
+BOOST_AUTO_TEST_CASE(DateValidityTest) {
+    Date date(-2000,-1,-1,-12,-30);
 
-        BOOST_REQUIRE_EQUAL(date.isValidDate(),false);
-    }
+    BOOST_REQUIRE_EQUAL(date.isValidDate(),false);
+}
 
 
 BOOST_AUTO_TEST_SUITE_END()

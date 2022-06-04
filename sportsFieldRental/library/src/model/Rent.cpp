@@ -5,6 +5,9 @@
 #include <string>
 #include "model/Rent.h"
 #include "model/events/Event.h"
+#include "model/Field.h"
+#include "model/Client.h"
+#include "model/clientTypes/ClientType.h"
 
 Rent::Rent(int id, eventPtr event, clientPtr client, fieldPtr field, datePtr beginRentDate)
         : id(id), event(event), client(client), field(field), beginRentDate(beginRentDate) {
@@ -71,4 +74,14 @@ int Rent::getRentHours() const
     {
         return 0;
     }
+}
+
+double Rent::getRentCost() const
+{
+    double result=field->getBaseCost()*getRentHours();
+    double discount=0;
+    discount+=client->getClientType()->getDiscount();//This for some reason return 0 all the time
+    discount+=event->getDiscount();
+    result-=(result*discount);
+    return result;
 }

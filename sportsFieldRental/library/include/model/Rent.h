@@ -32,6 +32,7 @@ public:
     const clientPtr &getClient() const;
     const fieldPtr &getField() const;
     int getRentHours() const;
+    double getRentCost() const;
 };
 
 #endif //SPORTSFIELDRENTAL_RENT_H
