@@ -8,6 +8,9 @@
 
 Rent::Rent(int id, eventPtr event, clientPtr client, fieldPtr field, datePtr beginRentDate)
         : id(id), event(event), client(client), field(field), beginRentDate(beginRentDate) {
+    if (beginRentDate->isValidDate()==false){
+        beginRentDate->setTodayDate();
+    }
 }
 
 int Rent::getId() const {
@@ -39,9 +42,14 @@ void Rent::makeArchive() {
 }
 
 void Rent::endRent(datePtr time) {
-    if (isArchive()) {
+    if (isArchive()==false) {
         makeArchive();
-        endRentDate = time;
+        if (time->isValidDate()==false or time<beginRentDate){
+            endRentDate->setTodayDate();
+        }
+        else{
+            endRentDate = time;
+        }
     }
 }
 
