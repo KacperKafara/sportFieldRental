@@ -6,6 +6,7 @@
 #define SPORTSFIELDRENTAL_DATE_H
 
 #include <ctime>
+#include "string"
 
 struct Date{
     int year=-1;
@@ -171,6 +172,28 @@ struct Date{
         day=now->tm_mday;
         hour=now->tm_hour;
         minute=now->tm_min;
+    }
+
+    std::string getInfo()
+    {
+        std::string hourMark;
+        if (hour<10){
+            hourMark="0"+std::to_string(hour);
+        }
+        else{
+            hourMark=std::to_string(hour);
+        }
+
+        std::string minuteMark;
+        if (minute<10){
+            minuteMark="0"+std::to_string(minute);
+        }
+        else{
+            minuteMark=std::to_string(minute);
+        }
+
+
+        return std::to_string(day)+"."+std::to_string(month)+"."+std::to_string(year)+" "+hourMark+":"+minuteMark;
     }
 };
 

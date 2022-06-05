@@ -48,7 +48,7 @@ BOOST_AUTO_TEST_CASE(RentHoursTest){
     BOOST_REQUIRE_EQUAL(rent->getRentHours(), 2);
 }
 
-BOOST_AUTO_TEST_CASE(RentCostTest){
+BOOST_AUTO_TEST_CASE(RentInfoTest){
 
     eventPtr event = make_shared<Tournament>();
     leaguePtr league = make_shared<LeagueA>();
