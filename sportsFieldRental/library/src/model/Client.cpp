@@ -34,3 +34,7 @@ const clientTypePtr &Client::getClientType() const {
 const string Client::getType() const {
     return clientType->getType();
 }
+
+const string Client::getInfo() const {
+    return "Klient ID "+std::to_string(id)+"\nTyp "+getType()+"\nAdres "+getAddress()->getInfo()+"\nNumer telefonu "+phoneNumber;
+}

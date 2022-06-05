@@ -27,5 +27,10 @@ BOOST_AUTO_TEST_CASE(DateValidityTest) {
     BOOST_REQUIRE_EQUAL(date.isValidDate(),false);
 }
 
+BOOST_AUTO_TEST_CASE(DateGetInfoTest) {
+    Date date(2022,5,6,12,25);
+
+    BOOST_REQUIRE_EQUAL(date.getInfo(),"6.5.2022 12:25");
+}
 
 BOOST_AUTO_TEST_SUITE_END()

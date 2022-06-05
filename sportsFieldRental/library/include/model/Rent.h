@@ -33,6 +33,7 @@ public:
     const fieldPtr &getField() const;
     int getRentHours() const;
     double getRentCost() const;
+    string getInfo() const;
 };
 
 #endif //SPORTSFIELDRENTAL_RENT_H

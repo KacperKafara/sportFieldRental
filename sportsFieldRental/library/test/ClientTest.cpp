@@ -48,4 +48,13 @@ BOOST_AUTO_TEST_CASE(ClientTypeTest) {
     BOOST_REQUIRE_EQUAL(client.getClientType()->getInfo(), "Typ: Klub, Liga: League A");
 }
 
+BOOST_AUTO_TEST_CASE(ClientGetInfoTest) {
+    addressPtr address = make_shared<Address>("123", "456", "789");
+    leaguePtr league = make_shared<LeagueA>();
+    clientTypePtr type1 = make_shared<Club>(league);
+    Client client(1, "szkola", "123456789", address, type1);
+    BOOST_REQUIRE_EQUAL(client.getInfo(), "Klient ID 1\nTyp Club\nAdres Miasto 123\nUlica 456\nNumer 789\nNumer telefonu 123456789");
+}
+
+
 BOOST_AUTO_TEST_SUITE_END()

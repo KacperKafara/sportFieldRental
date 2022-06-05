@@ -85,3 +85,16 @@ double Rent::getRentCost() const
     result-=(result*discount);
     return result;
 }
+
+string Rent::getInfo() const
+{
+    string result="Wypożyczenie ";
+    if (isArchive()) {
+        result+="Zakończone\nData rozpoczęcia "+beginRentDate->getInfo()+"\nData zakonczenia "+endRentDate->getInfo();
+    }
+    else{
+        result+="Nie zakończone\nData rozpoczęcia "+beginRentDate->getInfo();
+    }
+    result+="\n"+client->getInfo()+"\nWypozyczenie "+field->getInfo()+"\nWydarzenie "+event->getEventType();
+    return result;
+}

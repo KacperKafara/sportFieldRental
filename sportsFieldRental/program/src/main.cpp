@@ -27,5 +27,6 @@ int main() {
 
     rent->endRent(date2);
     cout << clientType->getDiscount();
+
     return 0;
 }
