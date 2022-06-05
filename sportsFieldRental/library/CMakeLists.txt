@@ -82,7 +82,7 @@ set(SOURCE_TEST_FILES
         test/FieldTest.cpp
         test/EventTest.cpp
         test/RentTest.cpp
-        test/DateTest.cpp test/ClientRepositoryTest.cpp test/FieldRepositoryTest.cpp)
+        test/DateTest.cpp test/ClientRepositoryTest.cpp test/FieldRepositoryTest.cpp test/RentRepositoryTest.cpp)
 
 include_directories(
         ${CMAKE_CURRENT_SOURCE_DIR}/include
