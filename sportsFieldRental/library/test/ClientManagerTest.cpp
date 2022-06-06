@@ -11,7 +11,7 @@
 #include "model/Client.h"
 #include "model/managers/ClientManager.h"
 
-BOOST_AUTO_TEST_SUITE(ClientRepositorySuiteTest)
+BOOST_AUTO_TEST_SUITE(ClientManagerSuiteTest)
 
 BOOST_AUTO_TEST_CASE(ClientManagerAddAndRemoveTest) {
     eventPtr event = make_shared<Tournament>();
