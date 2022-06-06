@@ -29,11 +29,8 @@ public:
     void removeField(int id);
     fieldPtr getFieldById(int id);
     clientPtr getClientByAddress(string city, string street, string number);
-
     const clientManagerPtr &getClientManager() const;
-
     const fieldManagerPtr &getFieldManager() const;
-
     const rentManagerPtr &getRentManager() const;
 };
 

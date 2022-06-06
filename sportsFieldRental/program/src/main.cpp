@@ -11,17 +11,32 @@
 #include "model/clientTypes/Club.h"
 #include "model/managers/FieldManager.h"
 #include "model/repositories/FieldRepository.h"
+#include "model/repositories/RentRepository.h"
+#include "model/managers/RentManager.h"
+#include "model/Field.h"
+#include "model/events/Training.h"
+#include "model/events/Tournament.h"
+#include "model/events/FriendlyMatch.h"
+#include "model/Date.h"
 
 using namespace std;
 
-void registerClient(Manager *manager) {
-    int id = manager->getClientManager()->getClientRepository()->getClients().size() + 1, type, league;
-    string name, phoneNumber, city, street, number;
+datePtr getDate() {
+    int year, month, day, hour, minute;
+    cout << "Prosze podac rok: "; cin >> year;
+    cout << "Prosze podac miesiac: "; cin >> month;
+    cout << "Prosze podac dzien: "; cin >> day;
+    cout << "Prosze podac godzine: "; cin >> hour;
+    cout << "Prosze podac minute: "; cin >> minute;
+    datePtr date = make_shared<Date>(year, month, day, hour, minute);
+    return date;
+}
+
+void addClient(Manager *manager, string city, string street, string number) {
+    int id = manager->getClientManager()->getClientRepository()->getClients().size() + 1;
+    string phoneNumber, name;
     cout << "Prosze podac nazwe: "; cin.ignore( numeric_limits < streamsize >::max(), '\n' ); getline(cin, name);
-    cout << "Prosze podac adres." << endl;
-    cout << "Miasto: "; getline(cin, city);
-    cout << "Ulica: "; getline(cin, street);
-    cout << "Numer domu: "; cin >> number;
+    int type, league;
     cout << "Prosze podac numer telefonu: "; cin >> phoneNumber;
     cout << "Prosze podac typ(1-Szkola, 2-Klub): "; cin >> type;
     if(type == 2) {
@@ -47,26 +62,92 @@ void registerClient(Manager *manager) {
             cout << "Nie udalo sie dodac klienta!" << endl;
         }
     } else if(type == 1) {
-        clientTypePtr type = make_shared<School>();
-        manager->addClient(id, name, phoneNumber, city, street, number, type);
+        clientTypePtr type1 = make_shared<School>();
+        manager->addClient(id, name, phoneNumber, city, street, number, type1);
     } else {
         cout << "Nie ma takiej opcji!" << endl;
         cout << "Nie udalo sie dodac klienta" << endl;
     }
 }
 
+void registerClient(Manager *manager) {
+    string city, street, number;
+    cout << "Miasto: "; cin.ignore( numeric_limits < streamsize >::max(), '\n' ); getline(cin, city);
+    cout << "Ulica: "; getline(cin, street);
+    cout << "Numer domu: "; cin >> number;
+    addClient(manager, city, street, number);
+}
+
 void addField(Manager *manager) {
-    int id = manager->getFieldManager()->getFieldRepository()->getFields().size() + 1;
+    unsigned int id = manager->getFieldManager()->getFieldRepository()->getFields().size() + 1;
     int tribuneCapacity;
     double cost;
     string city, street, number;
     cout << "Prosze podac adres." << endl;
     cout << "Miasto: "; cin.ignore( numeric_limits < streamsize >::max(), '\n' ); getline(cin, city);
     cout << "Ulica: "; getline(cin, street);
-    cout << "Numer: "; getline(cin, number);
+    cout << "Numer domu: "; getline(cin, number);
     cout << "Pojemnosc trybun: "; cin >> tribuneCapacity;
     cout << "Koszt za godzine: "; cin >> cost;
     manager->addField(id, city, street, number, tribuneCapacity, cost);
+}
+
+void startRent(Manager *manager) {
+    int id = manager->getRentManager()->getRentRepository()->getRents().size() +
+             manager->getRentManager()->getRentRepository()->getArchiveRents().size() + 1;
+    int fieldId, eventId;
+    string city, street, number;
+    cout << "Prosze podac swoj adres." << endl;
+    cout << "Miasto: "; cin.ignore( numeric_limits < streamsize >::max(), '\n' ); getline(cin, city);
+    cout << "Ulica: "; getline(cin, street);
+    cout << "Numer domu: "; getline(cin, number);
+    clientPtr cl = manager->getClientManager()->getClientByAddress(city, street, number);
+    if(cl == nullptr) {
+        addClient(manager, city, street, number);
+        cl = manager->getClientManager()->getClientByAddress(city, street, number);
+    }
+    cout << "Prosze wybrac boisko." << endl;
+    for(auto field : manager->getFieldManager()->getFieldRepository()->getFields()) {
+        cout << field->getInfo() << endl;
+    }
+    cin >> fieldId;
+    fieldPtr field = manager->getFieldById(fieldId);
+    cout << "Prosze podac do czego zostanie wykorzystane boisko(1-Trening, 2-Turniej, 3-Mecz towarzyski)." << endl;
+    cin >> eventId;
+    eventPtr ev;
+    switch (eventId) {
+        case 1:
+            ev = make_shared<Training>();
+            manager->startRent(id, ev, field, cl, getDate());
+            break;
+        case 2:
+            ev = make_shared<Tournament>();
+            manager->startRent(id, ev, field, cl, getDate());
+            break;
+        case 3:
+            ev = make_shared<FriendlyMatch>();
+            manager->startRent(id, ev, field, cl, getDate());
+            break;
+        default:
+            cout << "Nie ma takiej opcji." << endl;
+            break;
+    }
+}
+
+void endRent(Manager *manager) {
+
+}
+
+void getInfoAboutClient(Manager *manager) {
+
+}
+
+void getInfoAboutField(Manager *manager) {
+
+}
+
+void getInfoAboutRent(Manager *manager) {
+
 }
 
 void menu() {
@@ -78,6 +159,7 @@ void menu() {
     cout << "5. Uzyskaj informacje o kliencie" << endl;
     cout << "6. Uzyskaj informacje o boisku" << endl;
     cout << "7. Uzyskaj informacje o wyporzyczeniu" << endl;
+    cout << "8. Zakoncz program" << endl;
     cout << "Co chcesz zrobic: ";
 }
 
@@ -96,14 +178,21 @@ int main() {
                 addField(manager);
                 break;
             case 3:
+                startRent(manager);
                 break;
             case 4:
+                endRent(manager);
                 break;
             case 5:
+                getInfoAboutClient(manager);
                 break;
             case 6:
+                getInfoAboutField(manager);
                 break;
             case 7:
+                getInfoAboutRent(manager);
+                break;
+            case 8:
                 running = 1;
                 break;
         }
