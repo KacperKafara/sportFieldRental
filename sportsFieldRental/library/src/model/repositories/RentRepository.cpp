@@ -15,10 +15,10 @@ void RentRepository::add(rentPtr rent) {
     rents.push_back(rent);
 }
 
-void RentRepository::makeArchive(int id) {
+void RentRepository::makeArchive(int id, datePtr time) {
     for(int i = 0; i < rents.size(); i++) {
         if(rents[i]->getId() == id) {
-            rents[i]->makeArchive();
+            rents[i]->endRent(time);
             archiveRents.push_back(rents[i]);
             rents.erase(rents.begin() + i);
         }
@@ -59,3 +59,5 @@ const vector<rentPtr> &RentRepository::getRents() const {
 const vector<rentPtr> &RentRepository::getArchiveRents() const {
     return archiveRents;
 }
+
+RentRepository::RentRepository() {}

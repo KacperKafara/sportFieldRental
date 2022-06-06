@@ -44,7 +44,7 @@ BOOST_AUTO_TEST_CASE(RentRepositoryMakeArchiveTest) {
     BOOST_REQUIRE_EQUAL(repo.getRents().size(), 0);
     BOOST_REQUIRE_EQUAL(repo.getArchiveRents().size(), 0);
     repo.add(rent);
-    repo.makeArchive(1);
+    repo.makeArchive(1,date);
     BOOST_REQUIRE_EQUAL(repo.getRents().size(), 0);
     BOOST_REQUIRE_EQUAL(repo.getArchiveRents().size(), 1);
 }

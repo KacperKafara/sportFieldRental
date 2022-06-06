@@ -16,8 +16,10 @@ private:
     vector<rentPtr> rents;
     vector<rentPtr> archiveRents;
 public:
+    RentRepository();
+
     void add(rentPtr rent);
-    void makeArchive(int id);
+    void makeArchive(int id, datePtr time);
     rentPtr get(int id);
     vector<rentPtr> get(string city, string street, string number);
     const vector<rentPtr> &getRents() const;

@@ -48,6 +48,8 @@ set(SOURCE_FILES
         include/model/managers/ClientManager.h
         src/model/managers/FieldManager.cpp
         include/model/managers/FieldManager.h
+        src/model/managers/RentManager.cpp
+        include/model/managers/RentManager.h
         )
 
 add_library(Library ${SOURCE_FILES})
@@ -97,7 +99,8 @@ set(SOURCE_TEST_FILES
         test/FieldRepositoryTest.cpp
         test/RentRepositoryTest.cpp
         test/ClientManagerTest.cpp
-        test/FieldManagerTest.cpp)
+        test/FieldManagerTest.cpp
+        test/RentManagerTest.cpp)
 
 include_directories(
         ${CMAKE_CURRENT_SOURCE_DIR}/include
