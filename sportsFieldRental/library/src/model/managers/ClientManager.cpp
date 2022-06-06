@@ -18,4 +18,10 @@ void ClientManager::changePhoneNumber(string phoneNumber, string city, string st
     clientRepository->get(city,street,number)->setPhoneNumber(phoneNumber);
 }
 
-ClientManager::ClientManager(const clientRepositoryPtr &clientRepository) : clientRepository(clientRepository) {}
+ClientManager::ClientManager() {
+    clientRepository = make_shared<ClientRepository>();
+}
+
+const clientRepositoryPtr &ClientManager::getClientRepository() const {
+    return clientRepository;
+}

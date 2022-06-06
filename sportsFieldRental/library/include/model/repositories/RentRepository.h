@@ -20,7 +20,7 @@ public:
 
     void add(rentPtr rent);
     void makeArchive(int id, datePtr time);
-    rentPtr get(int id);
+    vector<rentPtr> get(int id);
     vector<rentPtr> get(string city, string street, string number);
     const vector<rentPtr> &getRents() const;
     const vector<rentPtr> &getArchiveRents() const;

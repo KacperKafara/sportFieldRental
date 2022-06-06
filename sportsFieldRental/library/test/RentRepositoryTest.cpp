@@ -39,7 +39,7 @@ BOOST_AUTO_TEST_CASE(RentRepositoryMakeArchiveTest) {
     clientPtr client = make_shared<Client>(1, "123", "1234", address, clientType);
     addressPtr address1 = make_shared<Address>("2", "3", "4");
     fieldPtr field = make_shared<Field>(1, 200, 300, address1);
-    datePtr date = make_shared<Date>(1,1,1,1,1);
+    datePtr date = make_shared<Date>(2020,1,1,14,1);
     rentPtr rent = make_shared<Rent>(1, event, client, field,date);
     BOOST_REQUIRE_EQUAL(repo.getRents().size(), 0);
     BOOST_REQUIRE_EQUAL(repo.getArchiveRents().size(), 0);
@@ -57,7 +57,7 @@ BOOST_AUTO_TEST_CASE(RentRepositoryGetTest) {
     clientPtr client = make_shared<Client>(1, "123", "1234", address, clientType);
     addressPtr address1 = make_shared<Address>("2", "3", "4");
     clientPtr client1 = make_shared<Client>(2, "234", "5678", address1, clientType);
-    fieldPtr field = make_shared<Field>(1, 200, 300, address1);
+    fieldPtr field = make_shared<Field>(2, 200, 300, address1);
     datePtr date = make_shared<Date>(1,1,1,1,1);
     rentPtr rent = make_shared<Rent>(1, event, client, field,date);
     rentPtr rent1 = make_shared<Rent>(2, event, client1, field, date);
@@ -65,7 +65,7 @@ BOOST_AUTO_TEST_CASE(RentRepositoryGetTest) {
     BOOST_REQUIRE_EQUAL(repo.getArchiveRents().size(), 0);
     repo.add(rent);
     repo.add(rent1);
-    BOOST_REQUIRE_EQUAL(repo.get(1), rent);
+    BOOST_REQUIRE_EQUAL(repo.get(2)[0], rent);
     BOOST_REQUIRE_EQUAL(repo.get("1", "2", "3")[0], rent);
 }
 

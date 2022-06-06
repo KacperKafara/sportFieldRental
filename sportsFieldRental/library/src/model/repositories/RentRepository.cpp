@@ -5,6 +5,7 @@
 #include "model/repositories/RentRepository.h"
 #include "model/Rent.h"
 #include "model/Client.h"
+#include "model/Field.h"
 
 void RentRepository::add(rentPtr rent) {
     for(auto r : rents) {
@@ -25,18 +26,19 @@ void RentRepository::makeArchive(int id, datePtr time) {
     }
 }
 
-rentPtr RentRepository::get(int id) {
+vector<rentPtr> RentRepository::get(int id) {
+    vector<rentPtr> vec;
     for(auto r : rents) {
-        if(r->getId() == id) {
-            return r;
+        if(r->getField()->getId() == id) {
+            vec.push_back(r);
         }
     }
     for(auto r : archiveRents) {
-        if(r->getId() == id) {
-            return r;
+        if(r->getField()->getId() == id) {
+            vec.push_back(r);
         }
     }
-    return nullptr;
+    return vec;
 }
 
 vector<rentPtr> RentRepository::get(string city, string street, string number) {

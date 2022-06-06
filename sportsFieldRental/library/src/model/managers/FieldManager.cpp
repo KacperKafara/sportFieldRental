@@ -18,4 +18,10 @@ fieldPtr FieldManager::getFieldById(int id){
     return fieldRepository->get(id);
 }
 
-FieldManager::FieldManager(const fieldRepositoryPtr &fieldRepository) : fieldRepository(fieldRepository) {}
+FieldManager::FieldManager() {
+    fieldRepository = make_shared<FieldRepository>();
+}
+
+const fieldRepositoryPtr &FieldManager::getFieldRepository() const {
+    return fieldRepository;
+}

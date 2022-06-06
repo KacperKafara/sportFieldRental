@@ -14,11 +14,11 @@ class ClientManager{
 private:
     clientRepositoryPtr clientRepository;
 public:
-    ClientManager(const clientRepositoryPtr &clientRepository);
-
+    ClientManager();
     void add(clientPtr client);
     void remove(string city, string street, string number);
     void changePhoneNumber(string phoneNumber, string city, string street, string number);
+    const clientRepositoryPtr &getClientRepository() const;
 };
 
 #endif //SPORTSFIELDRENTAL_CLIENTMANAGER_H

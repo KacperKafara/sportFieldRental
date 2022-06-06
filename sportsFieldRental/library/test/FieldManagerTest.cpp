@@ -13,24 +13,20 @@ BOOST_AUTO_TEST_SUITE(FieldManagerSuiteTest)
 BOOST_AUTO_TEST_CASE(FieldManagerAddAndRemoveTest) {
     addressPtr address = make_shared<Address>("1", "2", "3");
     fieldPtr field = make_shared<Field>(1, 1, 1, address);
-    fieldRepositoryPtr repo = make_shared<FieldRepository>();
-    FieldManager fieldManager(repo);
+    FieldManager fieldManager;
 
     fieldManager.add(field);
-    BOOST_REQUIRE_EQUAL(repo->getFields().size(), 1);
+    BOOST_REQUIRE_EQUAL(fieldManager.getFieldRepository()->getFields().size(), 1);
     fieldManager.remove(1);
-    BOOST_REQUIRE_EQUAL(repo->getFields().size(), 0);
+    BOOST_REQUIRE_EQUAL(fieldManager.getFieldRepository()->getFields().size(), 0);
 }
 
 BOOST_AUTO_TEST_CASE(FieldManagerGetTest) {
     addressPtr address = make_shared<Address>("1", "2", "3");
     fieldPtr field = make_shared<Field>(1, 1, 1, address);
-    fieldRepositoryPtr repo = make_shared<FieldRepository>();
-    FieldManager fieldManager(repo);
-
+    FieldManager fieldManager;
     fieldManager.add(field);
-
-    BOOST_REQUIRE_EQUAL(repo->get(1), field);
+    BOOST_REQUIRE_EQUAL(fieldManager.getFieldRepository()->get(1), field);
 }
 
 

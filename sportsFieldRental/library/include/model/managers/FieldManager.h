@@ -14,11 +14,12 @@ class FieldManager{
 private:
     fieldRepositoryPtr fieldRepository;
 public:
-    FieldManager(const fieldRepositoryPtr &fieldRepository);
-
+    FieldManager();
     void add(fieldPtr field);
     void remove(int id);
     fieldPtr getFieldById(int id);
+
+    const fieldRepositoryPtr &getFieldRepository() const;
 };
 
 #endif //SPORTSFIELDRENTAL_FIELDMANAGER_H
