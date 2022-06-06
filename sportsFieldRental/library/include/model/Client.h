@@ -24,6 +24,7 @@ public:
     const string &getName() const;
     const string &getPhoneNumber() const;
     const addressPtr &getAddress() const;
+    void setPhoneNumber(const string &phoneNumber);
 
     const clientTypePtr &getClientType() const;
 

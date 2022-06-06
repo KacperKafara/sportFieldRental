@@ -38,7 +38,15 @@ set(SOURCE_FILES
         src/model/events/Training.cpp
         include/model/events/Training.h
         include/model/Date.h
-        src/model/repositories/ClientRepository.cpp include/model/repositories/ClientRepository.h src/model/repositories/RentRepository.cpp include/model/repositories/RentRepository.h src/model/repositories/FieldRepository.cpp include/model/repositories/FieldRepository.h)
+        src/model/repositories/ClientRepository.cpp
+        include/model/repositories/ClientRepository.h
+        src/model/repositories/RentRepository.cpp
+        include/model/repositories/RentRepository.h
+        src/model/repositories/FieldRepository.cpp
+        include/model/repositories/FieldRepository.h
+        src/model/managers/ClientManager.cpp
+        include/model/managers/ClientManager.h
+        )
 
 add_library(Library ${SOURCE_FILES})
 
@@ -82,7 +90,11 @@ set(SOURCE_TEST_FILES
         test/FieldTest.cpp
         test/EventTest.cpp
         test/RentTest.cpp
-        test/DateTest.cpp test/ClientRepositoryTest.cpp test/FieldRepositoryTest.cpp test/RentRepositoryTest.cpp)
+        test/DateTest.cpp
+        test/ClientRepositoryTest.cpp
+        test/FieldRepositoryTest.cpp
+        test/RentRepositoryTest.cpp
+        test/ClientManagerTest.cpp)
 
 include_directories(
         ${CMAKE_CURRENT_SOURCE_DIR}/include

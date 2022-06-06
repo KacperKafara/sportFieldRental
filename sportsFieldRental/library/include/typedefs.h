@@ -18,6 +18,7 @@ class Event;
 class Field;
 class Rent;
 struct Date;
+class ClientRepository;
 
 typedef shared_ptr<Address> addressPtr;
 typedef shared_ptr<Client> clientPtr;
@@ -27,5 +28,6 @@ typedef shared_ptr<Event> eventPtr;
 typedef shared_ptr<Field> fieldPtr;
 typedef shared_ptr<Rent> rentPtr;
 typedef shared_ptr<Date> datePtr;
+typedef shared_ptr<ClientRepository> clientRepositoryPtr;
 
 #endif //SPORTSFIELDRENTAL_TYPEDEFS_H

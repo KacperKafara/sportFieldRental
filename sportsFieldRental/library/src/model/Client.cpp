@@ -38,3 +38,7 @@ const string Client::getType() const {
 const string Client::getInfo() const {
     return "Klient ID "+std::to_string(id)+"\nTyp "+getType()+"\nAdres "+getAddress()->getInfo()+"\nNumer telefonu "+phoneNumber;
 }
+
+void Client::setPhoneNumber(const string &phoneNumber) {
+    Client::phoneNumber = phoneNumber;
+}
