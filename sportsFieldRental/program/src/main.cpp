@@ -106,11 +106,10 @@ void startRent(Manager *manager) {
         addClient(manager, city, street, number);
         cl = manager->getClientManager()->getClientByAddress(city, street, number);
     }
-    cout << "Prosze wybrac boisko." << endl;
     for(auto field : manager->getFieldManager()->getFieldRepository()->getFields()) {
         cout << field->getInfo() << endl;
     }
-    cin >> fieldId;
+    cout << "Prosze wybrac boisko: " << endl; cin >> fieldId;
     fieldPtr field = manager->getFieldById(fieldId);
     cout << "Prosze podac do czego zostanie wykorzystane boisko(1-Trening, 2-Turniej, 3-Mecz towarzyski)." << endl;
     cin >> eventId;
