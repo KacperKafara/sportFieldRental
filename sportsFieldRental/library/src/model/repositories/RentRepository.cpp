@@ -26,19 +26,17 @@ void RentRepository::makeArchive(int id, datePtr time) {
     }
 }
 
-vector<rentPtr> RentRepository::get(int id) {
-    vector<rentPtr> vec;
+rentPtr RentRepository::get(int id) {
     for(auto r : rents) {
         if(r->getField()->getId() == id) {
-            vec.push_back(r);
+            return r;
         }
     }
     for(auto r : archiveRents) {
         if(r->getField()->getId() == id) {
-            vec.push_back(r);
+            return r;
         }
     }
-    return vec;
 }
 
 vector<rentPtr> RentRepository::get(string city, string street, string number) {

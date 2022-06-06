@@ -3,6 +3,7 @@
 //
 
 #include "model/managers/RentManager.h"
+#include "model/Field.h"
 #include "model/repositories/RentRepository.h"
 #include "model/Rent.h"
 
@@ -28,5 +29,12 @@ const rentRepositoryPtr &RentManager::getRentRepository() const {
 }
 
 vector<rentPtr> RentManager::getAllRentsForField(int fieldId) {
-    return rentRepository->get(fieldId);
+    vector<rentPtr> vec;
+    for(auto r : rentRepository->getArchiveRents()){
+        if(r->getField()->getId() == fieldId) vec.push_back(r);
+    }
+    for(auto r : rentRepository->getRents()){
+        if(r->getField()->getId() == fieldId) vec.push_back(r);
+    }
+    return vec;
 }

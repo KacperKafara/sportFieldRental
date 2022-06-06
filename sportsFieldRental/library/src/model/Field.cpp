@@ -33,5 +33,5 @@ const addressPtr &Field::getAddress() const {
 }
 
 string Field::getInfo() {
-    return "Id "+to_string(id)+"Adres "+address->getInfo()+"\nPojemność trybun "+ to_string(tribuneCapacity)+"\nKoszt bazowy "+to_string(baseCost);
+    return "Id "+to_string(id)+"\nAdres "+address->getInfo()+"\nPojemność trybun "+ to_string(tribuneCapacity)+"\nKoszt bazowy "+to_string(baseCost);
 }

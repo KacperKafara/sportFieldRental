@@ -80,7 +80,7 @@ double Rent::getRentCost() const
 {
     double result=field->getBaseCost()*getRentHours();
     double discount=0;
-    discount+=client->getClientType()->getDiscount();//This for some reason return 0 all the time
+    discount+=client->getClientType()->getDiscount();
     discount+=event->getDiscount();
     result-=(result*discount);
     return result;

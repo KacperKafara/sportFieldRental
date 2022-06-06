@@ -18,6 +18,8 @@
 #include "model/events/Tournament.h"
 #include "model/events/FriendlyMatch.h"
 #include "model/Date.h"
+#include "model/Client.h"
+#include "model/Rent.h"
 
 using namespace std;
 
@@ -109,10 +111,9 @@ void startRent(Manager *manager) {
     for(auto field : manager->getFieldManager()->getFieldRepository()->getFields()) {
         cout << field->getInfo() << endl;
     }
-    cout << "Prosze wybrac boisko: " << endl; cin >> fieldId;
+    cout << "Prosze wybrac boisko: "; cin >> fieldId;
     fieldPtr field = manager->getFieldById(fieldId);
-    cout << "Prosze podac do czego zostanie wykorzystane boisko(1-Trening, 2-Turniej, 3-Mecz towarzyski)." << endl;
-    cin >> eventId;
+    cout << "Prosze podac do czego zostanie wykorzystane boisko(1-Trening, 2-Turniej, 3-Mecz towarzyski): "; cin >> eventId;
     eventPtr ev;
     switch (eventId) {
         case 1:
@@ -131,22 +132,57 @@ void startRent(Manager *manager) {
             cout << "Nie ma takiej opcji." << endl;
             break;
     }
+    cout << "Id panskiego wyporzyczenia: " << id << endl;
 }
 
 void endRent(Manager *manager) {
-
+    int id; datePtr date;
+    cout << "Prosze podac id swojego wyporzyczenia: "; cin >> id;
+    cout << "Prosze podac date zakonczenia wyporzyczenia: "; date = getDate();
+    manager->endRent(id, date);
+    cout << "Koszt wyporzycznia: " << manager->getRentManager()->getRentRepository()->get(id)->getRentCost() << endl;
 }
 
 void getInfoAboutClient(Manager *manager) {
-
+    string city, street, number;
+    cout << "Prosze podac miast: "; cin.ignore( numeric_limits < streamsize >::max(), '\n' ); getline(cin, city);
+    cout << "Prosze podac ulice: "; getline(cin, street);
+    cout << "Prosze podac numer domu: "; getline(cin, number);
+    cout << manager->getClientByAddress(city, street, number)->getInfo() << endl;
 }
 
 void getInfoAboutField(Manager *manager) {
-
+    int id;
+    cout << "Podaj id boiska: "; cin >> id;
+    cout << manager->getFieldById(id)->getInfo() << endl;
 }
 
-void getInfoAboutRent(Manager *manager) {
+void getInfoAboutRentsForField(Manager *manager) {
+    int id;
+    cout << "Podaj id boiska: "; cin >> id;
+    for(auto r : manager->getAllRentsForField(id)) {
+        cout << r->getInfo() << endl;
+    }
+}
 
+void getInfoAboutRentsForClient(Manager *manager) {
+    string city, street, number;
+    cout << "Prosze podac miast: "; cin.ignore( numeric_limits < streamsize >::max(), '\n' ); getline(cin, city);
+    cout << "Prosze podac ulice: "; getline(cin, street);
+    cout << "Prosze podac numer domu: "; getline(cin, number);
+    for(auto r : manager->getAllRentsForClient(city, street, number)) {
+        cout << r->getInfo() << endl;
+    }
+}
+
+void changePhoneNumber(Manager *manager) {
+    string city, street, number, newNumber;
+    cout << "Prosze podac adres." << endl;
+    cout << "Miasto: "; cin.ignore( numeric_limits < streamsize >::max(), '\n' ); getline(cin, city);
+    cout << "Ulica: "; getline(cin, street);
+    cout << "Numer: "; getline(cin, street);
+    cout << "Prosze podac nowy numer telefonu: "; cin >> newNumber;
+    manager->changeClientPhoneNumber(newNumber, city, street, number);
 }
 
 void menu() {
@@ -157,8 +193,10 @@ void menu() {
     cout << "4. Zakoncz wyporzyczenie" << endl;
     cout << "5. Uzyskaj informacje o kliencie" << endl;
     cout << "6. Uzyskaj informacje o boisku" << endl;
-    cout << "7. Uzyskaj informacje o wyporzyczeniu" << endl;
-    cout << "8. Zakoncz program" << endl;
+    cout << "7. Zmien numer telefonu" << endl;
+    cout << "8. Wyswietl informacje o wyporzyczeniach klienta" << endl;
+    cout << "9. Wyswietl informacje o wyporzyczniach danego boiska" << endl;
+    cout << "10. Zakoncz program" << endl;
     cout << "Co chcesz zrobic: ";
 }
 
@@ -189,9 +227,15 @@ int main() {
                 getInfoAboutField(manager);
                 break;
             case 7:
-                getInfoAboutRent(manager);
+                changePhoneNumber(manager);
                 break;
             case 8:
+                getInfoAboutRentsForClient(manager);
+                break;
+            case 9:
+                getInfoAboutRentsForField(manager);
+                break;
+            default:
                 running = 1;
                 break;
         }
