@@ -25,3 +25,7 @@ ClientManager::ClientManager() {
 const clientRepositoryPtr &ClientManager::getClientRepository() const {
     return clientRepository;
 }
+
+clientPtr ClientManager::getClientByAddress(string city, string street, string number) {
+    return clientRepository->get(city, street, number);
+}

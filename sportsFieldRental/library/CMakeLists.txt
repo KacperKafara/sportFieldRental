@@ -50,7 +50,7 @@ set(SOURCE_FILES
         include/model/managers/FieldManager.h
         src/model/managers/RentManager.cpp
         include/model/managers/RentManager.h
-        )
+        src/model/managers/Manager.cpp include/model/managers/Manager.h)
 
 add_library(Library ${SOURCE_FILES})
 
@@ -100,7 +100,7 @@ set(SOURCE_TEST_FILES
         test/RentRepositoryTest.cpp
         test/ClientManagerTest.cpp
         test/FieldManagerTest.cpp
-        test/RentManagerTest.cpp)
+        test/RentManagerTest.cpp test/ManagerTest.cpp)
 
 include_directories(
         ${CMAKE_CURRENT_SOURCE_DIR}/include
