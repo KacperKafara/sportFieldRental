@@ -14,6 +14,7 @@ private:
 public:
     virtual string getLeague() = 0;
     virtual double getDiscount() const;
+    virtual string getLetter() = 0;
 };
 
 

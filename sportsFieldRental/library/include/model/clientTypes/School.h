@@ -13,6 +13,7 @@ public:
     string getType();
     double getDiscount();
     string getInfo();
+    string getInfoForWriteToFile();
 };
 
 

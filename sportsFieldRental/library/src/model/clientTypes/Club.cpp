@@ -20,3 +20,7 @@ string Club::getInfo() {
 double Club::getDiscount() {
     return discount;
 }
+
+string Club::getInfoForWriteToFile() {
+    return "Club " + league->getLetter();
+}

@@ -12,6 +12,7 @@ private:
 public:
     double getDiscount() const;
     string getLeague();
+    string getLetter();
 };
 
 

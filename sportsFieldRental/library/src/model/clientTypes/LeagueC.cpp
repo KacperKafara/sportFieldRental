@@ -11,3 +11,7 @@ double LeagueC::getDiscount() const {
 string LeagueC::getLeague() {
     return "League C";
 }
+
+string LeagueC::getLetter() {
+    return "C";
+}

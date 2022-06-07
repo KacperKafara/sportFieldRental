@@ -13,6 +13,7 @@
 #include "model/repositories/ClientRepository.h"
 #include <fstream>
 #include "model/repositories/FieldRepository.h"
+#include "model/clientTypes/ClientType.h"
 
 using std::ofstream;
 using std::ifstream;
@@ -84,17 +85,42 @@ Manager::Manager() {
 }
 
 Manager::~Manager() {
-//    ofstream clientFile("clients.txt");
     ofstream fieldFile("fields.txt");
     vector<fieldPtr> tmp = fieldManager->getFieldRepository()->getFields();
+    addressPtr adr;
+    clientTypePtr type;
     for(auto field : tmp) {
-        addressPtr adr = field->getAddress();
-        fieldFile << field->getId() << " "
-                  << field->getTribuneCapacity() << " "
-                  << field->getBaseCost() << " "
-                  << adr->getCity() << " "
-                  << adr->getStreet() << " "
-                  << adr->getNumber() << "\n";
+        adr = field->getAddress();
+        fieldFile << field->getId() << "\n"
+                  << field->getTribuneCapacity() << "\n"
+                  << field->getBaseCost() << "\n"
+                  << adr->getCity() << "\n"
+                  << adr->getStreet() << "\n"
+                  << adr->getNumber() << "\n\n";
     }
     fieldFile.close();
+    ofstream clientFile("clients.txt");
+    vector<clientPtr> ctmp = clientManager->getClientRepository()->getClients();
+    for(auto client : ctmp) {
+        adr = client->getAddress();
+        type = client->getClientType();
+        if(type->getType() == "Club") {
+            clientFile << client->getId() << "\n"
+                       << client->getName() << "\n"
+                       << client->getPhoneNumber() << "\n"
+                       << adr->getCity() << "\n"
+                       << adr->getStreet() << "\n"
+                       << adr->getNumber() << "\n"
+                       << type->getInfoForWriteToFile() << "\n\n";
+        } else if(type->getType() == "School") {
+            clientFile << client->getId() << "\n"
+                       << client->getName() << "\n"
+                       << client->getPhoneNumber() << "\n"
+                       << adr->getCity() << "\n"
+                       << adr->getStreet() << "\n"
+                       << adr->getNumber() << "\n"
+                       << type->getType() << "\n\n";
+        }
+    }
+    clientFile.close();
 }

@@ -16,6 +16,7 @@ public:
     virtual double getDiscount();
     virtual string getLeague();
     virtual string getInfo() = 0;
+    virtual string getInfoForWriteToFile() = 0;
 };
 
 

@@ -16,6 +16,7 @@ public:
     string getType();
     string getInfo();
     double getDiscount();
+    string getInfoForWriteToFile();
 };
 
 

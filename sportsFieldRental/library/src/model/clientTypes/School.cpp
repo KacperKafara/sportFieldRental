@@ -15,3 +15,7 @@ double School::getDiscount() {
 string School::getInfo() {
     return "Typ: Szkoła";
 }
+
+string School::getInfoForWriteToFile() {
+    return "";
+}
