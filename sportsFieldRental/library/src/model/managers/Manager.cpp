@@ -2,6 +2,7 @@
 // Created by student on 06.06.2022.
 //
 
+#include <iostream>
 #include "model/managers/Manager.h"
 #include "model/managers/ClientManager.h"
 #include "model/managers/FieldManager.h"
@@ -13,9 +14,14 @@
 #include "model/repositories/ClientRepository.h"
 #include <fstream>
 #include "model/repositories/FieldRepository.h"
-#include "model/clientTypes/ClientType.h"
 #include "model/repositories/RentRepository.h"
 #include "model/Date.h"
+#include "model/clientTypes/School.h"
+#include "model/clientTypes/LeagueA.h"
+#include "model/clientTypes/LeagueB.h"
+#include "model/clientTypes/LeagueC.h"
+#include "model/clientTypes/LeagueD.h"
+#include "model/clientTypes/Club.h"
 
 using std::ofstream;
 using std::ifstream;
@@ -115,6 +121,56 @@ Manager::Manager() {
         }
     }
     fieldFile.close();
+
+    ifstream clientFile("clients.txt");
+    counter = 0;
+    string name, phoneNumber;
+    clientTypePtr ctype;
+    leaguePtr league;
+    line = "";
+    if(clientFile.good()) {
+        while(clientFile) {
+            getline(clientFile, line);
+            if(line != "") {
+                if(counter == 0)
+                    id = std::stoi(line);
+                else if(counter == 1)
+                    name = line;
+                else if(counter == 2)
+                    phoneNumber = line;
+                else if(counter == 3)
+                    city = line;
+                else if(counter == 4)
+                    street = line;
+                else if(counter == 5)
+                    number = line;
+                else if(counter == 6) {
+                    if (line == "School") {
+                        ctype = make_shared<School>();
+                    } else {
+                        if(line[line.size() - 1] == 'A') {
+                            league = make_shared<LeagueA>();
+                            ctype = make_shared<Club>(league);
+                        } else if(line[line.size() - 1] == 'B') {
+                            league = make_shared<LeagueB>();
+                            ctype = make_shared<Club>(league);
+                        } else if(line[line.size() - 1] == 'C') {
+                            league = make_shared<LeagueC>();
+                            ctype = make_shared<Club>(league);
+                        } else if(line[line.size() - 1] == 'D') {
+                            league = make_shared<LeagueD>();
+                            ctype = make_shared<Club>(league);
+                        }
+                    }
+                }
+                counter++;
+            } else if(line == "" && counter != 0) {
+                counter = 0;
+                this->addClient(id, name, phoneNumber, city, street, number, ctype);
+            }
+        }
+    }
+    clientFile.close();
 }
 
 Manager::~Manager() {
