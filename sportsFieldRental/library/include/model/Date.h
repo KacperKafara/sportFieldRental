@@ -155,7 +155,7 @@ struct Date{
             result=false;
         }
 
-        if (minute<=0 or minute>60)
+        if (minute<0 or minute>60)
         {
             result=false;
         }
