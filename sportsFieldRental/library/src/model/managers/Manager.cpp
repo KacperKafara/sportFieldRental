@@ -14,6 +14,8 @@
 #include <fstream>
 #include "model/repositories/FieldRepository.h"
 #include "model/clientTypes/ClientType.h"
+#include "model/repositories/RentRepository.h"
+#include "model/Date.h"
 
 using std::ofstream;
 using std::ifstream;
@@ -99,6 +101,7 @@ Manager::~Manager() {
                   << adr->getNumber() << "\n\n";
     }
     fieldFile.close();
+
     ofstream clientFile("clients.txt");
     vector<clientPtr> ctmp = clientManager->getClientRepository()->getClients();
     for(auto client : ctmp) {
@@ -123,4 +126,19 @@ Manager::~Manager() {
         }
     }
     clientFile.close();
+
+    ofstream rentFile("rents.txt");
+    vector<rentPtr> rtmp = rentManager->getRentRepository()->getRents();
+    for(auto rent : rtmp) {
+        adr = rent->getClient()->getAddress();
+        rentFile << rent->isArchive() << "\n"
+                 << rent->getId() << "\n"
+                 << rent->getEvent() << "\n"
+                 << rent->getField()->getId() << "\n"
+                 << adr->getCity() << "\n"
+                 << adr->getStreet() << "\n"
+                 << adr->getNumber() << "\n"
+                 << rent->getBeginRentDate()->getInfo() <<"\n\n";
+    }
+    rentFile.close();
 }
