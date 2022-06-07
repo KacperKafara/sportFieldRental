@@ -104,7 +104,7 @@ void startRent(Manager *manager) {
     cout << "Prosze podac swoj adres." << endl;
     cout << "Miasto: "; cin.ignore( numeric_limits < streamsize >::max(), '\n' ); getline(cin, city);
     cout << "Ulica: "; getline(cin, street);
-    cout << "Numer domu: "; getline(cin, number);
+    cout << "Numer domu: "; cin >> number;
     clientPtr cl = manager->getClientManager()->getClientByAddress(city, street, number);
     if(cl == nullptr) {
         addClient(manager, city, street, number);
