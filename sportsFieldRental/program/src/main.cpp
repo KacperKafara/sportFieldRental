@@ -145,16 +145,28 @@ void endRent(Manager *manager) {
 
 void getInfoAboutClient(Manager *manager) {
     string city, street, number;
-    cout << "Prosze podac miast: "; cin.ignore( numeric_limits < streamsize >::max(), '\n' ); getline(cin, city);
-    cout << "Prosze podac ulice: "; getline(cin, street);
-    cout << "Prosze podac numer domu: "; getline(cin, number);
-    cout << manager->getClientByAddress(city, street, number)->getInfo() << endl;
+    cout << "Prosze podac miast: ";
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    getline(cin, city);
+    cout << "Prosze podac ulice: ";
+    getline(cin, street);
+    cout << "Prosze podac numer domu: ";
+    getline(cin, number);
+    if (manager->getClientByAddress(city, street, number) == nullptr) {
+        cout << "Klient zostal usuniety!" << endl;
+    } else {
+        cout << manager->getClientByAddress(city, street, number)->getInfo() << endl;
+    }
 }
 
 void getInfoAboutField(Manager *manager) {
     int id;
     cout << "Podaj id boiska: "; cin >> id;
-    cout << manager->getFieldById(id)->getInfo() << endl;
+    if(manager->getFieldById(id) == nullptr) {
+        cout << "Boisko zostalo usuniete" << endl;
+    } else {
+        cout << manager->getFieldById(id)->getInfo() << endl;
+    }
 }
 
 void getInfoAboutRentsForField(Manager *manager) {
@@ -185,18 +197,35 @@ void changePhoneNumber(Manager *manager) {
     manager->changeClientPhoneNumber(newNumber, city, street, number);
 }
 
+void deleteClinet(Manager *manager) {
+    string city, street, number;
+    cout << "Prosze podac swoj adres." << endl;
+    cout << "Miasto: "; cin.ignore( numeric_limits < streamsize >::max(), '\n' ); getline(cin, city);
+    cout << "Ulica: "; getline(cin, street);
+    cout << "Numer domu: "; cin >> number;
+    manager->removeClient(city, street, number);
+}
+
+void deleteField(Manager *manager) {
+    int id;
+    cout << "Prosze podac id boiska: "; cin >> id;
+    manager->removeField(id);
+}
+
 void menu() {
     cout << "----MENU----" << endl;
-    cout << "1. Dodaj klienta" << endl;
-    cout << "2. Dodaj orlik" << endl;
-    cout << "3. Rozpocznij wypozyczenie" << endl;
-    cout << "4. Zakoncz wyporzyczenie" << endl;
-    cout << "5. Uzyskaj informacje o kliencie" << endl;
-    cout << "6. Uzyskaj informacje o boisku" << endl;
-    cout << "7. Zmien numer telefonu" << endl;
-    cout << "8. Wyswietl informacje o wyporzyczeniach klienta" << endl;
-    cout << "9. Wyswietl informacje o wyporzyczniach danego boiska" << endl;
-    cout << "10. Zakoncz program" << endl;
+    cout << "1.  Dodaj klienta" << endl;
+    cout << "2.  Dodaj orlik" << endl;
+    cout << "3.  Rozpocznij wypozyczenie" << endl;
+    cout << "4.  Zakoncz wyporzyczenie" << endl;
+    cout << "5.  Uzyskaj informacje o kliencie" << endl;
+    cout << "6.  Uzyskaj informacje o boisku" << endl;
+    cout << "7.  Zmien numer telefonu" << endl;
+    cout << "8.  Wyswietl informacje o wyporzyczeniach klienta" << endl;
+    cout << "9.  Wyswietl informacje o wyporzyczniach danego boiska" << endl;
+    cout << "10. Usun klienta" << endl;
+    cout << "11. Usun boisko" << endl;
+    cout << "12. Zakoncz program" << endl;
     cout << "Co chcesz zrobic: ";
 }
 
@@ -234,6 +263,12 @@ int main() {
                 break;
             case 9:
                 getInfoAboutRentsForField(manager);
+                break;
+            case 10:
+                deleteClinet(manager);
+                break;
+            case 11:
+                deleteField(manager);
                 break;
             default:
                 running = 1;
