@@ -17,7 +17,6 @@ private:
 public:
     const vector<clientPtr> &getClients() const;
     void add(clientPtr client);
-    void remove(string city, string street, string number);
     clientPtr get(string city, string street, string number);
 };
 

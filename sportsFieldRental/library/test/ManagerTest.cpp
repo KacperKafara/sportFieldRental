@@ -26,17 +26,6 @@ BOOST_AUTO_TEST_CASE(ManagerAddClientTest) {
     BOOST_REQUIRE_EQUAL(manager.getClientManager()->getClientByAddress("1", "2", "3")->getName(), "Name");
 }
 
-BOOST_AUTO_TEST_CASE(ManagerRemoveClientTest) {
-    Manager manager;
-    clientTypePtr type = make_shared<School>();
-    manager.addClient(1, "Name", "123456789", "1", "2", "3", type);
-    BOOST_REQUIRE_EQUAL(manager.getClientManager()->getClientRepository()->getClients().size(), 1);
-    manager.removeClient("2", "3", "4");
-    BOOST_REQUIRE_EQUAL(manager.getClientManager()->getClientRepository()->getClients().size(), 1);
-    manager.removeClient("1", "2", "3");
-    BOOST_REQUIRE_EQUAL(manager.getClientManager()->getClientRepository()->getClients().size(), 0);
-}
-
 BOOST_AUTO_TEST_CASE(ManagerChangePhoneNumberTest) {
     Manager manager;
     clientTypePtr type = make_shared<School>();
@@ -50,16 +39,6 @@ BOOST_AUTO_TEST_CASE(ManagerAddFieldTest) {
     Manager manager;
     manager.addField(1, "1", "2", "3", 2000, 300);
     BOOST_REQUIRE_EQUAL(manager.getFieldManager()->getFieldById(1)->getTribuneCapacity(), 2000);
-}
-
-BOOST_AUTO_TEST_CASE(ManagerRemoveFieldTest) {
-    Manager manager;
-    manager.addField(1, "1", "2", "3", 2000, 300);
-    BOOST_REQUIRE_EQUAL(manager.getFieldManager()->getFieldRepository()->getFields().size(), 1);
-    manager.removeField(2);
-    BOOST_REQUIRE_EQUAL(manager.getFieldManager()->getFieldRepository()->getFields().size(), 1);
-    manager.removeField(1);
-    BOOST_REQUIRE_EQUAL(manager.getFieldManager()->getFieldRepository()->getFields().size(), 0);
 }
 
 BOOST_AUTO_TEST_CASE(ManagerStartEndRentTest) {

@@ -17,7 +17,6 @@ private:
 public:
     const vector<fieldPtr> &getFields() const;
     void add(fieldPtr field);
-    void remove(int id);
     fieldPtr get(int id);
 };
 

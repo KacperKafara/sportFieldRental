@@ -10,15 +10,13 @@
 
 BOOST_AUTO_TEST_SUITE(FieldManagerSuiteTest)
 
-BOOST_AUTO_TEST_CASE(FieldManagerAddAndRemoveTest) {
+BOOST_AUTO_TEST_CASE(FieldManagerAddTest) {
     addressPtr address = make_shared<Address>("1", "2", "3");
     fieldPtr field = make_shared<Field>(1, 1, 1, address);
     FieldManager fieldManager;
 
     fieldManager.add(field);
     BOOST_REQUIRE_EQUAL(fieldManager.getFieldRepository()->getFields().size(), 1);
-    fieldManager.remove(1);
-    BOOST_REQUIRE_EQUAL(fieldManager.getFieldRepository()->getFields().size(), 0);
 }
 
 BOOST_AUTO_TEST_CASE(FieldManagerGetTest) {

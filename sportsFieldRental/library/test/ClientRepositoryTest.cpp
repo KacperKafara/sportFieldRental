@@ -17,25 +17,11 @@ BOOST_AUTO_TEST_CASE(ClientRepositoryAddTest) {
     leaguePtr league = make_shared<LeagueA>();
     clientTypePtr clientType = make_shared<Club>(league);
     addressPtr address = make_shared<Address>("1", "2", "3");
-    clientPtr client = make_shared<Client>(1, "123", "1234", address, clientType);
+    clientPtr client = make_shared<Client>(1, "123", "123456789", address, clientType);
     ClientRepository repo;
     BOOST_REQUIRE_EQUAL(repo.getClients().size(), 0);
     repo.add(client);
     BOOST_REQUIRE_EQUAL(repo.getClients().size(), 1);
-}
-
-BOOST_AUTO_TEST_CASE(ClientRepositoryRemoveTest) {
-    eventPtr event = make_shared<Tournament>();
-    leaguePtr league = make_shared<LeagueA>();
-    clientTypePtr clientType = make_shared<Club>(league);
-    addressPtr address = make_shared<Address>("1", "2", "3");
-    clientPtr client = make_shared<Client>(1, "123", "1234", address, clientType);
-    ClientRepository repo;
-    BOOST_REQUIRE_EQUAL(repo.getClients().size(), 0);
-    repo.add(client);
-    BOOST_REQUIRE_EQUAL(repo.getClients().size(), 1);
-    repo.remove("1", "2", "3");
-    BOOST_REQUIRE_EQUAL(repo.getClients().size(), 0);
 }
 
 BOOST_AUTO_TEST_CASE(ClientRepositoryGetTest) {
@@ -43,7 +29,7 @@ BOOST_AUTO_TEST_CASE(ClientRepositoryGetTest) {
     leaguePtr league = make_shared<LeagueA>();
     clientTypePtr clientType = make_shared<Club>(league);
     addressPtr address = make_shared<Address>("1", "2", "3");
-    clientPtr client = make_shared<Client>(1, "123", "1234", address, clientType);
+    clientPtr client = make_shared<Client>(1, "123", "123456789", address, clientType);
     ClientRepository repo;
     BOOST_REQUIRE_EQUAL(repo.getClients().size(), 0);
     repo.add(client);

@@ -16,14 +16,6 @@ void FieldRepository::add(fieldPtr field) {
     fields.push_back(field);
 }
 
-void FieldRepository::remove(int id) {
-    for(int i = 0; i < fields.size(); i++) {
-        if(fields[i]->getId() == id) {
-            fields.erase(fields.begin() + i);
-        }
-    }
-}
-
 fieldPtr FieldRepository::get(int id) {
     for(auto f : fields) {
         if(f->getId() == id) return f;

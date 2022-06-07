@@ -23,7 +23,7 @@ BOOST_AUTO_TEST_CASE(RentManagerBegindAndEnd) {
     clientTypePtr clientType = make_shared<Club>(league);
     addressPtr address1 = make_shared<Address>("1", "2", "3");
     addressPtr address2 = make_shared<Address>("A", "B", "C");
-    clientPtr client = make_shared<Client>(1, "123", "1234", address1, clientType);
+    clientPtr client = make_shared<Client>(1, "123", "123456789", address1, clientType);
     fieldPtr field = make_shared<Field>(1, 200, 300, address2);
     datePtr dateStart = make_shared<Date>(2020,1,1,12,1);
     datePtr dateEnd = make_shared<Date>(2020,1,1,12,1);
@@ -44,7 +44,7 @@ BOOST_AUTO_TEST_CASE(RentManagerGet) {
     clientTypePtr clientType = make_shared<Club>(league);
     addressPtr address1 = make_shared<Address>("1", "2", "3");
     addressPtr address2 = make_shared<Address>("A", "B", "C");
-    clientPtr client = make_shared<Client>(1, "123", "1234", address1, clientType);
+    clientPtr client = make_shared<Client>(1, "123", "123456789", address1, clientType);
     fieldPtr field = make_shared<Field>(1, 200, 300, address2);
     datePtr dateStart = make_shared<Date>(2020,1,1,12,1);
     datePtr dateEnd = make_shared<Date>(2020,1,1,12,1);

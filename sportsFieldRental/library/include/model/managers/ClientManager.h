@@ -16,7 +16,6 @@ private:
 public:
     ClientManager();
     void add(clientPtr client);
-    void remove(string city, string street, string number);
     void changePhoneNumber(string phoneNumber, string city, string street, string number);
     clientPtr getClientByAddress(string city, string street, string number);
     const clientRepositoryPtr &getClientRepository() const;

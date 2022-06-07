@@ -10,10 +10,6 @@ void FieldManager::add(fieldPtr field){
     fieldRepository->add(field);
 };
 
-void FieldManager::remove(int id){
-    fieldRepository->remove(id);
-}
-
 fieldPtr FieldManager::getFieldById(int id){
     return fieldRepository->get(id);
 }

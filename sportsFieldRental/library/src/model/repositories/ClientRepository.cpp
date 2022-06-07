@@ -12,15 +12,6 @@ void ClientRepository::add(clientPtr client) {
     clients.push_back(client);
 }
 
-void ClientRepository::remove(string city, string street, string number) {
-    for(int i = 0; i < clients.size(); i++) {
-        addressPtr adr = clients[i] -> getAddress();
-        if(adr->getCity() == city && adr->getStreet() == street && adr -> getNumber() == number) {
-            clients.erase(clients.begin() + i);
-        }
-    }
-}
-
 clientPtr ClientRepository::get(string city, string street, string number) {
     for(auto c : clients) {
         addressPtr adr = c -> getAddress();

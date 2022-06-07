@@ -16,7 +16,6 @@ private:
 public:
     FieldManager();
     void add(fieldPtr field);
-    void remove(int id);
     fieldPtr getFieldById(int id);
     const fieldRepositoryPtr &getFieldRepository() const;
 };

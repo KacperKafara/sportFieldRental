@@ -45,5 +45,9 @@ const string Client::getInfo() const {
 }
 
 void Client::setPhoneNumber(const string &phoneNumber) {
-    Client::phoneNumber = phoneNumber;
+    if (phoneNumber.size()<9 or phoneNumber.size()>9) {
+        throw std::invalid_argument("Invalid argument phone number should contains 9 digits");
+    } else {
+        Client::phoneNumber = phoneNumber;
+    }
 }

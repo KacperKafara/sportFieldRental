@@ -262,38 +262,6 @@ void changePhoneNumber(Manager *manager) {
     }
 }
 
-void deleteClinet(Manager *manager) {
-    string city, street, number;
-    cout << "Prosze podac swoj adres." << endl;
-    cout << "Miasto: "; cin.ignore( numeric_limits < streamsize >::max(), '\n' ); getline(cin, city);
-    cout << "Ulica: "; getline(cin, street);
-    cout << "Numer domu: "; cin >> number;
-    if (manager->getClientByAddress(city,street,number))
-    {
-        manager->removeClient(city, street, number);
-        cout<<"Pomyslnie usunieto klienta"<<endl;
-    }
-    else
-    {
-        cout<<"Taki klient nie istnieje w naszej bazie"<<endl;
-    }
-
-}
-
-void deleteField(Manager *manager) {
-    int id;
-    cout << "Prosze podac id boiska: "; cin >> id;
-    if (manager->getFieldById(id))
-    {
-        manager->removeField(id);
-        cout<<"Pomyslnie usunieto boisko"<<endl;
-    }
-    else
-    {
-        cout<<"Taki boisko nie istnieje w naszej bazie"<<endl;
-    }
-}
-
 void menu() {
     cout << "----MENU----" << endl;
     cout << "1.  Dodaj klienta" << endl;
@@ -305,9 +273,7 @@ void menu() {
     cout << "7.  Zmien numer telefonu" << endl;
     cout << "8.  Wyswietl informacje o wypozyczeniach klienta" << endl;
     cout << "9.  Wyswietl informacje o wypozyczniach danego boiska" << endl;
-    cout << "10. Usun klienta" << endl;
-    cout << "11. Usun boisko" << endl;
-    cout << "12. Zakoncz program" << endl;
+    cout << "10. Zakoncz program" << endl;
     cout << "Co chcesz zrobic: ";
 }
 
@@ -345,12 +311,6 @@ int main() {
                 break;
             case 9:
                 getInfoAboutRentsForField(manager);
-                break;
-            case 10:
-                deleteClinet(manager);
-                break;
-            case 11:
-                deleteField(manager);
                 break;
             default:
                 running = 1;

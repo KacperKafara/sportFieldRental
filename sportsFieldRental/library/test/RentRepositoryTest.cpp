@@ -19,7 +19,7 @@ BOOST_AUTO_TEST_CASE(RentRepositoryAddTest) {
     eventPtr event = make_shared<Training>();
     clientTypePtr clientType = make_shared<School>();
     addressPtr address = make_shared<Address>("1", "2", "3");
-    clientPtr client = make_shared<Client>(1, "123", "1234", address, clientType);
+    clientPtr client = make_shared<Client>(1, "123", "123456789", address, clientType);
     addressPtr address1 = make_shared<Address>("2", "3", "4");
     fieldPtr field = make_shared<Field>(1, 200, 300, address1);
     datePtr date = make_shared<Date>(1,1,1,1,1);
@@ -36,7 +36,7 @@ BOOST_AUTO_TEST_CASE(RentRepositoryMakeArchiveTest) {
     eventPtr event = make_shared<Training>();
     clientTypePtr clientType = make_shared<School>();
     addressPtr address = make_shared<Address>("1", "2", "3");
-    clientPtr client = make_shared<Client>(1, "123", "1234", address, clientType);
+    clientPtr client = make_shared<Client>(1, "123", "123456789", address, clientType);
     addressPtr address1 = make_shared<Address>("2", "3", "4");
     fieldPtr field = make_shared<Field>(1, 200, 300, address1);
     datePtr date = make_shared<Date>(2020,1,1,14,1);
@@ -54,9 +54,9 @@ BOOST_AUTO_TEST_CASE(RentRepositoryGetTest) {
     eventPtr event = make_shared<Training>();
     clientTypePtr clientType = make_shared<School>();
     addressPtr address = make_shared<Address>("1", "2", "3");
-    clientPtr client = make_shared<Client>(1, "123", "1234", address, clientType);
+    clientPtr client = make_shared<Client>(1, "123", "123456789", address, clientType);
     addressPtr address1 = make_shared<Address>("2", "3", "4");
-    clientPtr client1 = make_shared<Client>(2, "234", "5678", address1, clientType);
+    clientPtr client1 = make_shared<Client>(2, "234", "123456789", address1, clientType);
     fieldPtr field = make_shared<Field>(2, 200, 300, address1);
     datePtr date = make_shared<Date>(1,1,1,1,1);
     rentPtr rent = make_shared<Rent>(1, event, client, field,date);

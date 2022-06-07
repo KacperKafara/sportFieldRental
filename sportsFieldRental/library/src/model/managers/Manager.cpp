@@ -33,10 +33,6 @@ void Manager::addClient(int id, string name, string phoneNumber, string city, st
     clientManager->add(client);
 }
 
-void Manager::removeClient(string city, string street, string number) {
-    clientManager->remove(city, street, number);
-}
-
 void Manager::changeClientPhoneNumber(string phoneNumber, string city, string street, string number) {
     clientManager->changePhoneNumber(phoneNumber, city, street, number);
 }
@@ -61,10 +57,6 @@ void Manager::addField(int id, string city, string street, string number, int tr
     addressPtr address = make_shared<Address>(city, street, number);
     fieldPtr field = make_shared<Field>(id, tribuneCapacity, cost, address);
     fieldManager->add(field);
-}
-
-void Manager::removeField(int id) {
-    fieldManager->remove(id);
 }
 
 fieldPtr Manager::getFieldById(int id) {
@@ -171,6 +163,13 @@ Manager::Manager() {
         }
     }
     clientFile.close();
+
+    ifstream rentFile("rents.txt");
+    counter = 0;
+    if(rentFile.good()){
+
+    }
+    rentFile.close();
 }
 
 Manager::~Manager() {

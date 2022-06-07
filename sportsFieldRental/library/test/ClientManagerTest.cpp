@@ -13,18 +13,16 @@
 
 BOOST_AUTO_TEST_SUITE(ClientManagerSuiteTest)
 
-BOOST_AUTO_TEST_CASE(ClientManagerAddAndRemoveTest) {
+BOOST_AUTO_TEST_CASE(ClientManagerAddTest) {
     eventPtr event = make_shared<Tournament>();
     leaguePtr league = make_shared<LeagueA>();
     clientTypePtr clientType = make_shared<Club>(league);
     addressPtr address = make_shared<Address>("1", "2", "3");
-    clientPtr client = make_shared<Client>(1, "123", "1234", address, clientType);
+    clientPtr client = make_shared<Client>(1, "123", "123456789", address, clientType);
     ClientManager clientManager;
 
     clientManager.add(client);
     BOOST_REQUIRE_EQUAL(clientManager.getClientRepository()->getClients().size(), 1);
-    clientManager.remove("1","2","3");
-    BOOST_REQUIRE_EQUAL(clientManager.getClientRepository()->getClients().size(), 0);
 }
 
 BOOST_AUTO_TEST_CASE(ClientManagerChangePhoneNumberTest) {
@@ -32,13 +30,13 @@ BOOST_AUTO_TEST_CASE(ClientManagerChangePhoneNumberTest) {
     leaguePtr league = make_shared<LeagueA>();
     clientTypePtr clientType = make_shared<Club>(league);
     addressPtr address = make_shared<Address>("1", "2", "3");
-    clientPtr client = make_shared<Client>(1, "123", "1234", address, clientType);
+    clientPtr client = make_shared<Client>(1, "123", "123456789", address, clientType);
     ClientManager clientManager;
 
     clientManager.add(client);
-    clientManager.changePhoneNumber("4321","1","2","3");
+    clientManager.changePhoneNumber("012345678","1","2","3");
 
-    BOOST_REQUIRE_EQUAL(clientManager.getClientRepository()->get("1","2","3")->getPhoneNumber(), "4321");
+    BOOST_REQUIRE_EQUAL(clientManager.getClientRepository()->get("1","2","3")->getPhoneNumber(), "012345678");
 }
 
 
