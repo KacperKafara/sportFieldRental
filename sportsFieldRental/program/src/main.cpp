@@ -66,6 +66,7 @@ void addClient(Manager *manager, string city, string street, string number) {
     } else if(type == 1) {
         clientTypePtr type1 = make_shared<School>();
         manager->addClient(id, name, phoneNumber, city, street, number, type1);
+        cout<<"Pomyslnie dodano klienta"<<endl;
     } else {
         cout << "Nie ma takiej opcji!" << endl;
         cout << "Nie udalo sie dodac klienta" << endl;
@@ -92,6 +93,7 @@ void addField(Manager *manager) {
     cout << "Pojemnosc trybun: "; cin >> tribuneCapacity;
     cout << "Koszt za godzine: "; cin >> cost;
     manager->addField(id, city, street, number, tribuneCapacity, cost);
+    cout<<"Pomyslnie dodano boisko"<<endl;
 }
 
 void startRent(Manager *manager) {
@@ -107,6 +109,11 @@ void startRent(Manager *manager) {
     if(cl == nullptr) {
         addClient(manager, city, street, number);
         cl = manager->getClientManager()->getClientByAddress(city, street, number);
+    }
+    if(manager->getFieldManager()->getFieldRepository()->getFields().size()==0)
+    {
+        cout<<"Brak dostepnych boisk"<<endl;
+        return;
     }
     for(auto field : manager->getFieldManager()->getFieldRepository()->getFields()) {
         cout << field->getInfo() << endl;
@@ -138,6 +145,16 @@ void startRent(Manager *manager) {
 void endRent(Manager *manager) {
     int id; datePtr date;
     cout << "Prosze podac id swojego wyporzyczenia: "; cin >> id;
+    if (manager->getRentManager()->getRentRepository()->get(id)==nullptr)
+    {
+        cout<<"Takie wypozyczenie nie istnieje"<<endl;
+        return;
+    }
+    if (manager->getRentManager()->getRentRepository()->get(id)->isArchive())
+    {
+        cout<<"To wypozyczenie jest juz zakonczone"<<endl;
+        return;
+    }
     cout << "Prosze podac date zakonczenia wyporzyczenia: "; date = getDate();
     manager->endRent(id, date);
     cout << "Koszt wyporzycznia: " << manager->getRentManager()->getRentRepository()->get(id)->getRentCost() << endl;
@@ -153,7 +170,7 @@ void getInfoAboutClient(Manager *manager) {
     cout << "Prosze podac numer domu: ";
     getline(cin, number);
     if (manager->getClientByAddress(city, street, number) == nullptr) {
-        cout << "Klient zostal usuniety!" << endl;
+        cout << "Taki klient nie istnieje" << endl;
     } else {
         cout << manager->getClientByAddress(city, street, number)->getInfo() << endl;
     }
@@ -163,7 +180,7 @@ void getInfoAboutField(Manager *manager) {
     int id;
     cout << "Podaj id boiska: "; cin >> id;
     if(manager->getFieldById(id) == nullptr) {
-        cout << "Boisko zostalo usuniete" << endl;
+        cout << "Takie boisko nie istnieje" << endl;
     } else {
         cout << manager->getFieldById(id)->getInfo() << endl;
     }
@@ -192,9 +209,16 @@ void changePhoneNumber(Manager *manager) {
     cout << "Prosze podac adres." << endl;
     cout << "Miasto: "; cin.ignore( numeric_limits < streamsize >::max(), '\n' ); getline(cin, city);
     cout << "Ulica: "; getline(cin, street);
-    cout << "Numer: "; getline(cin, street);
-    cout << "Prosze podac nowy numer telefonu: "; cin >> newNumber;
-    manager->changeClientPhoneNumber(newNumber, city, street, number);
+    cout << "Numer: "; getline(cin, number);
+    if (manager->getClientByAddress(city,street,number))
+    {
+        cout << "Prosze podac nowy numer telefonu: "; cin >> newNumber;
+        manager->changeClientPhoneNumber(newNumber, city, street, number);
+    }
+    else
+    {
+        cout<<"Taki klient nie istnieje w naszej bazie"<<endl;
+    }
 }
 
 void deleteClinet(Manager *manager) {
@@ -203,13 +227,30 @@ void deleteClinet(Manager *manager) {
     cout << "Miasto: "; cin.ignore( numeric_limits < streamsize >::max(), '\n' ); getline(cin, city);
     cout << "Ulica: "; getline(cin, street);
     cout << "Numer domu: "; cin >> number;
-    manager->removeClient(city, street, number);
+    if (manager->getClientByAddress(city,street,number))
+    {
+        manager->removeClient(city, street, number);
+        cout<<"Pomyslnie usunieto klienta"<<endl;
+    }
+    else
+    {
+        cout<<"Taki klient nie istnieje w naszej bazie"<<endl;
+    }
+
 }
 
 void deleteField(Manager *manager) {
     int id;
     cout << "Prosze podac id boiska: "; cin >> id;
-    manager->removeField(id);
+    if (manager->getFieldById(id))
+    {
+        manager->removeField(id);
+        cout<<"Pomyslnie usunieto boisko"<<endl;
+    }
+    else
+    {
+        cout<<"Taki boisko nie istnieje w naszej bazie"<<endl;
+    }
 }
 
 void menu() {

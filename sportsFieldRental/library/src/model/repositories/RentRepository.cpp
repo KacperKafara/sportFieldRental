@@ -37,6 +37,7 @@ rentPtr RentRepository::get(int id) {
             return r;
         }
     }
+    return nullptr;
 }
 
 vector<rentPtr> RentRepository::get(string city, string street, string number) {
