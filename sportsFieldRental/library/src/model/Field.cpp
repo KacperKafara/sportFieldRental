@@ -6,7 +6,20 @@
 #include "model/Field.h"
 
 Field::Field(int id, int tribuneCapacity, double baseCost, const addressPtr &address) : id(id), tribuneCapacity(
-        tribuneCapacity), baseCost(baseCost), address(address) {}
+        tribuneCapacity), baseCost(baseCost), address(address) {
+    if(id<1)
+    {
+        //throw std::invalid_argument("Invalid argument ID cannot be less than 1");
+    }
+    if(tribuneCapacity<1)
+    {
+        throw std::invalid_argument("Invalid argument tribune capacity cannot be less than 1");
+    }
+    if(baseCost<0)
+    {
+        //throw std::invalid_argument("Invalid argument base cost cannot be less than 0");
+    }
+}
 
 double Field::getBaseCost() const {
     return baseCost;

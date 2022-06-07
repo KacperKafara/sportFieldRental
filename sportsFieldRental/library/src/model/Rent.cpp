@@ -10,7 +10,12 @@
 #include "model/clientTypes/ClientType.h"
 
 Rent::Rent(int id, eventPtr event, clientPtr client, fieldPtr field, datePtr beginRentDate)
-        : id(id), event(event), client(client), field(field), beginRentDate(beginRentDate) {}
+        : id(id), event(event), client(client), field(field), beginRentDate(beginRentDate) {
+    if(id<1)
+    {
+        throw std::invalid_argument("Invalid argument ID cannot be less than 1");
+    }
+}
 
 int Rent::getId() const {
     return id;

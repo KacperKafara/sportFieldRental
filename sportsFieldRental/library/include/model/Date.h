@@ -8,6 +8,10 @@
 #include <ctime>
 #include "string"
 #include "typedefs.h"
+#include <iostream>
+
+using std::cout;
+using std::endl;
 
 struct Date{
     int year=-1;
@@ -20,6 +24,7 @@ struct Date{
                                                                minute(minute){
         if (isValidDate()==false){
             setTodayDate();
+            cout<<"ustawiono date na "+getInfo()<<endl;
         }
     }
 

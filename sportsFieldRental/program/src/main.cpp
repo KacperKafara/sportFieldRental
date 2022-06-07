@@ -46,19 +46,39 @@ void addClient(Manager *manager, string city, string street, string number) {
         if(league == 1) {
             leaguePtr league1  = make_shared<LeagueA>();
             clientTypePtr type1 = make_shared<Club>(league1);
-            manager->addClient(id, name, phoneNumber, city, street, number, type1);
+            try {
+                manager->addClient(id, name, phoneNumber, city, street, number, type1);
+            }
+            catch(std::invalid_argument& e){
+                cerr<<e.what()<<endl;
+            };
         } else if(league == 2) {
             leaguePtr league1  = make_shared<LeagueB>();
             clientTypePtr type1 = make_shared<Club>(league1);
-            manager->addClient(id, name, phoneNumber, city, street, number, type1);
+            try{
+                manager->addClient(id, name, phoneNumber, city, street, number, type1);
+            }
+            catch(std::invalid_argument& e){
+                cerr<<e.what()<<endl;
+            };
         } else if(league == 3) {
             leaguePtr league1  = make_shared<LeagueC>();
             clientTypePtr type1 = make_shared<Club>(league1);
-            manager->addClient(id, name, phoneNumber, city, street, number, type1);
+            try{
+                manager->addClient(id, name, phoneNumber, city, street, number, type1);
+            }
+            catch(std::invalid_argument& e){
+                cerr<<e.what()<<endl;
+            };
         } else if(league == 4) {
             leaguePtr league1  = make_shared<LeagueD>();
             clientTypePtr type1 = make_shared<Club>(league1);
-            manager->addClient(id, name, phoneNumber, city, street, number, type1);
+            try {
+                manager->addClient(id, name, phoneNumber, city, street, number, type1);
+            }
+            catch(std::invalid_argument& e){
+                cerr<<e.what()<<endl;
+            };
         } else {
             cout << "Nie ma takiej opcji!" << endl;
             cout << "Nie udalo sie dodac klienta!" << endl;
@@ -92,7 +112,12 @@ void addField(Manager *manager) {
     cout << "Numer domu: "; getline(cin, number);
     cout << "Pojemnosc trybun: "; cin >> tribuneCapacity;
     cout << "Koszt za godzine: "; cin >> cost;
-    manager->addField(id, city, street, number, tribuneCapacity, cost);
+    try {
+        manager->addField(id, city, street, number, tribuneCapacity, cost);
+    }
+    catch(std::invalid_argument& e){
+        cerr<<e.what()<<endl;
+    };
     cout<<"Pomyslnie dodano boisko"<<endl;
 }
 
@@ -125,26 +150,41 @@ void startRent(Manager *manager) {
     switch (eventId) {
         case 1:
             ev = make_shared<Training>();
-            manager->startRent(id, ev, field, cl, getDate());
+            try {
+                manager->startRent(id, ev, field, cl, getDate());
+            }
+            catch(std::invalid_argument& e){
+                cerr<<e.what()<<endl;
+            };
             break;
         case 2:
             ev = make_shared<Tournament>();
-            manager->startRent(id, ev, field, cl, getDate());
+            try {
+                manager->startRent(id, ev, field, cl, getDate());
+            }
+            catch(std::invalid_argument& e){
+                cerr<<e.what()<<endl;
+            };
             break;
         case 3:
             ev = make_shared<FriendlyMatch>();
-            manager->startRent(id, ev, field, cl, getDate());
+            try {
+                manager->startRent(id, ev, field, cl, getDate());
+            }
+            catch(std::invalid_argument& e){
+                cerr<<e.what()<<endl;
+            };
             break;
         default:
             cout << "Nie ma takiej opcji." << endl;
-            break;
+            return;
     }
-    cout << "Id panskiego wyporzyczenia: " << id << endl;
+    cout << "Id Pana/Pani wypozyczenia: " << id << endl;
 }
 
 void endRent(Manager *manager) {
     int id; datePtr date;
-    cout << "Prosze podac id swojego wyporzyczenia: "; cin >> id;
+    cout << "Prosze podac id swojego wypozyczenia: "; cin >> id;
     if (manager->getRentManager()->getRentRepository()->get(id)==nullptr)
     {
         cout<<"Takie wypozyczenie nie istnieje"<<endl;
@@ -155,14 +195,15 @@ void endRent(Manager *manager) {
         cout<<"To wypozyczenie jest juz zakonczone"<<endl;
         return;
     }
-    cout << "Prosze podac date zakonczenia wyporzyczenia: "; date = getDate();
+    cout << "Prosze podac date zakonczenia wypozyczenia: "; date = getDate();
     manager->endRent(id, date);
-    cout << "Koszt wyporzycznia: " << manager->getRentManager()->getRentRepository()->get(id)->getRentCost() << endl;
+    cout << "Koszt wypozycznia: " << manager->getRentManager()->getRentRepository()->get(id)->getRentCost() << endl;
+    cout<<"Wypozyczenie zakonczono pomyslnie"<<endl;
 }
 
 void getInfoAboutClient(Manager *manager) {
     string city, street, number;
-    cout << "Prosze podac miast: ";
+    cout << "Prosze podac miasto: ";
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     getline(cin, city);
     cout << "Prosze podac ulice: ";
@@ -196,7 +237,7 @@ void getInfoAboutRentsForField(Manager *manager) {
 
 void getInfoAboutRentsForClient(Manager *manager) {
     string city, street, number;
-    cout << "Prosze podac miast: "; cin.ignore( numeric_limits < streamsize >::max(), '\n' ); getline(cin, city);
+    cout << "Prosze podac miasto: "; cin.ignore( numeric_limits < streamsize >::max(), '\n' ); getline(cin, city);
     cout << "Prosze podac ulice: "; getline(cin, street);
     cout << "Prosze podac numer domu: "; getline(cin, number);
     for(auto r : manager->getAllRentsForClient(city, street, number)) {
@@ -258,12 +299,12 @@ void menu() {
     cout << "1.  Dodaj klienta" << endl;
     cout << "2.  Dodaj orlik" << endl;
     cout << "3.  Rozpocznij wypozyczenie" << endl;
-    cout << "4.  Zakoncz wyporzyczenie" << endl;
+    cout << "4.  Zakoncz wypozyczenie" << endl;
     cout << "5.  Uzyskaj informacje o kliencie" << endl;
     cout << "6.  Uzyskaj informacje o boisku" << endl;
     cout << "7.  Zmien numer telefonu" << endl;
-    cout << "8.  Wyswietl informacje o wyporzyczeniach klienta" << endl;
-    cout << "9.  Wyswietl informacje o wyporzyczniach danego boiska" << endl;
+    cout << "8.  Wyswietl informacje o wypozyczeniach klienta" << endl;
+    cout << "9.  Wyswietl informacje o wypozyczniach danego boiska" << endl;
     cout << "10. Usun klienta" << endl;
     cout << "11. Usun boisko" << endl;
     cout << "12. Zakoncz program" << endl;

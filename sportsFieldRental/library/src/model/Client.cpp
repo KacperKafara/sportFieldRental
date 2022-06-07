@@ -25,7 +25,12 @@ const addressPtr &Client::getAddress() const {
 
 Client::Client(int id, const string &name, const string &phoneNumber, const addressPtr &address,
                const clientTypePtr &clientType) : id(id), name(name), phoneNumber(phoneNumber), address(address),
-                                                  clientType(clientType) {}
+                                                  clientType(clientType) {
+    if (phoneNumber.size()<9 or phoneNumber.size()>9)
+    {
+        throw std::invalid_argument("Invalid argument phone number should contains 9 digits");
+    }
+}
 
 const clientTypePtr &Client::getClientType() const {
     return clientType;
