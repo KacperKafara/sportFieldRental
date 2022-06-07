@@ -7,6 +7,7 @@
 
 #include <ctime>
 #include "string"
+#include "typedefs.h"
 
 struct Date{
     int year=-1;
@@ -16,159 +17,82 @@ struct Date{
     int minute=-1;
 
     Date(int year, int month, int day, int hour, int minute) : year(year), month(month), day(day), hour(hour),
-                                                               minute(minute) {}
-
-    bool operator<(const Date& date) const{
-        bool result=false;
-
-        if (year<=date.year){
-            if (month<=date.month){
-                if (day<=date.day){
-                    if(hour<=date.hour){
-                        if (minute<date.minute){
-                            result=true;}
-                    }
-                }
-            }
+                                                               minute(minute){
+        if (isValidDate()==false){
+            setTodayDate();
         }
-
-        return result;
     }
 
-    bool operator>(const Date& date) const
-    {
-        bool result=false;
+    bool operator>(const datePtr date) const{
 
-        if (year>=date.year)
-        {
-            if (month>=date.month)
-            {
-                if (day>=date.day)
-                {
-                    if(hour>=date.hour)
-                    {
-                        if (minute>date.minute)
-                        {
-                            result=true;
-                        }
-                    }
-                }
-            }
+        if (year>date->year) {
+            return true;
         }
 
-        return result;
-    }
-
-    bool operator<=(const Date& date) const
-    {
-        bool result=false;
-
-        if (year<=date.year)
-        {
-            if (month<=date.month)
-            {
-                if (day<=date.day)
-                {
-                    if(hour<=date.hour)
-                    {
-                        if (minute<=date.minute)
-                        {
-                            result=true;
-                        }
-                    }
-                }
-            }
+        if (month>date->month) {
+            return true;
         }
 
-        return result;
-    }
-
-    bool operator>=(const Date& date) const
-    {
-        bool result=false;
-
-        if (year>=date.year)
-        {
-            if (month>=date.month)
-            {
-                if (day>=date.day)
-                {
-                    if(hour>=date.hour)
-                    {
-                        if (minute>=date.minute)
-                        {
-                            result=true;
-                        }
-                    }
-                }
-            }
+        if (day>date->day) {
+            return true;
         }
 
-        return result;
-    }
-
-    bool operator==(const Date& date) const
-    {
-        bool result=false;
-
-        if (year==date.year)
-        {
-            if (month==date.month)
-            {
-                if (day==date.day)
-                {
-                    if(hour==date.hour)
-                    {
-                        if (minute==date.minute)
-                        {
-                            result=true;
-                        }
-                    }
-                }
-            }
+        if(hour>date->hour) {
+            return true;
         }
 
-        return result;
+        if (minute>date->minute) {
+            return true;
+        }
+
+        return false;
     }
 
-    bool isValidDate()
-    {
-        bool result=true;
+    void operator=(const Date& date) {
+
+        year=date.year;
+        month=date.month;
+        day=date.day;
+        hour=date.hour;
+        minute=date.minute;
+    }
+
+    bool isValidDate(){
 
         if (year<0)
         {
-            result=false;
+            return false;
         }
 
-        if (month<=0 or month>12)
+        if (month<1 or month>12)
         {
-            result=false;
+            return false;
         }
 
-        if (day<=0 or day>31)
+        if (day<1 or day>31)
         {
-            result=false;
+            return false;
         }
 
-        if (hour<0 or hour>=24)
+        if (hour<0 or hour>23)
         {
-            result=false;
+            return false;
         }
 
-        if (minute<0 or minute>60)
+        if (minute<0 or minute>59)
         {
-            result=false;
+            return false;
         }
 
-        return result;
+        return true;
     }
 
     void setTodayDate()
     {
         std::time_t current=std::time(0);
         std::tm* now = std::localtime(&current);
-        year=now->tm_year;
-        month=now->tm_mon;
+        year=now->tm_year+1900;
+        month=now->tm_mon+1;
         day=now->tm_mday;
         hour=now->tm_hour;
         minute=now->tm_min;

@@ -10,11 +10,7 @@
 #include "model/clientTypes/ClientType.h"
 
 Rent::Rent(int id, eventPtr event, clientPtr client, fieldPtr field, datePtr beginRentDate)
-        : id(id), event(event), client(client), field(field), beginRentDate(beginRentDate) {
-    if (beginRentDate->isValidDate()==false){
-        beginRentDate->setTodayDate();
-    }
-}
+        : id(id), event(event), client(client), field(field), beginRentDate(beginRentDate) {}
 
 int Rent::getId() const {
     return id;
@@ -45,14 +41,14 @@ void Rent::makeArchive() {
 }
 
 void Rent::endRent(datePtr time) {
-    if (isArchive()==false) {
-        makeArchive();
-        if (time->isValidDate()==false or time<beginRentDate){
-            endRentDate->setTodayDate();
+    if (this->isArchive()==false) {
+        if (*beginRentDate>time){
+            endRentDate=beginRentDate;
         }
         else{
             endRentDate = time;
         }
+        makeArchive();
     }
 }
 
