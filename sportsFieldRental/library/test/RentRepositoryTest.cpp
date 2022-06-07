@@ -65,7 +65,7 @@ BOOST_AUTO_TEST_CASE(RentRepositoryGetTest) {
     BOOST_REQUIRE_EQUAL(repo.getArchiveRents().size(), 0);
     repo.add(rent);
     repo.add(rent1);
-    BOOST_REQUIRE_EQUAL(repo.get(2)[0], rent);
+    BOOST_REQUIRE_EQUAL(repo.get(2), rent);
     BOOST_REQUIRE_EQUAL(repo.get("1", "2", "3")[0], rent);
 }
 
