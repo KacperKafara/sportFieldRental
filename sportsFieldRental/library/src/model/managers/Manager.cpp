@@ -22,6 +22,9 @@
 #include "model/clientTypes/LeagueC.h"
 #include "model/clientTypes/LeagueD.h"
 #include "model/clientTypes/Club.h"
+#include "model/events/Tournament.h"
+#include "model/events/Training.h"
+#include "model/events/FriendlyMatch.h"
 
 using std::ofstream;
 using std::ifstream;
@@ -110,7 +113,7 @@ Manager::Manager() {
                 else if(counter == 5)
                     number = line;
                 counter++;
-            } else {
+            } else if(line == "" && counter != 0) {
                 counter = 0;
                 this->addField(id, city, street, number, tribune, cost);
             }
@@ -171,13 +174,88 @@ Manager::Manager() {
     ifstream rentFile("rents.txt");
     counter = 0;
     bool isArchive = 0;
+    string event;
+    int fieldId;
+    int day, month, year, hour, minute;
+    int eday, emonth, eyear, ehour, eminute;
+    string tmp, tmp1;
+    eventPtr eventt;
+    clientPtr cl;
+    fieldPtr fi;
+    datePtr da, eda;
     if(rentFile.good()){
         while(rentFile) {
             getline(rentFile, line);
-            if(counter == 0) {
-                if(line == "1") isArchive = 1;
-            } if(counter == 1) {
-
+            if(line != "") {
+                if (counter == 0) {
+                    if (line == "1") isArchive = 1;
+                } else if (counter == 1) {
+                    id = std::stoi(line);
+                } else if (counter == 2) {
+                    event = line;
+                } else if (counter == 3) {
+                    fieldId = std::stoi(line);
+                } else if (counter == 4) {
+                    city = line;
+                } else if (counter == 5) {
+                    street = line;
+                } else if (counter == 6) {
+                    number = line;
+                } else if (counter == 7 && isArchive == 0) {
+                    day = std::stoi(line);
+                } else if (counter == 8 && isArchive == 0) {
+                    month = std::stoi(line);
+                } else if (counter == 9 && isArchive == 0) {
+                    year = std::stoi(line);
+                } else if (counter == 10 && isArchive == 0) {
+                    hour = std::stoi(line);
+                } else if (counter == 11 && isArchive == 0) {
+                    minute = std::stoi(line);
+                } else if (counter == 7 && isArchive == 1) {
+                    day = std::stoi(line.substr(0, line.find(" ")));
+                    eday = std::stoi(line.substr(line.find(" ") + 1, line.size() - 1));
+                } else if (counter == 8 && isArchive == 1) {
+                    month = std::stoi(line.substr(0, line.find(" ")));
+                    emonth = std::stoi(line.substr(line.find(" ") + 1, line.size() - 1));
+                } else if (counter == 9 && isArchive == 1) {
+                    year = std::stoi(line.substr(0, line.find(" ")));
+                    eyear = std::stoi(line.substr(line.find(" ") + 1, line.size() - 1));
+                } else if (counter == 10 && isArchive == 1) {
+                    hour = std::stoi(line.substr(0, line.find(" ")));
+                    ehour = std::stoi(line.substr(line.find(" ") + 1, line.size() - 1));
+                } else if (counter == 11 && isArchive == 1) {
+                    minute = std::stoi(line.substr(0, line.find(" ")));
+                    eminute = std::stoi(line.substr(line.find(" ") + 1, line.size() - 1));
+                }
+                counter++;
+            } else if(isArchive == 0 && line == "" && counter != 0) {
+                if(event == "Training") {
+                    eventt = make_shared<Training>();
+                } else if(event == "Friendly Match") {
+                    eventt = make_shared<FriendlyMatch>();
+                } else if(event == "Tournament") {
+                    eventt = make_shared<Tournament>();
+                }
+                cl = this->getClientByAddress(city, street, number);
+                fi = this->getFieldById(fieldId);
+                da = make_shared<Date>(year, month, day, hour, minute);
+                this->startRent(id, eventt, fi, cl, da);
+                counter = 0;
+            } else if(isArchive == 1 && line == "" && counter != 0) {
+                if(event == "Training") {
+                    eventt = make_shared<Training>();
+                } else if(event == "Friendly Match") {
+                    eventt = make_shared<FriendlyMatch>();
+                } else if(event == "Tournament") {
+                    eventt = make_shared<Tournament>();
+                }
+                cl = this->getClientByAddress(city, street, number);
+                fi = this->getFieldById(fieldId);
+                da = make_shared<Date>(year, month, day, hour, minute);
+                eda = make_shared<Date>(eyear, emonth, eday, ehour, eminute);
+                this->startRent(id, eventt, fi, cl, da);
+                this->endRent(id, eda);
+                counter = 0;
             }
         }
     }
@@ -236,7 +314,27 @@ Manager::~Manager() {
                  << adr->getCity() << "\n"
                  << adr->getStreet() << "\n"
                  << adr->getNumber() << "\n"
-                 << rent->getBeginRentDate()->getInfo() <<"\n\n";
+                 << rent->getBeginRentDate()->day <<"\n"
+                 << rent->getBeginRentDate()->month << "\n"
+                 << rent->getBeginRentDate()->year << "\n"
+                 << rent->getBeginRentDate()->hour << "\n"
+                 << rent->getBeginRentDate()->minute << "\n\n";
+    }
+    vector<rentPtr> rtmp1 = rentManager->getRentRepository()->getArchiveRents();
+    for(auto rent : rtmp1) {
+        adr = rent->getClient()->getAddress();
+        rentFile << rent->isArchive() << "\n"
+                 << rent->getId() << "\n"
+                 << rent->getEvent() << "\n"
+                 << rent->getField()->getId() << "\n"
+                 << adr->getCity() << "\n"
+                 << adr->getStreet() << "\n"
+                 << adr->getNumber() << "\n"
+                << rent->getBeginRentDate()->day << " " <<rent->getEndRentDate()->day << "\n"
+                << rent->getBeginRentDate()->month << " " <<rent->getEndRentDate()->month << "\n"
+                << rent->getBeginRentDate()->year << " " <<rent->getEndRentDate()->year << "\n"
+                << rent->getBeginRentDate()->hour << " " <<rent->getEndRentDate()->hour << "\n"
+                << rent->getBeginRentDate()->minute << " " <<rent->getEndRentDate()->minute << "\n\n";
     }
     rentFile.close();
 }
