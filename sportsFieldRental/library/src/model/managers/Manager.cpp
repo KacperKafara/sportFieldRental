@@ -27,14 +27,14 @@ using std::ofstream;
 using std::ifstream;
 using std::getline;
 
+void Manager::changeClientPhoneNumber(string phoneNumber, string city, string street, string number) {
+    clientManager->changePhoneNumber(phoneNumber, city, street, number);
+}
+
 void Manager::addClient(int id, string name, string phoneNumber, string city, string street, string number, clientTypePtr clientType) {
     addressPtr address = make_shared<Address>(city, street, number);
     clientPtr client = make_shared<Client>(id, name, phoneNumber, address, clientType);
     clientManager->add(client);
-}
-
-void Manager::changeClientPhoneNumber(string phoneNumber, string city, string street, string number) {
-    clientManager->changePhoneNumber(phoneNumber, city, street, number);
 }
 
 void Manager::startRent(int id, eventPtr event, fieldPtr field, clientPtr client, datePtr beginRentDate) {
@@ -83,6 +83,10 @@ Manager::Manager() {
     clientManager = make_shared<ClientManager>();
     fieldManager = make_shared<FieldManager>();
     rentManager = make_shared<RentManager>();
+
+    clientManager->getClientRepository()->getClients().clear();
+    fieldManager->getFieldRepository()->getFields().clear();
+    clientManager->getClientRepository()->getClients().clear();
 
     ifstream fieldFile("fields.txt");
     string line;
@@ -166,8 +170,16 @@ Manager::Manager() {
 
     ifstream rentFile("rents.txt");
     counter = 0;
+    bool isArchive = 0;
     if(rentFile.good()){
+        while(rentFile) {
+            getline(rentFile, line);
+            if(counter == 0) {
+                if(line == "1") isArchive = 1;
+            } if(counter == 1) {
 
+            }
+        }
     }
     rentFile.close();
 }

@@ -5,7 +5,7 @@
 #include "model/repositories/FieldRepository.h"
 #include "model/Field.h"
 
-const vector<fieldPtr> &FieldRepository::getFields() const {
+vector<fieldPtr> &FieldRepository::getFields() {
     return fields;
 }
 

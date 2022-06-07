@@ -22,6 +22,6 @@ clientPtr ClientRepository::get(string city, string street, string number) {
     return nullptr;
 }
 
-const vector<clientPtr> &ClientRepository::getClients() const {
+vector<clientPtr> &ClientRepository::getClients() {
     return clients;
 }

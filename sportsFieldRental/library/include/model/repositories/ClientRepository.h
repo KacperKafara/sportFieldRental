@@ -15,7 +15,7 @@ class ClientRepository {
 private:
     vector<clientPtr> clients;
 public:
-    const vector<clientPtr> &getClients() const;
+    vector<clientPtr> &getClients();
     void add(clientPtr client);
     clientPtr get(string city, string street, string number);
 };

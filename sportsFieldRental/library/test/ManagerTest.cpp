@@ -29,10 +29,11 @@ BOOST_AUTO_TEST_CASE(ManagerAddClientTest) {
 BOOST_AUTO_TEST_CASE(ManagerChangePhoneNumberTest) {
     Manager manager;
     clientTypePtr type = make_shared<School>();
-    manager.addClient(1, "Name", "123456789", "1", "2", "3", type);
-    BOOST_REQUIRE_EQUAL(manager.getClientByAddress("1", "2", "3")->getPhoneNumber(), "123456789");
-    manager.changeClientPhoneNumber("012345678", "1", "2", "3");
-    BOOST_REQUIRE_EQUAL(manager.getClientByAddress("1", "2", "3")->getPhoneNumber(), "012345678");
+    manager.getClientManager()->getClientRepository()->getClients().clear();
+    manager.addClient(10, "Name1", "012345678", "1", "nie", "niewiem", type);
+    BOOST_REQUIRE_EQUAL(manager.getClientByAddress("1", "nie", "niewiem")->getPhoneNumber(), "012345678");
+    manager.changeClientPhoneNumber("123456789", "1", "nie", "niewiem");
+    BOOST_REQUIRE_EQUAL(manager.getClientByAddress("1", "nie", "niewiem")->getPhoneNumber(), "123456789");
 }
 
 BOOST_AUTO_TEST_CASE(ManagerAddFieldTest) {

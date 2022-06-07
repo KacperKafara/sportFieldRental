@@ -15,7 +15,7 @@ class FieldRepository {
 private:
     vector<fieldPtr> fields;
 public:
-    const vector<fieldPtr> &getFields() const;
+    vector<fieldPtr> &getFields();
     void add(fieldPtr field);
     fieldPtr get(int id);
 };

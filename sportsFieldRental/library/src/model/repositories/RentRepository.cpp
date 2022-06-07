@@ -53,11 +53,11 @@ vector<rentPtr> RentRepository::get(string city, string street, string number) {
     return vec;
 }
 
-const vector<rentPtr> &RentRepository::getRents() const {
+vector<rentPtr> &RentRepository::getRents(){
     return rents;
 }
 
-const vector<rentPtr> &RentRepository::getArchiveRents() const {
+vector<rentPtr> &RentRepository::getArchiveRents() {
     return archiveRents;
 }
 
