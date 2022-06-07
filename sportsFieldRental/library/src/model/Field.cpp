@@ -9,7 +9,7 @@ Field::Field(int id, int tribuneCapacity, double baseCost, const addressPtr &add
         tribuneCapacity), baseCost(baseCost), address(address) {
     if(id<1)
     {
-        //throw std::invalid_argument("Invalid argument ID cannot be less than 1");
+        throw std::invalid_argument("Invalid argument ID cannot be less than 1");
     }
     if(tribuneCapacity<1)
     {
@@ -17,7 +17,7 @@ Field::Field(int id, int tribuneCapacity, double baseCost, const addressPtr &add
     }
     if(baseCost<0)
     {
-        //throw std::invalid_argument("Invalid argument base cost cannot be less than 0");
+        throw std::invalid_argument("Invalid argument base cost cannot be less than 0");
     }
 }
 

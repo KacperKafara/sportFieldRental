@@ -184,7 +184,17 @@ void startRent(Manager *manager) {
 
 void endRent(Manager *manager) {
     int id; datePtr date;
-    cout << "Prosze podac id swojego wypozyczenia: "; cin >> id;
+    try {
+        cout << "Prosze podac id swojego wypozyczenia: ";
+        cin >> id;
+        if (cin.fail()) {
+            cin.clear();
+            throw std::invalid_argument("Invalid argument id should be integer");
+        }
+    }
+    catch(std::invalid_argument& e){
+        cerr<<e.what()<<endl;
+    };
     if (manager->getRentManager()->getRentRepository()->get(id)==nullptr)
     {
         cout<<"Takie wypozyczenie nie istnieje"<<endl;
@@ -219,7 +229,17 @@ void getInfoAboutClient(Manager *manager) {
 
 void getInfoAboutField(Manager *manager) {
     int id;
-    cout << "Podaj id boiska: "; cin >> id;
+    try {
+        cout << "Podaj id boiska: ";
+        cin >> id;
+        if (cin.fail()) {
+            cin.clear();
+            throw std::invalid_argument("Invalid argument id should be integer");
+        }
+    }
+    catch(std::invalid_argument& e){
+        cerr<<e.what()<<endl;
+    };
     if(manager->getFieldById(id) == nullptr) {
         cout << "Takie boisko nie istnieje" << endl;
     } else {
@@ -229,7 +249,16 @@ void getInfoAboutField(Manager *manager) {
 
 void getInfoAboutRentsForField(Manager *manager) {
     int id;
+    try{
     cout << "Podaj id boiska: "; cin >> id;
+        if (cin.fail()) {
+            cin.clear();
+            throw std::invalid_argument("Invalid argument id should be integer");
+        }
+    }
+    catch(std::invalid_argument& e){
+        cerr<<e.what()<<endl;
+    };
     for(auto r : manager->getAllRentsForField(id)) {
         cout << r->getInfo() << endl;
     }
