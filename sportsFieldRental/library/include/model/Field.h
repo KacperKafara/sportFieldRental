@@ -21,19 +21,12 @@ private:
 public:
 
     Field(int id, int tribuneCapacity, double baseCost, const addressPtr &address);
-
     double getBaseCost() const;
-
     int getTribuneCapacity() const;
-
     int getId() const;
-
     const addressPtr &getAddress() const;
-
     void setBaseCost(double cost);
-
     void setTribuneCapacity(int tribuneCapacity);
-
     string getInfo();
 };
 

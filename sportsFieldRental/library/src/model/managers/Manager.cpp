@@ -11,12 +11,11 @@
 #include "model/Field.h"
 #include "model/Address.h"
 #include "model/repositories/ClientRepository.h"
+#include <fstream>
+#include "model/repositories/FieldRepository.h"
 
-Manager::Manager() {
-    clientManager = make_shared<ClientManager>();
-    fieldManager = make_shared<FieldManager>();
-    rentManager = make_shared<RentManager>();
-}
+using std::ofstream;
+using std::ifstream;
 
 void Manager::addClient(int id, string name, string phoneNumber, string city, string street, string number, clientTypePtr clientType) {
     addressPtr address = make_shared<Address>(city, street, number);
@@ -76,4 +75,26 @@ const fieldManagerPtr &Manager::getFieldManager() const {
 
 const rentManagerPtr &Manager::getRentManager() const {
     return rentManager;
+}
+
+Manager::Manager() {
+    clientManager = make_shared<ClientManager>();
+    fieldManager = make_shared<FieldManager>();
+    rentManager = make_shared<RentManager>();
+}
+
+Manager::~Manager() {
+//    ofstream clientFile("clients.txt");
+    ofstream fieldFile("fields.txt");
+    vector<fieldPtr> tmp = fieldManager->getFieldRepository()->getFields();
+    for(auto field : tmp) {
+        addressPtr adr = field->getAddress();
+        fieldFile << field->getId() << " "
+                  << field->getTribuneCapacity() << " "
+                  << field->getBaseCost() << " "
+                  << adr->getCity() << " "
+                  << adr->getStreet() << " "
+                  << adr->getNumber() << "\n";
+    }
+    fieldFile.close();
 }

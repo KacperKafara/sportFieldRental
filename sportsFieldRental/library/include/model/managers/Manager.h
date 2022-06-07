@@ -32,6 +32,7 @@ public:
     const clientManagerPtr &getClientManager() const;
     const fieldManagerPtr &getFieldManager() const;
     const rentManagerPtr &getRentManager() const;
+    ~Manager();
 };
 
 
