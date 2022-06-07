@@ -19,6 +19,7 @@
 
 using std::ofstream;
 using std::ifstream;
+using std::getline;
 
 void Manager::addClient(int id, string name, string phoneNumber, string city, string street, string number, clientTypePtr clientType) {
     addressPtr address = make_shared<Address>(city, street, number);
@@ -84,6 +85,36 @@ Manager::Manager() {
     clientManager = make_shared<ClientManager>();
     fieldManager = make_shared<FieldManager>();
     rentManager = make_shared<RentManager>();
+
+    ifstream fieldFile("fields.txt");
+    string line;
+    int counter = 0;
+    int id, tribune, cost;
+    string city, street, number;
+    if(fieldFile.good()) {
+        while(fieldFile) {
+            getline(fieldFile, line);
+            if(line != ""){
+                if(counter == 0)
+                    id = std::stoi(line);
+                else if(counter == 1)
+                    tribune = std::stoi(line);
+                else if(counter == 2)
+                    cost = std::stoi(line);
+                else if(counter == 3)
+                    city = line;
+                else if(counter == 4)
+                    street = line;
+                else if(counter == 5)
+                    number = line;
+                counter++;
+            } else {
+                counter = 0;
+                this->addField(id, city, street, number, tribune, cost);
+            }
+        }
+    }
+    fieldFile.close();
 }
 
 Manager::~Manager() {
